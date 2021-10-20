@@ -1,0 +1,22 @@
+{
+  "name": "proyecto-cammi",
+  "version": "1.0.0",
+  "description": "Proyecto de CAMMI",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JavierMtzO/Proyecto-CAMMI.git"
+  },
+  "author": "Team 3",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JavierMtzO/Proyecto-CAMMI/issues"
+  },
+  "homepage": "https://github.com/JavierMtzO/Proyecto-CAMMI#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}

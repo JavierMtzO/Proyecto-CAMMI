@@ -98,70 +98,30 @@
                             <div class="card-body">
                                 <form>
                                     <div class="row">
-                                        <div class="col">
+                                        <div class="col">                                     
+
                                             <div class="mb-3">
-                                                <label for="inputState"><strong>Nombre del migrante</strong></label>
-                                            
-                                            
-                                                <select id="nombre" class="form-select" aria-label="Default select example" name="nombre">
-                                                    <option value="4">Juan Perez </option>
-                                                    <option value="5">Lorena martinez </option>
-                                                    <option value="6">William  Parker</option>
-                                                </select>
+                                                <label class="form-label" for="Nombre"><strong>Nombre del migrante</strong></label>
+                                                <input type="text" class="form-control" id="nombre" placeholder="Nombre del migrante" name="nombre">
                                             </div>
                                             
                                             
                                             <div class="mb-3">
-                                                <label for="inputState"><strong>Inicio servicio</strong></label>
+                                                <label for="inputState"><strong>Rango de Edad</strong></label>
                                            
-                                                <select id="tipo_de_apoyo" class="form-select" aria-label="Default select example" name="tipo_de_apoyo">
-                                                    <option value="NO"> NO </option>
-                                                    <option value="SI">SI</option>
+                                                <select id="rango_edad" class="form-select" aria-label="Default select example" name="rango_edad">
+                                                    <option value="NN: 0-11 años">NN: 0-11 años</option>
+                                                    <option value="Adol: 12-17 años">Adol: 12-17 años</option>
+                                                    <option value="Adul: 18-59 años">Adul: 18-59 años</option>
+                                                    <option value="AM: mayor 60+ años">AM: mayor 60+ años</option>
+
                                                 </select>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="inputState"><strong>Uso de wifi</strong></label>
+                                                <label for="nacionalidad"><strong>Nacionalidad</strong></label>
                                            
-                                                <select id="uso_wifi" class="form-select" aria-label="Default select example" name="uso_wifi">
-                                                    <option value="NO"> NO </option>
-                                                    <option value="SI">SI</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="inputState"><strong>Completado de la llamada</strong></label>
-                                           
-                                                <select id="completado_llamada" class="form-select" aria-label="Default select example" name="completado_llamada">
-                                                    <option value="NO"> NO </option>
-                                                    <option value="SI">SI</option>
-                                                </select>
-                                            </div>
-                                           
-
-                                            
-                                        </div>
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label class="form-label" for="Fecha"><strong>Fecha de registro</strong></label>
-                                                <input type="text" class="form-control" id="fecha" placeholder="DD/MM/YYY" name="fecha">
-                                            </div>
-
-
-                                            <div class="mb-3">
-                                                <label for="inputState"><strong>Carga de batería</strong></label>
-                                           
-                                                <select id="carga_bateria" class="form-select" aria-label="Default select example" name="carga_bateria">
-                                                    <option value="NO"> NO </option>
-                                                    <option value="SI">SI</option>
-                                                </select>
-                                            </div>
-
-
-                                            <div class="mb-3">
-                                                <label for="inputState"><strong>País destino de llamada</strong></label>
-                                           
-                                                <select id="pais_destino" class="form-select" aria-label="Default select example" name="pais_destino">
+                                                <select id="nacionalidad" class="form-select" aria-label="Default select example" name="nacionalidad">
                                                     <option value="ARGENTINA">ARGENTINA</option>
                                                     <option value="BOLIVIA">BOLIVIA</option>
                                                     <option value="BRASIL">BRASIL</option>
@@ -191,16 +151,90 @@
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="inputState"><strong>Mantenimiento del contacto familiar</strong></label>
+                                                <label for="inputState"><strong>Discapacidad</strong></label>
                                            
-                                                <select id="contacto_familiar" class="form-select" aria-label="Default select example" name="contacto_familiar">
-                                                    <option value="MCF"> MCF  </option>
-                                                    <option value="RCF">RCF</option>
+                                                <select id="discapacidad" class="form-select" aria-label="Default select example" name="discapacidad">
+                                                    <option value="NO">NO</option>
+                                                    <option value="SI">SI</option>
+                                                </select>
+                                            </div>
+                                           
+
+                                            <div class="mb-3">
+                                                <label for="dispositivo_propio"><strong>Dispositivo propio</strong></label>
+                                           
+                                                <select id="dispositivo_propio" class="form-select" aria-label="Default select example" name="dispositivo_propio">
+                                                    <option value="NO">NO </option>
+                                                    <option value="SI">SI</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="div"><strong>Asesoria(DIV)</strong></label>
+                                           
+                                                <select id="div" class="form-select" aria-label="Default select example" name="div">
+                                                    <option value="NO">NO </option>
+                                                    <option value="SI">SI</option>
                                                 </select>
                                             </div>
 
                                             
-                                         
+
+            
+                                            
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="Edad"><strong>Edad del migrante</strong></label>
+                                                <input type="text" class="form-control" id="edad" placeholder="Edad del migrante" name="edad">
+                                            </div>
+
+
+                                            <div class="mb-3">
+                                                <label for="genero"><strong>Género</strong></label>
+                                           
+                                                <select id="genero" class="form-select" aria-label="Default select example" name="genero">
+                                                    <option value="MASCULINO">MASCULINO</option>
+                                                    <option value="FEMENINO">FEMENINO</option>
+                                                </select>
+                                            </div>
+
+
+
+
+                                            <div class="mb-3">
+                                                <label for="inputState"><strong>Contacto del migrante</strong></label>
+                                           
+                                                <input type="text" class="form-control" id="contacto" placeholder="Contacto del migrante" name="contacto">
+
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="lgbt"><strong>LGBT+</strong></label>
+                                           
+                                                <select id="lgbt" class="form-select" aria-label="Default select example" name="lgbt">
+                                                    <option value="NO">NO </option>
+                                                    <option value="SI">SI</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="rfc"><strong>RFC del migrante</strong></label>
+                                           
+                                                <input type="text" class="form-control" id="rfc" placeholder="RFC del migrante" name="rfc">
+
+                                            </div>
+
+                                            
+
+                                            <div class="mb-3">
+                                                <label for="nss"><strong>Acompañado</strong></label>
+                                           
+                                                <select id="Acompanado" class="form-select" aria-label="Default select example" name="Acompanado">
+                                                    <option value="NO">NO </option>
+                                                    <option value="SI">SI</option>
+                                                </select>
+                                            </div>
 
                                             
                                            

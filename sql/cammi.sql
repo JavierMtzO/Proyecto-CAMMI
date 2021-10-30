@@ -18,7 +18,7 @@ CREATE TABLE PERSONA (
 	RFC varchar(12),
 	NSS	varchar(11),
 	Asesoria varchar(50),
-	Acompañado varchar(10)
+	Acompanado varchar(10)
 
 );
 

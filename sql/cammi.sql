@@ -4,7 +4,7 @@ USE CAMMI;
 
 CREATE TABLE PERSONA (
 
-	Folio int PRIMARY KEY,                     
+	Folio int NOT NULL UNIQUE AUTO_INCREMENT,                     
 	Nombre varchar(50),	
 	Edad int,
 	Rango_de_Edad varchar(50),
@@ -14,11 +14,13 @@ CREATE TABLE PERSONA (
 	Contacto varchar(20),
 	LGBT varchar(10),
 	Dispositivo_propio varchar(10),
-	Fecha_de_registro timestamp,
 	RFC varchar(12),
 	NSS	varchar(11),
 	Asesoria varchar(50),
-	Acompanado varchar(10)
+	Acompanado varchar(10),
+	Fecha_de_registro timestamp,
+	PRIMARY KEY (Folio)
+
 
 );
 
@@ -30,17 +32,17 @@ CREATE TABLE DELITO (
 	Victima_de_Delito varchar(10),
 	Carpeta_de_Investigacion varchar(10),
 	Persona_Id int, 
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 );
 
 
 CREATE TABLE PERFIL_DE_REFUGIO(
-	Id_Perfil_de_Refugio int PRIMARY KEY, 
+	Id_Perfil_de_Refugio int PRIMARY KEY UNIQUE AUTO_INCREMENT, 
 	Perfil_de_Refugio varchar(10),
 	Certificado_de_Nacionalidad_tramitado_CAMMI varchar(10),
 	Inicio_con_CAMMI varchar(10),
 	Persona_Id int, 
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 
 );
 
@@ -50,7 +52,7 @@ CREATE TABLE RETORNO_ASISTIDO(
 	Asesoría_CAMMI varchar(10),
 	Acompañamiento_CAMMI varchar(10),
 	Persona_Id int, 
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 
 );
 
@@ -61,7 +63,7 @@ CREATE TABLE JUICIO_DE_AMPARO(
 	Inicio_CAMMI varchar(10),
 	Resolución varchar(10),
 	Persona_Id int, 
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 
 );
 
@@ -71,7 +73,7 @@ CREATE TABLE REUFAM(
 	Inicio_CAMMI varchar(10),
 	Asesoria varchar(10),
 	Persona_Id int, 
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 
 );
 
@@ -82,7 +84,7 @@ CREATE TABLE REGULARIZACION_MIGRATORIO(
 	Inicio varchar(10),
 	Resolución varchar(10),
 	Persona_Id int, 
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 
 
 );
@@ -103,7 +105,7 @@ CREATE TABLE IMPULSO(
 	Estatus varchar(20),
 	Fecha date,
 	Tipo_Impulso int,
-	FOREIGN KEY (Tipo_Impulso) REFERENCES TIPO_IMPULSO(Id_tipo_impulso)
+	FOREIGN KEY (Tipo_Impulso) REFERENCES TIPO_IMPULSO(Id_tipo_impulso) ON DELETE CASCADE
 
 );
 
@@ -111,8 +113,8 @@ CREATE TABLE IMPULSO(
 CREATE TABLE PERFIL_DE_REFUGIO_HAS_IMPULSO(
 	Id_Perfil_de_Refugio int, 
 	Id_Impulso int, 
-	FOREIGN KEY (Id_Perfil_de_Refugio) REFERENCES PERFIL_DE_REFUGIO(Id_Perfil_de_Refugio),
-	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso),
+	FOREIGN KEY (Id_Perfil_de_Refugio) REFERENCES PERFIL_DE_REFUGIO(Id_Perfil_de_Refugio) ON DELETE CASCADE,
+	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso) ON DELETE CASCADE,
 	PRIMARY KEY (Id_Perfil_de_Refugio, id_Impulso)
 );
 
@@ -120,8 +122,8 @@ CREATE TABLE PERFIL_DE_REFUGIO_HAS_IMPULSO(
 CREATE TABLE RETORNO_ASISTIDO_HAS_IMPULSO(
 	Id_Retorno_Asistido int, 
 	Id_Impulso int, 
-	FOREIGN KEY (Id_Retorno_Asistido) REFERENCES RETORNO_ASISTIDO(Id_Retorno_Asistido),
-	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso),
+	FOREIGN KEY (Id_Retorno_Asistido) REFERENCES RETORNO_ASISTIDO(Id_Retorno_Asistido) ON DELETE CASCADE,
+	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso) ON DELETE CASCADE,
 	PRIMARY KEY (Id_Retorno_Asistido, id_Impulso)
 );
 
@@ -129,8 +131,8 @@ CREATE TABLE RETORNO_ASISTIDO_HAS_IMPULSO(
 CREATE TABLE JUICIO_DE_AMPARO_HAS_IMPULSO(
 	Id_Juicio_de_Amparo int, 
 	Id_Impulso int, 
-	FOREIGN KEY (Id_Juicio_de_Amparo) REFERENCES JUICIO_DE_AMPARO(Id_Juicio_de_Amparo),
-	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso),
+	FOREIGN KEY (Id_Juicio_de_Amparo) REFERENCES JUICIO_DE_AMPARO(Id_Juicio_de_Amparo) ON DELETE CASCADE,
+	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso) ON DELETE CASCADE,
 	PRIMARY KEY (Id_Juicio_de_Amparo, id_Impulso)
 );
 
@@ -147,8 +149,8 @@ CREATE TABLE REUFAM_HAS_IMPULSO(
 CREATE TABLE REGULARIZACION_MIGRATORIO_HAS_IMPULSO(
 	Id_Regularización_Migratoria int, 
 	Id_Impulso int, 
-	FOREIGN KEY (Id_Regularización_Migratoria) REFERENCES REGULARIZACION_MIGRATORIO(Id_Regularización_Migratoria),
-	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso),
+	FOREIGN KEY (Id_Regularización_Migratoria) REFERENCES REGULARIZACION_MIGRATORIO(Id_Regularización_Migratoria) ON DELETE CASCADE,
+	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso) ON DELETE CASCADE,
 	PRIMARY KEY (Id_Regularización_Migratoria, id_Impulso)
 );
 
@@ -179,8 +181,8 @@ CREATE TABLE PROGRAMA_INTEGRACION_LOCAL(
 	Fecha date,
 	Persona_Id int, 
 	Tipo_pil int,
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio),
-	FOREIGN KEY (Tipo_pil) REFERENCES TIPO_DE_APOYO_PIL(Id_Tipo_de_Apoyo)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE,
+	FOREIGN KEY (Tipo_pil) REFERENCES TIPO_DE_APOYO_PIL(Id_Tipo_de_Apoyo) ON DELETE CASCADE
 );
 
 
@@ -190,8 +192,8 @@ CREATE TABLE ATENCION_PSICOSOCIAL(
 	Formato_de_atención varchar(25),
 	Persona_Id int, 
 	Tipo_psicosocial int,
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio),
-	FOREIGN KEY (Tipo_psicosocial) REFERENCES TIPO_DE_APOYO_P(Id_Tipo_de_Apoyo)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE,
+	FOREIGN KEY (Tipo_psicosocial) REFERENCES TIPO_DE_APOYO_P(Id_Tipo_de_Apoyo) ON DELETE CASCADE
 );
 
 
@@ -201,8 +203,8 @@ CREATE TABLE ASISTENCIA_SOCIAL(
 	Fecha date,
 	Persona_Id int, 
 	Tipo_social int,
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio),
-	FOREIGN KEY (Tipo_social) REFERENCES TIPO_DE_APOYO_S(Id_Tipo_de_Apoyo)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE,
+	FOREIGN KEY (Tipo_social) REFERENCES TIPO_DE_APOYO_S(Id_Tipo_de_Apoyo) ON DELETE CASCADE
 
 );
 
@@ -216,7 +218,7 @@ CREATE TABLE ALOJAMIENTO(
 	MPP varchar(10),
 	Fecha date,
 	Persona_Id int, 
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 
 );
 
@@ -231,7 +233,7 @@ CREATE TABLE COMUNICACION(
 	Completado_de_la_Llamada varchar(10),
 	Mantenimiento_del_Contacto_Familiar varchar(10),
 	Persona_Id int, 
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 
 );
 
@@ -254,7 +256,7 @@ CREATE TABLE ALIMENTACION(
 	Id_Alimentacion int PRIMARY KEY,
 	Fecha date,
 	Id_Tipo_de_Persona int,
-	FOREIGN KEY (Id_Tipo_de_Persona) REFERENCES TIPO_DE_PERSONA(Id_Tipo_de_Persona)
+	FOREIGN KEY (Id_Tipo_de_Persona) REFERENCES TIPO_DE_PERSONA(Id_Tipo_de_Persona) ON DELETE CASCADE
 
 );
 
@@ -262,8 +264,8 @@ CREATE TABLE ALIMENTACION(
 CREATE TABLE TIPO_DE_PLATILLO_HAS_ALIMENTACION(
 	Id_Tipo_de_Platillo int,
 	Id_Alimentacion int,
-	FOREIGN KEY (Id_Tipo_de_platillo) REFERENCES TIPO_DE_PLATILLO(Id_Tipo_de_Platillo),
-	FOREIGN KEY (Id_Alimentacion) REFERENCES ALIMENTACION(Id_Alimentacion),
+	FOREIGN KEY (Id_Tipo_de_platillo) REFERENCES TIPO_DE_PLATILLO(Id_Tipo_de_Platillo) ON DELETE CASCADE,
+	FOREIGN KEY (Id_Alimentacion) REFERENCES ALIMENTACION(Id_Alimentacion) ON DELETE CASCADE,
 	PRIMARY KEY (Id_Tipo_de_Platillo, Id_Alimentacion)
 );
 

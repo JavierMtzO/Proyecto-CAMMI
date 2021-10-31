@@ -12,7 +12,7 @@ exports.getNuevoMigrante=(request, response, next) => {
 
 exports.postNuevoMigrante=(request, response, next) => {
     console.log(request.body);
-    const persona = new Persona(request.body.Nombre, request.body.Rango_de_Edad, request.body.Nacionalidad,request.body.Discapacidad,request.body.Dispositivo_propio, request.body.NSS,request.body.Asesoria,request.body.Edad,request.body.Genero,request.body.Contacto,request.body.LGBT,request.body.RFC,request.body.Acompanado);
+    const persona = new Persona(request.body.Nombre, request.body.Edad, request.body.Rango_de_Edad,request.body.Genero,request.body.Nacionalidad, request.body.Discapacidad,request.body.Contacto,request.body.Lgbt,request.body.Dispositivo_propio,request.body.Rfc,request.body.Nss,request.body.Asesoria,request.body.Acompanado);
     persona.save()
        .then(() => {
          //request.session.ultima_persona = request.body.nombreZona;

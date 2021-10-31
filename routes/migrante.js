@@ -7,5 +7,8 @@ const migranteController = require('../controllers/migrante_controller');
 
 router.get('/migrante', /* isAuth,*/migranteController.getNuevoMigrante);
 
+router.post('/migrante',  /*isAuth,*/ migranteController.postNuevoMigrante);
+
+
 
 module.exports = router;

@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 //const rutasRoot = require('./routes/root');
 const rutasMigrante = require('./routes/migrante');
+const rutasAlimentacion = require('./routes/alimentacion');
 
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -42,6 +43,7 @@ app.use((request, response, next) => {
 
 app.use('/migrante', rutasMigrante);
 
+app.use('/alimentacion', rutasAlimentacion);
 
 //app.use('/',rutasRoot);
 

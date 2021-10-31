@@ -272,5 +272,7 @@ CREATE TABLE ALIMENTACION(
 );
 
 
+INSERT INTO `tipo_de_persona` (`Id_Tipo_de_Persona`, `Nombre`) VALUES ('1', 'HOSPEDADO'), ('2', 'PERSONAL '), ('3', 'VOLUNTARIO');
+INSERT INTO `tipo_de_platillo` (`Id_Tipo_de_Platillo`, `Nombre`) VALUES ('1', 'DESAYUNO'), ('2', 'COMIDA '), ('3', 'CENA');
 
 

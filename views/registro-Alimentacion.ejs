@@ -12,28 +12,23 @@
                                 <p class="text-primary m-0 fw-bold">Resgistro de comidas</p>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form action="alimentacion" method="POST">
                                     <div class="row">
                                         <div class="col">
-                                           
-                                            
-                                            
                                             <div class="mb-3">
-                                                <label for="inputState"><strong>Persona que comió </strong></label>
-                                           
-                                                <select id="cargo_persona" class="form-select" aria-label="Default select example" name="cargo_persona">
-                                                    <option value="NO">VOLUNTARIO </option>
-                                                    <option value="SI">PERSONAL</option>
-                                                    <option value="SI">HOSPEDADO</option>
-                                                </select>
+                                                <label class="form-label" for="Fecha"><strong>Fecha de registro</strong></label>
+                                                <input type="text" class="form-control" id="Fecha" placeholder="DD/MM/YYY" name="Fecha">
                                             </div>
-
+                                            
+                                            
                                             <div class="mb-3">
-                                                <label for="inputState"><strong>Tiempo de comida </strong></label>
+                                                <label for="tipo_de_persona"><strong>Persona que comió </strong></label>
                                            
-                                                <select id="tipo_comida" class="form-select" aria-label="Default select example" name="tipo_comida">
-                                                    <option value="NO"> DESAYUNO </option>
-                                                    <option value="SI">COMIDA</option>  
+                                                <select id="tipo_de_persona" class="form-select" aria-label="Default select example" name="tipo_de_persona">
+                                                    <% for(let tipo_de_persona of tipo_de_personas) {%>
+                                                        <option value="<%= tipo_de_persona.Id_Tipo_de_Persona %>"><%= tipo_de_persona.Nombre%></option>
+                                                       
+                                                    <% }%>
                                                 </select>
                                             </div>
                                            
@@ -42,9 +37,16 @@
                                         </div>
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label class="form-label" for="Fecha"><strong>Fecha de registro</strong></label>
-                                                <input type="text" class="form-control" id="fecha" placeholder="DD/MM/YYY" name="fecha">
+                                                <label for="tipo_de_platillo"><strong>Tiempo de comida </strong></label>
+                                           
+                                                <select id="tipo_de_platillo" class="form-select" aria-label="Default select example" name="tipo_de_platillo">
+                                                    <% for(let tipo_de_platillo of tipo_de_platillos) {%>
+                                                        <option value="<%= tipo_de_platillo.Id_Tipo_de_Platillo %>"><%= tipo_de_platillo.Nombre%></option>
+                                                       
+                                                    <% }%>
+                                                </select>
                                             </div>
+                                            
 
                                            
                                         </div>

@@ -1,9 +1,11 @@
 
 const Alimentacion = require('../models/alimentacion');
+const tipo_de_persona = require('../models/tipo_de_persona');
+const tipo_de_platillo = require('../models/tipo_de_platillo');
 
 exports.getNuevoAlimentacion=(request, response, next) => {
 
-	response.render('registro-Migrante');/*,{
+	response.render('registro-Alimentacion');/*,{
          //permisos: request.session.permiso
     });*/
 

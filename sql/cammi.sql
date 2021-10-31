@@ -246,26 +246,31 @@ CREATE TABLE TIPO_DE_PLATILLO(
 
 
 CREATE TABLE TIPO_DE_PERSONA(
-	Id_Tipo_de_Persona int PRIMARY KEY,
-	Nombre varchar(10)
+	Id_Tipo_de_Persona int NOT NULL UNIQUE AUTO_INCREMENT,
+	Nombre varchar(10),
+	PRIMARY KEY (Id_Tipo_de_Persona)
 
 );
 
+
+CREATE TABLE TIPO_DE_PLATILLO(
+	Id_Tipo_de_Platillo int NOT NULL UNIQUE AUTO_INCREMENT,
+	Nombre varchar(10),
+	PRIMARY KEY (Id_Tipo_de_Platillo)
+);
 
 CREATE TABLE ALIMENTACION(
-	Id_Alimentacion int PRIMARY KEY,
+	Id_Alimentacion int NOT NULL UNIQUE AUTO_INCREMENT,
 	Fecha date,
 	Id_Tipo_de_Persona int,
-	FOREIGN KEY (Id_Tipo_de_Persona) REFERENCES TIPO_DE_PERSONA(Id_Tipo_de_Persona) ON DELETE CASCADE
-
-);
-
-
-CREATE TABLE TIPO_DE_PLATILLO_HAS_ALIMENTACION(
 	Id_Tipo_de_Platillo int,
-	Id_Alimentacion int,
-	FOREIGN KEY (Id_Tipo_de_platillo) REFERENCES TIPO_DE_PLATILLO(Id_Tipo_de_Platillo) ON DELETE CASCADE,
-	FOREIGN KEY (Id_Alimentacion) REFERENCES ALIMENTACION(Id_Alimentacion) ON DELETE CASCADE,
-	PRIMARY KEY (Id_Tipo_de_Platillo, Id_Alimentacion)
+	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_Alimentacion),
+	FOREIGN KEY (Id_Tipo_de_Persona) REFERENCES TIPO_DE_PERSONA(Id_Tipo_de_Persona) ON DELETE CASCADE,
+	FOREIGN KEY (Id_Tipo_de_Platillo) REFERENCES TIPO_DE_PLATILLO(Id_Tipo_de_Platillo) ON DELETE CASCADE
+
 );
+
+
+
 

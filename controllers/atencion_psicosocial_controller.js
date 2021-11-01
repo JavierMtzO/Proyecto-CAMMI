@@ -1,7 +1,7 @@
 
-const Asistencia_social = require('../models/asistencia_social');
+const Atencion_psicosocial = require('../models/atencion_psicosocial');
 const Persona = require('../models/migrante');
-const Tipo_de_apoyo_s = require('../models/tipo_de_apoyo_s');
+const Tipo_de_apoyo_p = require('../models/tipo_de_apoyo_p');
 
 
 
@@ -11,7 +11,7 @@ exports.getNuevoAtencion_psicosocial=(request, response, next) => {
 
     Persona.fetchAll()
     .then(([personas, fieldData]) => {
-        Tipo_de_apoyo_s.fetchAll()
+        Tipo_de_apoyo_p.fetchAll()
         .then(([tipos, fieldData]) => {
             response.render('registro-Atencionpsicosocial',{
                 personas:personas , tipos:tipos
@@ -30,8 +30,8 @@ exports.getNuevoAtencion_psicosocial=(request, response, next) => {
 
 exports.postNuevoAtencion_psicosocial=(request, response, next) => {
      console.log(request.body);
-     const asistencia_social = new Asistencia_social(request.body.Nombre, request.body.Fecha, request.body.Tipo_social, request.body.Formato_de_Atencion);
-     asistencia_social.save()
+     const atencion_psicosocial = new Atencion_psicosocial(request.body.Nombre, request.body.Fecha, request.body.Tipo_psicosocial, request.body.Formato_de_Atencion);
+     atencion_psicosocial.save()
         .then(() => {
           //request.session.ultima_persona = request.body.nombreZona;
           response.redirect('/atencion_psicosocial/atencion_psicosocial');

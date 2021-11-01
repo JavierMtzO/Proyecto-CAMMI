@@ -4,10 +4,10 @@ const db = require('../util/database');
 module.exports = class Atencion_psicosocial {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
-    constructor(Nombre, Fecha, Tipo_social, Formato_de_Atencion) {
+    constructor(Nombre, Fecha, Tipo_psicosocial, Formato_de_Atencion) {
         this.Nombre=Nombre;
         this.Fecha=Fecha;
-        this.Tipo_social=Tipo_social;
+        this.Tipo_psicosocial=Tipo_psicosocial;
         this.Formato_de_Atencion=Formato_de_Atencion;
 
     }
@@ -15,8 +15,8 @@ module.exports = class Atencion_psicosocial {
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
 
-      return db.execute('INSERT INTO `asistencia_social` ( `Persona_Id`, `Fecha`, `Tipo_social`, `Formato_de_Atencion`) VALUES ( ?, ?, ?, ?)',
-        [this.Nombre, this.Fecha, this.Tipo_social, this.Formato_de_Atencion ]
+      return db.execute('INSERT INTO `atencion_psicosocial` ( `Persona_Id`, `Fecha`, `Tipo_psicosocial`, `Formato_de_atencion`) VALUES ( ?, ?, ?, ?)',
+        [this.Nombre, this.Fecha, this.Tipo_psicosocial, this.Formato_de_Atencion ]
         );
         
     }

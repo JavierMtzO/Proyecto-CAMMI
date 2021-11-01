@@ -18,7 +18,6 @@ exports.getPanelUsuarios = (request, response, next) => {
 };
 exports.postPanelUsuarios = (request, response, next) => {
     request.session.id_usuario = request.body.editar;
-    console.log(request.session.id_usuario);
     response.redirect('/panel/usuarios/editar');
 };
 exports.getPanelUsuariosCrear = (request, response, next) => {
@@ -103,4 +102,16 @@ exports.postPanelUsuariosEditar = (request, response, next) => {
             });
     }
 
+};
+
+exports.getPanelJuridico = (request, response, next) => {
+    response.render('panel-Juridico');
+};
+
+exports.getPanelPsicosocial = (request, response, next) => {
+    response.render('panel-Psicosocial');
+};
+
+exports.getPanelAlbergue = (request, response, next) => {
+    response.render('panel-Albergue');
 };

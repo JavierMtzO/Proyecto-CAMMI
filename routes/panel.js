@@ -14,4 +14,10 @@ router.post('/panel/usuarios/crear', panelController.postPanelUsuariosCrear);
 router.get('/panel/usuarios/editar', panelController.getPanelUsuariosEditar);
 router.post('/panel/usuarios/editar', panelController.postPanelUsuariosEditar);
 
+router.get('/panel/juridico', panelController.getPanelJuridico);
+
+router.get('/panel/psicosocial', panelController.getPanelPsicosocial);
+
+router.get('/panel/albergue', panelController.getPanelAlbergue);
+
 module.exports = router;

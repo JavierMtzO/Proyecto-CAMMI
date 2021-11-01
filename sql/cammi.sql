@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 01, 2021 at 07:34 PM
+-- Generation Time: Nov 01, 2021 at 09:42 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.9
 
@@ -182,13 +182,13 @@ CREATE TABLE `PERFIL_DE_REFUGIO_HAS_IMPULSO` (
 
 CREATE TABLE `PERSONA` (
   `Folio` int(11) NOT NULL,
-  `Nombre` varchar(50) DEFAULT NULL,
+  `Nombre` varchar(255) DEFAULT NULL,
   `Edad` int(11) DEFAULT NULL,
   `Rango_de_Edad` varchar(50) DEFAULT NULL,
   `Genero` varchar(20) DEFAULT NULL,
   `Nacionalidad` varchar(25) DEFAULT NULL,
   `Discapacidad` varchar(10) DEFAULT NULL,
-  `Contacto` varchar(20) DEFAULT NULL,
+  `Contacto` varchar(255) DEFAULT NULL,
   `LGBT` varchar(10) DEFAULT NULL,
   `Dispositivo_propio` varchar(10) DEFAULT NULL,
   `RFC` varchar(12) DEFAULT NULL,
@@ -197,6 +197,13 @@ CREATE TABLE `PERSONA` (
   `Acompanado` varchar(10) DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `PERSONA`
+--
+
+INSERT INTO `PERSONA` (`Folio`, `Nombre`, `Edad`, `Rango_de_Edad`, `Genero`, `Nacionalidad`, `Discapacidad`, `Contacto`, `LGBT`, `Dispositivo_propio`, `RFC`, `NSS`, `Asesoria`, `Acompanado`, `Fecha_de_registro`) VALUES
+(2, 'Javier', 22, 'Adol: 12-17 años', 'MASCULINO', 'MÉXICO', 'NO', 'javier@itesm.mx', 'NO', 'SI', 'JMAO991234', '0215698', 'SI', 'SI', '2021-11-01 21:22:31');
 
 -- --------------------------------------------------------
 
@@ -789,7 +796,7 @@ ALTER TABLE `PERFIL_DE_REFUGIO`
 -- AUTO_INCREMENT for table `PERSONA`
 --
 ALTER TABLE `PERSONA`
-  MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `PRIVILEGIOS`

@@ -12,7 +12,7 @@
                            <p class="text-primary m-0 fw-bold">Registro de servicios de comunicación</p>
                        </div>
                        <div class="card-body">
-                           <form>
+                            <form action="comunicacion" method="POST">
                                <div class="row">
                                    <div class="col">
                                        <div class="mb-3">
@@ -21,7 +21,7 @@
                                        
                                            <select id="Nombre" class="form-select" aria-label="Default select example" name="Nombre">
                                             <% for(let persona of personas) {%>
-                                                <option value="<%= persona.Folio %>"><%= tipo_de_platillo.Nombre%></option>
+                                                <option value="<%= persona.Folio %>"><%= persona.Nombre%></option>
                                                
                                             <% }%>
                                            </select>
@@ -29,27 +29,27 @@
                                        
                                        
                                        <div class="mb-3">
-                                           <label for="inputState"><strong>Inicio servicio</strong></label>
+                                           <label for="Inicio_Servicio"><strong>Inicio servicio</strong></label>
                                       
-                                           <select id="tipo_de_apoyo" class="form-select" aria-label="Default select example" name="tipo_de_apoyo">
+                                           <select id="Inicio_Servicio" class="form-select" aria-label="Default select example" name="Inicio_Servicio">
                                                <option value="NO"> NO </option>
                                                <option value="SI">SI</option>
                                            </select>
                                        </div>
 
                                        <div class="mb-3">
-                                           <label for="inputState"><strong>Uso de wifi</strong></label>
-                                      
-                                           <select id="uso_wifi" class="form-select" aria-label="Default select example" name="uso_wifi">
-                                               <option value="NO"> NO </option>
-                                               <option value="SI">SI</option>
-                                           </select>
-                                       </div>
+                                        <label for="Carga_de_Bateria"><strong>Carga de batería</strong></label>
+                                   
+                                        <select id="Carga_de_Bateria" class="form-select" aria-label="Default select example" name="Carga_de_Bateria">
+                                            <option value="NO"> NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                        </div>
 
                                        <div class="mb-3">
-                                           <label for="inputState"><strong>Completado de la llamada</strong></label>
+                                           <label for="Uso_de_Wifi"><strong>Uso de wifi</strong></label>
                                       
-                                           <select id="completado_llamada" class="form-select" aria-label="Default select example" name="completado_llamada">
+                                           <select id="Uso_de_Wifi" class="form-select" aria-label="Default select example" name="Uso_de_Wifi">
                                                <option value="NO"> NO </option>
                                                <option value="SI">SI</option>
                                            </select>
@@ -61,24 +61,15 @@
                                    <div class="col">
                                        <div class="mb-3">
                                            <label class="form-label" for="Fecha"><strong>Fecha de registro</strong></label>
-                                           <input type="text" class="form-control" id="fecha" placeholder="DD/MM/YYY" name="fecha">
+                                           <input type="text" class="form-control" id="Fecha" placeholder="DD/MM/YYY" name="Fecha">
                                        </div>
 
 
-                                       <div class="mb-3">
-                                           <label for="inputState"><strong>Carga de batería</strong></label>
-                                      
-                                           <select id="carga_bateria" class="form-select" aria-label="Default select example" name="carga_bateria">
-                                               <option value="NO"> NO </option>
-                                               <option value="SI">SI</option>
-                                           </select>
-                                       </div>
-
 
                                        <div class="mb-3">
-                                           <label for="inputState"><strong>País destino de llamada</strong></label>
+                                           <label for="Pais_Destino_de_Llamada"><strong>País destino de llamada</strong></label>
                                       
-                                           <select id="pais_destino" class="form-select" aria-label="Default select example" name="pais_destino">
+                                           <select id="Pais_Destino_de_Llamada" class="form-select" aria-label="Default select example" name="Pais_Destino_de_Llamada">
                                                <option value="ARGENTINA">ARGENTINA</option>
                                                <option value="BOLIVIA">BOLIVIA</option>
                                                <option value="BRASIL">BRASIL</option>
@@ -108,9 +99,17 @@
                                        </div>
 
                                        <div class="mb-3">
-                                           <label for="inputState"><strong>Mantenimiento del contacto familiar</strong></label>
+                                        <label for="Completado_de_la_Llamada"><strong>Completado de la llamada</strong></label>
+                                            <select id="Completado_de_la_Llamada" class="form-select" aria-label="Default select example" name="Completado_de_la_Llamada">
+                                                <option value="NO"> NO </option>
+                                                <option value="SI">SI</option>
+                                            </select>
+                                        </div>
+
+                                       <div class="mb-3">
+                                           <label for="Mantenimiento_del_Contacto_Familiar"><strong>Mantenimiento del contacto familiar</strong></label>
                                       
-                                           <select id="contacto_familiar" class="form-select" aria-label="Default select example" name="contacto_familiar">
+                                           <select id="Mantenimiento_del_Contacto_Familiar" class="form-select" aria-label="Default select example" name="Mantenimiento_del_Contacto_Familiar">
                                                <option value="MCF"> MCF  </option>
                                                <option value="RCF">RCF</option>
                                            </select>

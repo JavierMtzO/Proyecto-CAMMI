@@ -22,7 +22,7 @@ exports.getNuevoComunicacion=(request, response, next) => {
 
 exports.postNuevoComunicacion=(request, response, next) => {
      console.log(request.body);
-     const comunicacion = new Comunicacion(request.body.Fecha,request.body.tipo_de_persona,request.body.tipo_de_platillo);
+     const comunicacion = new Comunicacion(request.body.Nombre, request.body.Inicio_Servicio, request.body.Carga_de_Bateria,request.body.Uso_de_Wifi,request.body.Fecha, request.body.Pais_Destino_de_Llamada,request.body.Completado_de_la_Llamada,request.body.Mantenimiento_del_Contacto_Familiar);
      comunicacion.save()
         .then(() => {
           //request.session.ultima_persona = request.body.nombreZona;

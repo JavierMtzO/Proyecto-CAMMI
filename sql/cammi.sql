@@ -155,54 +155,62 @@ CREATE TABLE REGULARIZACION_MIGRATORIO_HAS_IMPULSO(
 );
 
 CREATE TABLE TIPO_DE_APOYO_PIL(
-	Id_Tipo_de_Apoyo int PRIMARY KEY,
-	Nombre_Tipo_de_Apoyo varchar(50)
+	Id_Tipo_de_Apoyo int NOT NULL UNIQUE AUTO_INCREMENT,
+	Nombre_Tipo_de_Apoyo varchar(50),
+	PRIMARY KEY (Id_Tipo_de_Apoyo)
 
 
 );
 
-
-CREATE TABLE TIPO_DE_APOYO_P(
-	Id_Tipo_de_Apoyo int PRIMARY KEY,
-	Nombre_Tipo_de_Apoyo varchar(30)
-
-);
-
-
-CREATE TABLE TIPO_DE_APOYO_S(
-	Id_Tipo_de_Apoyo int PRIMARY KEY,
-	Nombre_Tipo_de_Apoyo varchar(30)
-
-);
 
 
 CREATE TABLE PROGRAMA_INTEGRACION_LOCAL(
-	Id_PIL int PRIMARY KEY,
-	Fecha date,
+	Id_PIL int NOT NULL UNIQUE AUTO_INCREMENT,
 	Persona_Id int, 
+	Fecha date,
 	Tipo_pil int,
+	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_PIL),
 	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE,
 	FOREIGN KEY (Tipo_pil) REFERENCES TIPO_DE_APOYO_PIL(Id_Tipo_de_Apoyo) ON DELETE CASCADE
 );
 
+CREATE TABLE TIPO_DE_APOYO_P(
+	Id_Tipo_de_Apoyo int NOT NULL UNIQUE AUTO_INCREMENT,
+	Nombre_Tipo_de_Apoyo varchar(30),
+	PRIMARY KEY (Id_Tipo_de_Apoyo)
+
+);
 
 CREATE TABLE ATENCION_PSICOSOCIAL(
-	Id_Atencion_Psicologica int PRIMARY KEY,
-	Fecha date,
-	Formato_de_atención varchar(25),
+	Id_Atencion_Psicologica int NOT NULL UNIQUE AUTO_INCREMENT,
 	Persona_Id int, 
+	Fecha date,
 	Tipo_psicosocial int,
+	Formato_de_atención varchar(25),
+	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_Atencion_Psicologica),
 	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE,
 	FOREIGN KEY (Tipo_psicosocial) REFERENCES TIPO_DE_APOYO_P(Id_Tipo_de_Apoyo) ON DELETE CASCADE
 );
 
 
+
+CREATE TABLE TIPO_DE_APOYO_S(
+	Id_Tipo_de_Apoyo  int NOT NULL UNIQUE AUTO_INCREMENT,
+	Nombre_Tipo_de_Apoyo varchar(30),
+	PRIMARY KEY (Id_Tipo_de_Apoyo)
+
+);
+
 CREATE TABLE ASISTENCIA_SOCIAL(
-	Id_Asistencia_Social int PRIMARY KEY,
-	Formato_de_Atención varchar(25),
-	Fecha date,
+	Id_Asistencia_Social int NOT NULL UNIQUE AUTO_INCREMENT,
 	Persona_Id int, 
+	Fecha date,
 	Tipo_social int,
+	Formato_de_Atención varchar(25),
+	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_Asistencia_Social),
 	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE,
 	FOREIGN KEY (Tipo_social) REFERENCES TIPO_DE_APOYO_S(Id_Tipo_de_Apoyo) ON DELETE CASCADE
 

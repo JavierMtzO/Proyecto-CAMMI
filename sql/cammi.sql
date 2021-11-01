@@ -224,7 +224,8 @@ CREATE TABLE ALOJAMIENTO(
 
 
 CREATE TABLE COMUNICACION(
-	Id_comunicacion int PRIMARY KEY,
+	Id_comunicacion int NOT NULL UNIQUE AUTO_INCREMENT,
+	Persona_Id int, 
 	Inicio_Servicio varchar(10),
 	Carga_de_Bateria varchar(10),
 	Uso_de_Wifi varchar(10),
@@ -232,8 +233,9 @@ CREATE TABLE COMUNICACION(
 	Pais_Destino_de_Llamada varchar(25),
 	Completado_de_la_Llamada varchar(10),
 	Mantenimiento_del_Contacto_Familiar varchar(10),
-	Persona_Id int, 
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
+	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_comunicacion),
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE  
 
 );
 

@@ -6,6 +6,8 @@ const session = require('express-session');
 //const rutasRoot = require('./routes/root');
 const rutasMigrante = require('./routes/migrante');
 const rutasAlimentacion = require('./routes/alimentacion');
+const rutasComunicacion = require('./routes/comunicacion');
+
 
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -45,6 +47,7 @@ app.use('/migrante', rutasMigrante);
 
 app.use('/alimentacion', rutasAlimentacion);
 
+app.use('/comunicacion', rutasComunicacion);
 //app.use('/',rutasRoot);
 
 app.use((request, response, next) => {

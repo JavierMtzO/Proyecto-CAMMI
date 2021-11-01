@@ -7,7 +7,7 @@ const session = require('express-session');
 const rutasMigrante = require('./routes/migrante');
 const rutasAlimentacion = require('./routes/alimentacion');
 const rutasComunicacion = require('./routes/comunicacion');
-//const rutasAlojamiento = require('./routes/alojamiento');
+const rutasAlojamiento = require('./routes/alojamiento');
 
 
 
@@ -50,7 +50,7 @@ app.use('/alimentacion', rutasAlimentacion);
 
 app.use('/comunicacion', rutasComunicacion);
 
-//app.use('/alojamiento', rutasAlojamiento);
+app.use('/alojamiento', rutasAlojamiento);
 
 //app.use('/',rutasRoot);
 

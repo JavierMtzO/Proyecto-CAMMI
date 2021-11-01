@@ -210,14 +210,16 @@ CREATE TABLE ASISTENCIA_SOCIAL(
 
 
 CREATE TABLE ALOJAMIENTO(
-	Id_Alojamiento int PRIMARY KEY,
+	Id_Alojamiento int NOT NULL UNIQUE AUTO_INCREMENT,
+	Persona_Id int, 
 	Persona_Refugiada varchar(10),
 	Miembro_de_la_Estacion_Migratoria varchar(10),
 	Uso_de_Cama varchar(10),
 	Alojamiento_con_Costo varchar(10),
 	MPP varchar(10),
 	Fecha date,
-	Persona_Id int, 
+	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_Alojamiento),
 	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 
 );

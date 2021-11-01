@@ -6,7 +6,7 @@ const Tipo_de_platillo = require('../models/tipo_de_platillo');
 exports.getNuevoAlimentacion=(request, response, next) => {
 
      Tipo_de_persona.fetchAll()
-     .then(([tipo_de_personas, fieldData]) => {
+    .then(([tipo_de_personas, fieldData]) => {
           Tipo_de_platillo.fetchAll()
          .then(([tipo_de_platillos, fieldData]) => {
              response.render('registro-Alimentacion',{

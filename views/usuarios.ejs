@@ -1,0 +1,45 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/sidebar.ejs') %>
+
+<div class="container">
+    <div class="">
+        <h4 class="text-dark mb-4">Crear nuevo usuario</h4>
+        <a href="/panel/usuarios/crear" class="btn btn-success text-white">Crear usuario</a>
+    </div>
+
+    <br>
+
+    <div class="">
+        <h4 class="text-dark mb-4">Nuestros usuarios</h4>
+    </div>
+    <table id="myTable" class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Usuario</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Editar</th>
+            </tr>
+            <% for (let user of users) {%>
+            <tr>
+                <td><%= user.NAME%></td>
+                <td><%= user.LASTNAME%></td>
+                <td><%= user.USERNAME%></td>
+                <td><%= user.EMAIL%></td>
+                <td><%= user.NOMBRE%></td>
+                <td>
+                    <form action='/panel/usuarios' method='POST'><button class='btn btn-primary btn-sm' type='submit'
+                            name='editar' value='<%= user.ID_USUARIO%>'><i class="fa fa-pencil"
+                                aria-hidden="true"></i></button></form>
+                </td>
+            </tr>
+            <% } %>
+        </thead>
+
+    </table>
+</div>
+
+<%- include('includes/endsidebar.ejs') %>
+<%- include('includes/footer.ejs') %>

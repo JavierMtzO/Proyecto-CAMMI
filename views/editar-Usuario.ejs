@@ -1,0 +1,84 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/sidebar.ejs') %>
+
+<div class="container">
+    <div class="">
+        <h4 class="text-dark mb-4">Editar usuario</h4>
+    </div>
+    <form onSubmit="if(!confirm('¿Está seguro/a que quiere eliminar este usuario?')){return false;} "
+        action="/panel/usuarios/editar" method="POST">
+        <div class="mb-3 text-end">
+            <input type="submit" name="submit" class="btn btn-danger" value="Eliminar">
+        </div>
+    </form>
+    <form onSubmit="if(!confirm('¿Está seguro/a que quiere actualizar este usuario?')){return false;} "
+        action="/panel/usuarios/editar" method="POST">
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="inputState"><strong>Nombre</strong></label>
+
+                    <input value="<%= user[0].NAME %>" class="form-control" type="text" name="nombre" required>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="inputState"><strong>Email
+                        </strong></label>
+
+                    <input value="<%= user[0].EMAIL %>" class="form-control" type="email" name="email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputState"><strong>Nombre de usuario </strong></label>
+
+                    <input value="<%= user[0].USERNAME %>" class="form-control" type="text" name="username" required>
+                </div>
+
+
+
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label class="form-label"><strong>Apellidos</strong></label>
+                    <input value="<%= user[0].LASTNAME %>" class="form-control" type="text" name="apellidos" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label"><strong>Contraseña</strong></label>
+                    <input value="<%= user[0].PASSWORD %>" class="form-control" type="password" name="password"
+                        required>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="inputState"><strong>Rol
+                        </strong></label>
+
+                    <select id="inputState" class="form-select" aria-label="Default select example" name="rol">
+                        <option value="<%= user[0].ID_ROL %>" selected> <%= roleuser[0].NOMBRE %> </option>
+                        <% for (let rol of roles) {%>
+                        <option value="<%= rol.ID_ROL %>"> <%= rol.NOMBRE %> </option>
+                        <% }%>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="mb-3">
+                <input type="submit" name="submit" class="btn btn-primary" value="Hacer cambios">
+            </div>
+        </div>
+
+
+</div>
+
+
+</form>
+</div>
+
+<%- include('includes/endsidebar.ejs') %>
+<%- include('includes/footer.ejs') %>

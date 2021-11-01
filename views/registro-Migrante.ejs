@@ -1,194 +1,207 @@
 <%- include('includes/header.ejs') %>
-   <%- include('includes/sidebar.ejs') %>
+<%- include('includes/sidebar.ejs') %>
 
-        <h3 class="text-dark mb-4">Registro de nuevo migrante</h3>
-        <div class="row mb-3">
-            <div class="col-lg-8">
-            
-                <div class="row">
-                    <div class="col">
-                        <div class="card shadow mb-3">
-                            <div class="card-header py-3">
-                                <p class="text-primary m-0 fw-bold">Registro de nuevo migrante</p>
-                            </div>
-                            <div class="card-body">
-                                <form action="migrante" method="POST">
-                                    <div class="row">
-                                        <div class="col">                                     
+<h3 class="text-dark mb-4">Registro de nuevo migrante</h3>
+<div class="row mb-3">
+    <div class="col-lg-8">
 
-                                            <div class="mb-3">
-                                                <label class="form-label" for="Nombre"><strong>Nombre del migrante</strong></label>
-                                                <input type="text" class="form-control" id="Nombre" placeholder="Nombre del migrante" name="Nombre">
-                                            </div>
+        <div class="row">
+            <div class="col">
+                <div class="card shadow mb-3">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">Registro de nuevo migrante</p>
+                    </div>
+                    <div class="card-body">
+                        <form action="migrante" method="POST">
+                            <div class="row">
+                                <div class="col">
 
-                                            <div class="mb-3">
-                                                <label class="form-label" for="Edad"><strong>Edad del migrante</strong></label>
-                                                <input type="number" class="form-control" id="Edad" placeholder="Edad del migrante" name="Edad">
-                                            </div>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="Nombre"><strong>Nombre del
+                                                migrante</strong></label>
+                                        <input type="text" class="form-control" id="Nombre"
+                                            placeholder="Nombre del migrante" name="Nombre">
+                                    </div>
 
-                                            
-                                            <div class="mb-3">
-                                                <label for="Rango_de_Edad"><strong>Rango de Edad</strong></label>
-                                           
-                                                <select id="Rango_de_Edad" class="form-select" aria-label="Default select example" name="Rango_de_Edad">
-                                                    <option value="NN: 0-11 años">NN: 0-11 años</option>
-                                                    <option value="Adol: 12-17 años">Adol: 12-17 años</option>
-                                                    <option value="Adul: 18-59 años">Adul: 18-59 años</option>
-                                                    <option value="AM: mayor 60+ años">AM: mayor 60+ años</option>
+                                    <div class="mb-3">
+                                        <label class="form-label" for="Edad"><strong>Edad del migrante</strong></label>
+                                        <input type="number" class="form-control" id="Edad"
+                                            placeholder="Edad del migrante" name="Edad">
+                                    </div>
 
-                                                </select>
-                                            </div>
 
-                                            <div class="mb-3">
-                                                <label for="Genero"><strong>Género</strong></label>
-                                           
-                                                <select id="Genero" class="form-select" aria-label="Default select example" name="Genero">
-                                                    <option value="MASCULINO">MASCULINO</option>
-                                                    <option value="FEMENINO">FEMENINO</option>
-                                                </select>
-                                            </div>
+                                    <div class="mb-3">
+                                        <label for="Rango_de_Edad"><strong>Rango de Edad</strong></label>
 
-                                            <div class="mb-3">
-                                                <label for="Nacionalidad"><strong>Nacionalidad</strong></label>
-                                           
-                                                <select id="Nacionalidad" class="form-select" aria-label="Default select example" name="Nacionalidad">
-                                                    <option value="ARGENTINA">ARGENTINA</option>
-                                                    <option value="BOLIVIA">BOLIVIA</option>
-                                                    <option value="BRASIL">BRASIL</option>
-                                                    <option value="CANADÁ">CANADÁ</option>
-                                                    <option value="CHILE">CHILE</option>
-                                                    <option value="COLOMBIA">COLOMBIA</option> 
-                                                    <option value="COSTA RICA">COSTA RICA</option> 
-                                                    <option value="CUBA">CUBA</option>
-                                                    <option value="ECUADOR">ECUADOR</option>
-                                                    <option value="EL SALVADOR">EL SALVADOR</option>
-                                                    <option value="GUATEMALA">GUATEMALA</option>
-                                                    <option value="HAITÍ">HAITÍ</option>
-                                                    <option value="HONDURAS">HONDURAS</option>
-                                                    <option value="MÉXICO">MÉXICO</option>
-                                                    <option value="NICARAGUA">NICARAGUA</option>
-                                                    <option value="PANAMÁ">PANAMÁ</option>
-                                                    <option value="PARAGUAY">PARAGUAY</option>
-                                                    <option value="PERÚ">PERÚ</option>
-                                                    <option value="REPÚBLICA DOMINICANA">REPÚBLICA DOMINICANA</option> 
-                                                    <option value="URUGUAY">URUGUAY</option>
-                                                    <option value="VENEZUELA">VENEZUELA</option>
-                                                    <option value="ESTADOS UNIDOS"> ESTADOS UNIDOS</option>
-                                                    <option value="APÁTRIDA">APÁTRIDA</option>
-                                                    <option value="OTROS">OTROS</option>
+                                        <select id="Rango_de_Edad" class="form-select"
+                                            aria-label="Default select example" name="Rango_de_Edad">
+                                            <option value="NN: 0-11 años">NN: 0-11 años</option>
+                                            <option value="Adol: 12-17 años">Adol: 12-17 años</option>
+                                            <option value="Adul: 18-59 años">Adul: 18-59 años</option>
+                                            <option value="AM: mayor 60+ años">AM: mayor 60+ años</option>
 
-                                                </select>
-                                            </div>
+                                        </select>
+                                    </div>
 
-                                            <div class="mb-3">
-                                                <label for="Discapacidad"><strong>Discapacidad</strong></label>
-                                           
-                                                <select id="Discapacidad" class="form-select" aria-label="Default select example" name="Discapacidad">
-                                                    <option value="NO">NO</option>
-                                                    <option value="SI">SI</option>
-                                                </select>
-                                            </div>
-                                           
+                                    <div class="mb-3">
+                                        <label for="Genero"><strong>Género</strong></label>
 
-                                            <div class="mb-3">
-                                                <label for="Contacto"><strong>Contacto del migrante</strong></label>
-                                           
-                                                <input type="text" class="form-control" id="Contacto" placeholder="Contacto del migrante" name="Contacto">
+                                        <select id="Genero" class="form-select" aria-label="Default select example"
+                                            name="Genero">
+                                            <option value="MASCULINO">MASCULINO</option>
+                                            <option value="FEMENINO">FEMENINO</option>
+                                        </select>
+                                    </div>
 
-                                            </div>
+                                    <div class="mb-3">
+                                        <label for="Nacionalidad"><strong>Nacionalidad</strong></label>
 
-                                            
+                                        <select id="Nacionalidad" class="form-select"
+                                            aria-label="Default select example" name="Nacionalidad">
+                                            <option value="ARGENTINA">ARGENTINA</option>
+                                            <option value="BOLIVIA">BOLIVIA</option>
+                                            <option value="BRASIL">BRASIL</option>
+                                            <option value="CANADÁ">CANADÁ</option>
+                                            <option value="CHILE">CHILE</option>
+                                            <option value="COLOMBIA">COLOMBIA</option>
+                                            <option value="COSTA RICA">COSTA RICA</option>
+                                            <option value="CUBA">CUBA</option>
+                                            <option value="ECUADOR">ECUADOR</option>
+                                            <option value="EL SALVADOR">EL SALVADOR</option>
+                                            <option value="GUATEMALA">GUATEMALA</option>
+                                            <option value="HAITÍ">HAITÍ</option>
+                                            <option value="HONDURAS">HONDURAS</option>
+                                            <option value="MÉXICO">MÉXICO</option>
+                                            <option value="NICARAGUA">NICARAGUA</option>
+                                            <option value="PANAMÁ">PANAMÁ</option>
+                                            <option value="PARAGUAY">PARAGUAY</option>
+                                            <option value="PERÚ">PERÚ</option>
+                                            <option value="REPÚBLICA DOMINICANA">REPÚBLICA DOMINICANA</option>
+                                            <option value="URUGUAY">URUGUAY</option>
+                                            <option value="VENEZUELA">VENEZUELA</option>
+                                            <option value="ESTADOS UNIDOS"> ESTADOS UNIDOS</option>
+                                            <option value="APÁTRIDA">APÁTRIDA</option>
+                                            <option value="OTROS">OTROS</option>
 
-                                            
+                                        </select>
+                                    </div>
 
-                                            
+                                    <div class="mb-3">
+                                        <label for="Discapacidad"><strong>Discapacidad</strong></label>
 
-            
-                                            
-                                        </div>
-                                        <div class="col">
-                                            
+                                        <select id="Discapacidad" class="form-select"
+                                            aria-label="Default select example" name="Discapacidad">
+                                            <option value="NO">NO</option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
 
-                                            <div class="mb-3">
-                                                <label for="Lgbt"><strong>LGBT+</strong></label>
-                                           
-                                                <select id="Lgbt" class="form-select" aria-label="Default select example" name="Lgbt">
-                                                    <option value="NO">NO </option>
-                                                    <option value="SI">SI</option>
-                                                </select>
-                                            </div>
 
-                                            <div class="mb-3">
-                                                <label for="Dispositivo_propio"><strong>Dispositivo propio</strong></label>
-                                           
-                                                <select id="Dispositivo_propio" class="form-select" aria-label="Default select example" name="Dispositivo_propio">
-                                                    <option value="NO">NO </option>
-                                                    <option value="SI">SI</option>
-                                                </select>
-                                            </div>
+                                    <div class="mb-3">
+                                        <label for="Contacto"><strong>Contacto del migrante</strong></label>
 
-                                            <div class="mb-3">
-                                                <label for="Rfc"><strong>RFC del migrante</strong></label>
-                                           
-                                                <input type="text" class="form-control" id="Rfc" placeholder="RFC del migrante" name="Rfc">
-
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="NSS"><strong>NSS del migrante</strong></label>
-                                           
-                                                <input type="text" class="form-control" id="Nss" placeholder="NSS del migrante" name="Nss">
-
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="Asesoria"><strong>Asesoria(DIV)</strong></label>
-                                           
-                                                <select id="Asesoria" class="form-select" aria-label="Default select example" name="Asesoria">
-                                                    <option value="NO">NO </option>
-                                                    <option value="SI">SI</option>
-                                                </select>
-                                            </div>
-
-                                            
-
-                                            <div class="mb-3">
-                                                <label for="Acompanado"><strong>Acompañado</strong></label>
-                                           
-                                                <select id="Acompanado" class="form-select" aria-label="Default select example" name="Acompanado">
-                                                    <option value="NO">NO </option>
-                                                    <option value="SI">SI</option>
-                                                </select>
-                                            </div>
-
-                                            
-                                           
-                                        </div>
-                                        <br>
-                                        <br>
-                                        <div class="row">
-                                            <div class="mb-3">
-
-                                            <a href="#" type="submit" class="btn btn-secondary">Cancelar</a>    
-                                            <input type="submit" name="enviar"  class="btn btn-primary" value="Registrar"> 
-                                            </div>     
-                                        </div>
-
+                                        <input type="text" class="form-control" id="Contacto"
+                                            placeholder="Contacto del migrante" name="Contacto">
 
                                     </div>
 
-    
-                                 </form>
+
+
+
+
+
+
+
+
+                                </div>
+                                <div class="col">
+
+
+                                    <div class="mb-3">
+                                        <label for="Lgbt"><strong>LGBT+</strong></label>
+
+                                        <select id="Lgbt" class="form-select" aria-label="Default select example"
+                                            name="Lgbt">
+                                            <option value="NO">NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Dispositivo_propio"><strong>Dispositivo propio</strong></label>
+
+                                        <select id="Dispositivo_propio" class="form-select"
+                                            aria-label="Default select example" name="Dispositivo_propio">
+                                            <option value="NO">NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Rfc"><strong>RFC del migrante</strong></label>
+
+                                        <input type="text" class="form-control" id="Rfc" placeholder="RFC del migrante"
+                                            name="Rfc">
+
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="NSS"><strong>NSS del migrante</strong></label>
+
+                                        <input type="text" class="form-control" id="Nss" placeholder="NSS del migrante"
+                                            name="Nss">
+
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Asesoria"><strong>Asesoria(DIV)</strong></label>
+
+                                        <select id="Asesoria" class="form-select" aria-label="Default select example"
+                                            name="Asesoria">
+                                            <option value="NO">NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+
+
+                                    <div class="mb-3">
+                                        <label for="Acompanado"><strong>Acompañado</strong></label>
+
+                                        <select id="Acompanado" class="form-select" aria-label="Default select example"
+                                            name="Acompanado">
+                                            <option value="NO">NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+
+
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="mb-3">
+
+                                        <a href="#" type="submit" class="btn btn-secondary">Cancelar</a>
+                                        <input type="submit" name="enviar" class="btn btn-primary" value="Registrar">
+                                    </div>
+                                </div>
+
+
                             </div>
-                        
-                        
-                        </div>
-                        <div class="card shadow">
-                        </div>
+
+
+                        </form>
                     </div>
+
+
+                </div>
+                <div class="card shadow">
                 </div>
             </div>
+        </div>
+    </div>
 
-        <%- include('includes/endsidebar.ejs') %>
- <%- include('includes/footer.ejs') %>
-
+    <%- include('includes/endsidebar.ejs') %>
+    <%- include('includes/footer.ejs') %>

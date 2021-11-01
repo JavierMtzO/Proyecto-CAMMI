@@ -1,0 +1,74 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/sidebar.ejs') %>
+<div class="container">
+    <div class="">
+        <h4 class="text-dark mb-4">Crear nuevo usuario</h4>
+    </div>
+    <form action="/panel/usuarios/crear" method="POST">
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="inputState"><strong>Nombre</strong></label>
+
+                    <input class="form-control" type="text" name="nombre" required>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="inputState"><strong>Email
+                        </strong></label>
+
+                    <input class="form-control" type="email" name="email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="inputState"><strong>Nombre de usuario </strong></label>
+
+                    <input class="form-control" type="text" name="username" required>
+                </div>
+
+
+
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label class="form-label"><strong>Apellidos</strong></label>
+                    <input class="form-control" type="text" name="apellidos" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label"><strong>Contraseña</strong></label>
+                    <input class="form-control" type="password" name="password" required>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="inputState"><strong>Rol
+                        </strong></label>
+
+                    <select class="form-select" aria-label="Default select example" name="rol">
+                        <% for (let rol of roles) {%>
+                        <option value="<%= rol.ID_ROL %>"> <%= rol.NOMBRE %> </option>
+                        <% }%>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="mb-3">
+                <input type="submit" name="enviar" class="btn btn-primary" value="Registrar">
+            </div>
+        </div>
+
+
+</div>
+
+
+</form>
+</div>
+
+<%- include('includes/endsidebar.ejs') %>
+<%- include('includes/footer.ejs') %>

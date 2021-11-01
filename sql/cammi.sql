@@ -275,4 +275,95 @@ CREATE TABLE ALIMENTACION(
 INSERT INTO `tipo_de_persona` (`Id_Tipo_de_Persona`, `Nombre`) VALUES ('1', 'HOSPEDADO'), ('2', 'PERSONAL '), ('3', 'VOLUNTARIO');
 INSERT INTO `tipo_de_platillo` (`Id_Tipo_de_Platillo`, `Nombre`) VALUES ('1', 'DESAYUNO'), ('2', 'COMIDA '), ('3', 'CENA');
 
+CREATE TABLE PRIVILEGIOS (
+	ID_PRIVILEGIO int NOT NULL UNIQUE AUTO_INCREMENT,
+	NOMBRE varchar(255),
+	DESCRIPCION varchar(255),
+	PRIMARY KEY(ID_PRIVILEGIO) 
+);
 
+INSERT INTO PRIVILEGIOS () VALUES 
+(1, 'Agregar usuario', 'Poder agregar usuario con su respectivo rol'),
+(2, 'Editar usuario', 'Editar la información del usuario'),
+(3, 'Eliminar usuario', 'Eliminar un usuario usuario'),
+(4, 'Agregar persona', 'Agregar un migrante al sistema'),
+(5, 'Editar persona', 'Editar un migrante en específico'),
+(6, 'Eliminar persona', 'Eliminar un migrante del sistema'),
+(7, 'Consultar persona', 'Consultar un migrante del sistema'),
+(8, 'Agregar nueva persona a Atención psicosocial', 'Agrega un nuevo migrante y especifica la atención psicosocial atendida'),
+(9, 'Agregar persona ya existente a Atención psicosocial', 'Agrega un nuevo migrante y especifica la atención psicosocial atendida'),
+(10, 'Eliminar persona de Atención psicosocial', 'Elimina un migrante de atención psicosocial'),
+(11, 'Agregar nueva persona a Programa de Integración Local', 'Agrega un nuevo migrante y especifica el Programa de Integración Local'),
+(12, 'Agregar persona ya existente a Programa de Integración Local', 'Agrega un migrante ya existente al Programa de Integración Local'),
+(13, 'Eliminar persona del Programa de Integración Local', 'Elimina un migrante del Programa de Integración Local'),
+(14, 'Agregar nueva persona a Asistencia Social', 'Agrega un nuevo migrante y especifica la asistencia social que recibe'),
+(15, 'Agregar persona ya existente a Asistencia Social', 'Agrega un migrante ya existente y especifica la asistencia social que recibe'),
+(16, 'Eliminar persona de Asistencia Social', 'Elimina un migrante de la Asistencia Social'),
+(17, 'Agregar persona a Alojamiento', 'Agrega un migrante al alojamiento'),
+(18, 'Eliminar persona de Alojamiento', 'Elimina un migrante del alojamiento'),
+(19, 'Agregar servicio de comunicacion a persona', 'Agrega un persona que recibió servicio de comunicación'),
+(20, 'Eliminar servicio de comunicación a la persona', 'Eliminar servicio de comunicación a la persona');
+
+CREATE TABLE ROLES (
+	ID_ROL int NOT NULL UNIQUE AUTO_INCREMENT,
+	NOMBRE varchar(255),
+	DESCRIPCION varchar(255),
+	PRIMARY KEY(ID_ROL) 
+);
+
+INSERT INTO ROLES () VALUES 
+(1, 'administrador', 'Administrador de todo el sistema. Tiene todos los privilegios'),
+(2, 'psicosocial', 'Area psicoscocial, tiene los privilegios de es área'),
+(3, 'juridico', 'Area jurídica, tiene los privilegios de esa área'),
+(4, 'albergue', 'Area albergue, tiene los privilegios de esa área'),
+(5, 'psicosocial-albergue', 'Area psicoscocial y albergue, tiene los privilegios de ambas áreas'),
+(6, 'psicosocial-juridico', 'Area psicoscocial y jurídica, tiene los privilegios de ambas áreas'),
+(7, 'albergue-juridico', 'Area albergue y jurídica, tiene los privilegios de ambas áreas');
+
+
+
+CREATE TABLE ROLES_PRIVILEGIOS(
+	ID_ROLES_PRIVILEGIOS int NOT NULL UNIQUE AUTO_INCREMENT,
+	ID_ROL int,
+	ID_PRIVILEGIO int,
+	PRIMARY KEY(ID_ROLES_PRIVILEGIOS),
+	FOREIGN KEY(ID_ROL) REFERENCES ROLES(ID_ROL) ON DELETE CASCADE,
+	FOREIGN KEY(ID_PRIVILEGIO) REFERENCES PRIVILEGIOS(ID_PRIVILEGIO) ON DELETE CASCADE
+);
+
+INSERT INTO ROLES_PRIVILEGIOS () VALUES 
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 1, 5),
+(6, 1, 6),
+(7, 1, 7),
+(8, 1, 8),
+(9, 1, 9),
+(10, 1, 10),
+(11, 1, 11),
+(12, 1, 12),
+(13, 1, 13),
+(14, 1, 14),
+(15, 1, 15),
+(16, 1, 16),
+(17, 1, 17),
+(18, 1, 18),
+(19, 1, 19),
+(20, 1, 20);
+
+
+CREATE TABLE USUARIOS(
+	ID_USUARIO int NOT NULL UNIQUE AUTO_INCREMENT,
+	NAME varchar(255),
+	LASTNAME varchar(255),
+	USERNAME varchar(255) ,
+	EMAIL varchar(255) ,
+	PASSWORD varchar(255),
+	ID_ROL int,
+	PRIMARY KEY(ID_USUARIO),
+	FOREIGN KEY (ID_ROL) REFERENCES ROLES(ID_ROL) ON DELETE CASCADE
+);
+
+INSERT INTO USUARIOS () VALUES (1, 'Javier', 'Martinez', 'javiermtzo', 'javier@itesm.mx', 'javier', 1);

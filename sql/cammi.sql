@@ -177,7 +177,7 @@ CREATE TABLE PROGRAMA_INTEGRACION_LOCAL(
 
 CREATE TABLE TIPO_DE_APOYO_P(
 	Id_Tipo_de_Apoyo int NOT NULL UNIQUE AUTO_INCREMENT,
-	Nombre_Tipo_de_Apoyo varchar(30),
+	Nombre_Tipo_de_Apoyo varchar(50),
 	PRIMARY KEY (Id_Tipo_de_Apoyo)
 
 );

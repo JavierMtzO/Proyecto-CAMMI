@@ -8,7 +8,9 @@ const rutasMigrante = require('./routes/migrante');
 const rutasAlimentacion = require('./routes/alimentacion');
 const rutasComunicacion = require('./routes/comunicacion');
 const rutasAlojamiento = require('./routes/alojamiento');
-
+const rutasPil = require('./routes/programas_integracion_local');
+const rutasAtencionPsicosocial = require('./routes/atencion_psicosocial');
+const rutasAsistenciaSocial = require('./routes/asistencia_social');
 
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -51,6 +53,12 @@ app.use('/alimentacion', rutasAlimentacion);
 app.use('/comunicacion', rutasComunicacion);
 
 app.use('/alojamiento', rutasAlojamiento);
+
+app.use('/programas_integracion_local', rutasPil);
+
+app.use('/atencion_psicosocial', rutasAtencionPsicosocial);
+
+app.use('/asistencia_social', rutasAsistenciaSocial);
 
 //app.use('/',rutasRoot);
 

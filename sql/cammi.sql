@@ -208,7 +208,7 @@ CREATE TABLE ASISTENCIA_SOCIAL(
 	Persona_Id int, 
 	Fecha date,
 	Tipo_social int,
-	Formato_de_Atención varchar(25),
+	Formato_de_Atencion varchar(25),
 	Fecha_de_registro timestamp,
 	PRIMARY KEY (Id_Asistencia_Social),
 	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE,
@@ -216,6 +216,7 @@ CREATE TABLE ASISTENCIA_SOCIAL(
 
 );
 
+INSERT INTO `tipo_de_apoyo_s` (`Id_Tipo_de_Apoyo`, `Nombre_Tipo_de_Apoyo`) VALUES (NULL, 'ACCESO A LA EDUCACIÓN- REVALIDACIÓN DE ESTUDIOS'), (NULL, 'ACCESO A LA EDUCACIÓN- INCORPORACIÓN'), (NULL, 'ACCESO A OPCIONES DE EMPLEO'), (NULL, 'ACCESO A OPCIONES DE VIVIENDA '), (NULL, 'ACCESO A OPCIONES DE SALUD'), (NULL, 'EDUCACIÓN- REGULARIZACIÓN');
 
 CREATE TABLE ALOJAMIENTO(
 	Id_Alojamiento int NOT NULL UNIQUE AUTO_INCREMENT,

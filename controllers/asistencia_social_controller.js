@@ -30,7 +30,7 @@ exports.getNuevoAsistencia_social=(request, response, next) => {
 
 exports.postNuevoAsistencia_social=(request, response, next) => {
      console.log(request.body);
-     const asistencia_social = new Asistencia_social(request.body.Nombre, request.body.Inicio_Servicio, request.body.Carga_de_Bateria,request.body.Uso_de_Wifi,request.body.Fecha, request.body.Pais_Destino_de_Llamada,request.body.Completado_de_la_Llamada,request.body.Mantenimiento_del_Contacto_Familiar);
+     const asistencia_social = new Asistencia_social(request.body.Nombre, request.body.Fecha, request.body.Tipo_social, request.body.Formato_de_Atencion);
      asistencia_social.save()
         .then(() => {
           //request.session.ultima_persona = request.body.nombreZona;

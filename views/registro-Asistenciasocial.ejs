@@ -12,7 +12,7 @@
                            <p class="text-primary m-0 fw-bold">Resgistro Atención psicosocial del migrante</p>
                        </div>
                        <div class="card-body">
-                           <form action="comunicacion" method="POST">
+                           <form action="asistencia_social" method="POST">
                                <div class="row">
                                    <div class="col">
                                        <div class="mb-3">
@@ -30,7 +30,7 @@
 
                                         <div class="mb-3">
                                             <label class="form-label" for="Fecha"><strong>Fecha de registro</strong></label>
-                                            <input type="text" class="form-control" id="fecha" placeholder="DD/MM/YYY" name="fecha">
+                                            <input type="text" class="form-control" id="Fecha" placeholder="DD/MM/YYY" name="Fecha">
                                         </div>
                                        
                                       
@@ -40,7 +40,7 @@
                                    <div class="col">
 
                                         <div class="mb-3">
-                                            <label for="inputState"><strong>Tipo de apoyo</strong></label>
+                                            <label for="Tipo_social"><strong>Tipo de apoyo</strong></label>
                                     
                                             <select id="Tipo_social" class="form-select" aria-label="Default select example" name="Tipo_social">
                                                 <% for(let tipo of tipos) {%>
@@ -53,9 +53,9 @@
 
                                        
                                        <div class="mb-3">
-                                           <label for="inputState"><strong>Formato de atención</strong></label>
+                                           <label for="Formato_de_Atencion"><strong>Formato de atención</strong></label>
                                        
-                                           <select id="nombre" class="form-select" aria-label="Default select example" name="nombre">
+                                           <select id="Formato_de_Atencion" class="form-select" aria-label="Default select example" name="Formato_de_Atencion">
                                                <option value="TELEFÓNICA">TELEFÓNICA  </option>
                                                <option value="PRESENCIAL">PRESENCIAL</option>
                                                <option value="VIDEOLLAMADA">VIDEOLLAMADA</option>

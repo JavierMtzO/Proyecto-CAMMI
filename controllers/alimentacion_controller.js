@@ -27,11 +27,11 @@ exports.getNuevoAlimentacion=(request, response, next) => {
 
 exports.postNuevoAlimentacion=(request, response, next) => {
      console.log(request.body);
-     const Alimentacion = new Alimentacion(request.body.tipoIncidente,request.body.lugarIncidente);
-     Alimentacion.save()
+     const alimentacion = new Alimentacion(request.body.Fecha,request.body.tipo_de_persona,request.body.tipo_de_platillo);
+     alimentacion.save()
         .then(() => {
           //request.session.ultima_persona = request.body.nombreZona;
-          response.redirect('/alimentacion');
+          response.redirect('/alimentacion/alimentacion');
         }).catch( err => {
              console.log(err);
              response.redirect('/alimentacion/alimentacion');    

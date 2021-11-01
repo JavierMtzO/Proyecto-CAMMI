@@ -187,7 +187,7 @@ CREATE TABLE ATENCION_PSICOSOCIAL(
 	Persona_Id int, 
 	Fecha date,
 	Tipo_psicosocial int,
-	Formato_de_atención varchar(25),
+	Formato_de_atencion varchar(25),
 	Fecha_de_registro timestamp,
 	PRIMARY KEY (Id_Atencion_Psicologica),
 	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE,

@@ -8,6 +8,11 @@ const rutasMigrante = require('./routes/migrante');
 const rutasAlimentacion = require('./routes/alimentacion');
 const rutasUsuario = require('./routes/usuarios');
 const rutasPanel = require('./routes/panel');
+const rutasComunicacion = require('./routes/comunicacion');
+const rutasAlojamiento = require('./routes/alojamiento');
+const rutasPil = require('./routes/programas_integracion_local');
+const rutasAtencionPsicosocial = require('./routes/atencion_psicosocial');
+const rutasAsistenciaSocial = require('./routes/asistencia_social');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -42,12 +47,15 @@ app.use((request, response, next) => {
 //app.use(csrfMiddleware);
 
 
-app.use('/migrante', rutasMigrante);
-
-app.use('/alimentacion', rutasAlimentacion);
-
+app.use('/', rutasMigrante);
+app.use('/', rutasAlimentacion);
 app.use('/', rutasUsuario);
 app.use('/', rutasPanel);
+app.use('/', rutasComunicacion);
+app.use('/', rutasAlojamiento);
+app.use('/', rutasPil);
+app.use('/', rutasAtencionPsicosocial);
+app.use('/', rutasAsistenciaSocial);
 //app.use('/',rutasRoot);
 
 // app.use((request, response, next) => {

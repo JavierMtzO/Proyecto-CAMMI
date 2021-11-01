@@ -31,5 +31,14 @@ module.exports = class Persona {
         
     }
 
+    static fetchAll() {
+
+        return db.execute('SELECT * FROM   persona	')
+          
+        //return personas;
+        
+    }
+
+
 
 }

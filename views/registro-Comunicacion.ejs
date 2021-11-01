@@ -1,0 +1,146 @@
+<%- include('includes/header.ejs') %>
+   <%- include('includes/sidebar.ejs') %>
+
+   <h3 class="text-dark mb-4">Registro de servicios de comunicación</h3>
+   <div class="row mb-3">
+       <div class="col-lg-8">
+       
+           <div class="row">
+               <div class="col">
+                   <div class="card shadow mb-3">
+                       <div class="card-header py-3">
+                           <p class="text-primary m-0 fw-bold">Registro de servicios de comunicación</p>
+                       </div>
+                       <div class="card-body">
+                            <form action="comunicacion" method="POST">
+                               <div class="row">
+                                   <div class="col">
+                                       <div class="mb-3">
+                                           <label for="Nombre"><strong>Nombre del migrante</strong></label>
+                                       
+                                       
+                                           <select id="Nombre" class="form-select" aria-label="Default select example" name="Nombre">
+                                            <% for(let persona of personas) {%>
+                                                <option value="<%= persona.Folio %>"><%= persona.Nombre%></option>
+                                               
+                                            <% }%>
+                                           </select>
+                                       </div>
+                                       
+                                       
+                                       <div class="mb-3">
+                                           <label for="Inicio_Servicio"><strong>Inicio servicio</strong></label>
+                                      
+                                           <select id="Inicio_Servicio" class="form-select" aria-label="Default select example" name="Inicio_Servicio">
+                                               <option value="NO"> NO </option>
+                                               <option value="SI">SI</option>
+                                           </select>
+                                       </div>
+
+                                       <div class="mb-3">
+                                        <label for="Carga_de_Bateria"><strong>Carga de batería</strong></label>
+                                   
+                                        <select id="Carga_de_Bateria" class="form-select" aria-label="Default select example" name="Carga_de_Bateria">
+                                            <option value="NO"> NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                        </div>
+
+                                       <div class="mb-3">
+                                           <label for="Uso_de_Wifi"><strong>Uso de wifi</strong></label>
+                                      
+                                           <select id="Uso_de_Wifi" class="form-select" aria-label="Default select example" name="Uso_de_Wifi">
+                                               <option value="NO"> NO </option>
+                                               <option value="SI">SI</option>
+                                           </select>
+                                       </div>
+                                      
+
+                                       
+                                   </div>
+                                   <div class="col">
+                                       <div class="mb-3">
+                                           <label class="form-label" for="Fecha"><strong>Fecha de registro</strong></label>
+                                           <input type="text" class="form-control" id="Fecha" placeholder="DD/MM/YYY" name="Fecha">
+                                       </div>
+
+
+
+                                       <div class="mb-3">
+                                           <label for="Pais_Destino_de_Llamada"><strong>País destino de llamada</strong></label>
+                                      
+                                           <select id="Pais_Destino_de_Llamada" class="form-select" aria-label="Default select example" name="Pais_Destino_de_Llamada">
+                                               <option value="ARGENTINA">ARGENTINA</option>
+                                               <option value="BOLIVIA">BOLIVIA</option>
+                                               <option value="BRASIL">BRASIL</option>
+                                               <option value="CANADÁ">CANADÁ</option>
+                                               <option value="CHILE">CHILE</option>
+                                               <option value="COLOMBIA">COLOMBIA</option> 
+                                               <option value="COSTA RICA">COSTA RICA</option> 
+                                               <option value="CUBA">CUBA</option>
+                                               <option value="ECUADOR">ECUADOR</option>
+                                               <option value="EL SALVADOR">EL SALVADOR</option>
+                                               <option value="GUATEMALA">GUATEMALA</option>
+                                               <option value="HAITÍ">HAITÍ</option>
+                                               <option value="HONDURAS">HONDURAS</option>
+                                               <option value="MÉXICO">MÉXICO</option>
+                                               <option value="NICARAGUA">NICARAGUA</option>
+                                               <option value="PANAMÁ">PANAMÁ</option>
+                                               <option value="PARAGUAY">PARAGUAY</option>
+                                               <option value="PERÚ">PERÚ</option>
+                                               <option value="REPÚBLICA DOMINICANA">REPÚBLICA DOMINICANA</option> 
+                                               <option value="URUGUAY">URUGUAY</option>
+                                               <option value="VENEZUELA">VENEZUELA</option>
+                                               <option value="ESTADOS UNIDOS"> ESTADOS UNIDOS</option>
+                                               <option value="APÁTRIDA">APÁTRIDA</option>
+                                               <option value="OTROS">OTROS</option>
+
+                                           </select>
+                                       </div>
+
+                                       <div class="mb-3">
+                                        <label for="Completado_de_la_Llamada"><strong>Completado de la llamada</strong></label>
+                                            <select id="Completado_de_la_Llamada" class="form-select" aria-label="Default select example" name="Completado_de_la_Llamada">
+                                                <option value="NO"> NO </option>
+                                                <option value="SI">SI</option>
+                                            </select>
+                                        </div>
+
+                                       <div class="mb-3">
+                                           <label for="Mantenimiento_del_Contacto_Familiar"><strong>Mantenimiento del contacto familiar</strong></label>
+                                      
+                                           <select id="Mantenimiento_del_Contacto_Familiar" class="form-select" aria-label="Default select example" name="Mantenimiento_del_Contacto_Familiar">
+                                               <option value="MCF"> MCF  </option>
+                                               <option value="RCF">RCF</option>
+                                           </select>
+                                       </div>
+
+
+                                   </div>
+                                   <br>
+                                   <br>
+                                   <div class="row">
+                                       <div class="mb-3">
+
+                                       <a href="#" type="submit" class="btn btn-secondary">Cancelar</a>    
+                                       <input type="submit" name="enviar"  class="btn btn-primary" value="Registrar"> 
+                                       </div>     
+                                   </div>
+
+
+                               </div>
+
+
+                            </form>
+                       </div>
+                   
+                   
+                   </div>
+                   <div class="card shadow">
+                   </div>
+               </div>
+           </div>
+       </div>
+
+   <%- include('includes/endsidebar.ejs') %>
+ <%- include('includes/footer.ejs') %>

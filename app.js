@@ -13,6 +13,7 @@ const rutasAlojamiento = require('./routes/alojamiento');
 const rutasPil = require('./routes/programas_integracion_local');
 const rutasAtencionPsicosocial = require('./routes/atencion_psicosocial');
 const rutasAsistenciaSocial = require('./routes/asistencia_social');
+const rutasDelito = require('./routes/delito');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

@@ -55,6 +55,7 @@ CREATE TABLE RETORNO_ASISTIDO(
 	Asesoría_CAMMI varchar(10),
 	Acompañamiento_CAMMI varchar(10),
 	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_Retorno_Asistido),
 	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
 
 );
@@ -67,6 +68,7 @@ CREATE TABLE JUICIO_DE_AMPARO(
 	Inicio_CAMMI varchar(10),
 	Resolución varchar(10),
 	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_Juicio_de_Amparo),
 	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
 
 );
@@ -78,6 +80,7 @@ CREATE TABLE REUFAM(
 	Inicio_CAMMI varchar(10),
 	Asesoria varchar(10),
 	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_REUFAM),
 	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
 
 );
@@ -90,6 +93,7 @@ CREATE TABLE REGULARIZACION_MIGRATORIO(
 	Inicio varchar(10),
 	Resolución varchar(10), 
 	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_Regularización_Migratoria),
 	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
 
 
@@ -101,6 +105,7 @@ CREATE TABLE TIPO_IMPULSO(
 	Nombre varchar(50),
 	Tipo_de_tramite varchar(10),
 	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_tipo_impulso)
 	
 
 );
@@ -112,6 +117,8 @@ CREATE TABLE IMPULSO(
 	Estatus varchar(20),
 	Fecha date,
 	Tipo_Impulso int,
+	Fecha_de_registro timestamp,
+	PRIMARY KEY (Id_Impulso),
 	FOREIGN KEY (Tipo_Impulso) REFERENCES TIPO_IMPULSO(Id_tipo_impulso)
 
 );

@@ -26,7 +26,7 @@ CREATE TABLE PERSONA (
 CREATE TABLE DELITO (
 	Id_Delito int NOT NULL UNIQUE AUTO_INCREMENT,
 	Persona_Id int, 
-	Denuncia datetime,
+	Denuncia date,
 	Denuncia_CAMMI varchar(10),
 	Victima_de_Delito varchar(10),
 	Carpeta_de_Investigacion varchar(10),
@@ -40,7 +40,7 @@ CREATE TABLE PERFIL_DE_REFUGIO(
 	Id_Perfil_de_Refugio int NOT NULL UNIQUE AUTO_INCREMENT, 
 	Persona_Id int, 
 	Perfil_de_Refugio varchar(10),
-	Certificado_de_Nacionalidad_tramitado_CAMMI bool,
+	Certificado_de_Nacionalidad_tramitado_CAMMI  varchar(10),
 	Inicio_con_CAMMI varchar(10), 
 	Fecha_de_registro timestamp,
 	PRIMARY KEY (Id_Perfil_de_Refugio),
@@ -119,7 +119,7 @@ CREATE TABLE IMPULSO(
 	Tipo_Impulso int,
 	Fecha_de_registro timestamp,
 	PRIMARY KEY (Id_Impulso),
-	FOREIGN KEY (Tipo_Impulso) REFERENCES TIPO_IMPULSO(Id_tipo_impulso)
+	FOREIGN KEY (Tipo_Impulso) REFERENCES TIPO_IMPULSO(Id_tipo_impulso) ON DELETE CASCADE
 
 );
 
@@ -128,8 +128,8 @@ CREATE TABLE PERFIL_DE_REFUGIO_HAS_IMPULSO(
 	Id_Perfil_de_Refugio int, 
 	Id_Impulso int, 
 	Fecha_de_registro timestamp,
-	FOREIGN KEY (Id_Perfil_de_Refugio) REFERENCES PERFIL_DE_REFUGIO(Id_Perfil_de_Refugio),
-	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso),
+	FOREIGN KEY (Id_Perfil_de_Refugio) REFERENCES PERFIL_DE_REFUGIO(Id_Perfil_de_Refugio)ON DELETE CASCADE,
+	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso) ON DELETE CASCADE,
 	PRIMARY KEY (Id_Perfil_de_Refugio, id_Impulso)
 );
 
@@ -138,8 +138,8 @@ CREATE TABLE RETORNO_ASISTIDO_HAS_IMPULSO(
 	Id_Retorno_Asistido int, 
 	Id_Impulso int, 
 	Fecha_de_registro timestamp,
-	FOREIGN KEY (Id_Retorno_Asistido) REFERENCES RETORNO_ASISTIDO(Id_Retorno_Asistido),
-	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso),
+	FOREIGN KEY (Id_Retorno_Asistido) REFERENCES RETORNO_ASISTIDO(Id_Retorno_Asistido)ON DELETE CASCADE,
+	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso) ON DELETE CASCADE,
 	PRIMARY KEY (Id_Retorno_Asistido, id_Impulso)
 );
 
@@ -148,8 +148,8 @@ CREATE TABLE JUICIO_DE_AMPARO_HAS_IMPULSO(
 	Id_Juicio_de_Amparo int, 
 	Id_Impulso int, 
 	Fecha_de_registro timestamp,
-	FOREIGN KEY (Id_Juicio_de_Amparo) REFERENCES JUICIO_DE_AMPARO(Id_Juicio_de_Amparo),
-	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso),
+	FOREIGN KEY (Id_Juicio_de_Amparo) REFERENCES JUICIO_DE_AMPARO(Id_Juicio_de_Amparo) ON DELETE CASCADE,
+	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso) ON DELETE CASCADE,
 	PRIMARY KEY (Id_Juicio_de_Amparo, id_Impulso)
 );
 
@@ -158,8 +158,8 @@ CREATE TABLE REUFAM_HAS_IMPULSO(
 	Id_REUFAM int, 
 	Id_Impulso int, 
 	Fecha_de_registro timestamp,
-	FOREIGN KEY (Id_REUFAM) REFERENCES REUFAM(Id_REUFAM),
-	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso),
+	FOREIGN KEY (Id_REUFAM) REFERENCES REUFAM(Id_REUFAM)ON DELETE CASCADE,
+	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso)ON DELETE CASCADE,
 	PRIMARY KEY (Id_REUFAM, id_Impulso)
 );
 
@@ -168,8 +168,8 @@ CREATE TABLE REGULARIZACION_MIGRATORIO_HAS_IMPULSO(
 	Id_Regularización_Migratoria int, 
 	Id_Impulso int, 
 	Fecha_de_registro timestamp,
-	FOREIGN KEY (Id_Regularización_Migratoria) REFERENCES REGULARIZACION_MIGRATORIO(Id_Regularización_Migratoria),
-	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso),
+	FOREIGN KEY (Id_Regularización_Migratoria) REFERENCES REGULARIZACION_MIGRATORIO(Id_Regularización_Migratoria) ON DELETE CASCADE,
+	FOREIGN KEY (Id_impulso) REFERENCES IMPULSO(Id_impulso) ON DELETE CASCADE,
 	PRIMARY KEY (Id_Regularización_Migratoria, id_Impulso)
 );
 
@@ -232,8 +232,8 @@ CREATE TABLE ASISTENCIA_SOCIAL(
 	Fecha date,
 	Persona_Id int, 
 	Tipo_social int,
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio),
-	FOREIGN KEY (Tipo_social) REFERENCES TIPO_DE_APOYO_S(Id_Tipo_de_Apoyo)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE,
+	FOREIGN KEY (Tipo_social) REFERENCES TIPO_DE_APOYO_S(Id_Tipo_de_Apoyo) ON DELETE CASCADE
 
 );
 

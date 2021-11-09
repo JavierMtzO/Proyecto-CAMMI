@@ -7,7 +7,7 @@ const delitoController = require('../controllers/delito_controller');
 
 router.get('/delito', /* isAuth,*/delitoController.getNuevoDelito);
 
-//router.post('/delito',  /*isAuth,*/ delitoController.postNuevoDelito);
+router.post('/delito',  /*isAuth,*/ delitoController.postNuevoDelito);
 
 
 

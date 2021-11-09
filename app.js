@@ -57,6 +57,7 @@ app.use('/', rutasAlojamiento);
 app.use('/', rutasPil);
 app.use('/', rutasAtencionPsicosocial);
 app.use('/', rutasAsistenciaSocial);
+app.use('/', rutasDelito);
 //app.use('/',rutasRoot);
 
 // app.use((request, response, next) => {

@@ -15,6 +15,10 @@
                         <form
                             onSubmit="if(!confirm('¿Está seguro/a que quiere eliminar este migrante?')){return false;} "
                             action="/migrante/editar" method="POST">
+
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+
                             <div class="mb-3 text-end">
                                 <input type="submit" name="submit" class="btn btn-danger" value="Eliminar">
                             </div>
@@ -22,6 +26,10 @@
                         <form
                             onSubmit="if(!confirm('¿Está seguro/a que quiere guardar lo cambios realizados a este migrante?')){return false;} "
                             action="/migrante/editar" method="POST">
+
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+
                             <div class="row">
                                 <div class="col">
 

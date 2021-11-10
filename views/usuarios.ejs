@@ -30,9 +30,13 @@
                 <td><%= user.EMAIL%></td>
                 <td><%= user.NOMBRE%></td>
                 <td>
-                    <form action='/panel/usuarios' method='POST'><button class='btn btn-primary btn-sm' type='submit'
-                            name='editar' value='<%= user.ID_USUARIO%>'><i class="fa fa-pencil"
-                                aria-hidden="true"></i></button></form>
+                    <form action='/panel/usuarios' method='POST'>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class='btn btn-primary btn-sm' type='submit' name='editar'
+                            value='<%= user.ID_USUARIO%>'>
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
+                    </form>
                 </td>
             </tr>
             <% } %>

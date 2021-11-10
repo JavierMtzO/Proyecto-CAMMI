@@ -29,14 +29,20 @@
                 <td><%= migrante.Genero%></td>
                 <td><%= migrante.Nacionalidad%></td>
                 <td>
-                    <form action='/migrante' method='POST'><button class='btn btn-primary btn-sm' type='submit'
-                            name='ver' value='<%= migrante.Folio%>'><i class="fa fa-plus"
-                                aria-hidden="true"></i></button></form>
+                    <form action='/migrante' method='POST'>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class='btn btn-primary btn-sm' type='submit' name='ver' value='<%= migrante.Folio%>'>
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </form>
                 </td>
                 <td>
-                    <form action='/migrante' method='POST'><button class='btn btn-primary btn-sm' type='submit'
-                            name='editar' value='<%= migrante.Folio%>'><i class="fa fa-pencil"
-                                aria-hidden="true"></i></button></form>
+                    <form action='/migrante' method='POST'>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class='btn btn-primary btn-sm' type='submit' name='editar' value='<%= migrante.Folio%>'>
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
+                    </form>
                 </td>
             </tr>
             <% } %>

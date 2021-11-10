@@ -29,10 +29,9 @@ app.use(session({
 const multer = require('multer');
 
 const path = require('path');
-/*const csrf = require('csurf');
+const csrf = require('csurf');
 const csrfProtection = csrf();
-
-const csrfMiddleware = require('./util/csrf');*/
+const csrfMiddleware = require('./util/csrf');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
@@ -40,12 +39,11 @@ app.set('views', 'views');
 
 //Middleware
 app.use((request, response, next) => {
-    console.log('Middleware!');
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-//app.use(csrfProtection); 
-//app.use(csrfMiddleware);
+app.use(csrfProtection);
+app.use(csrfMiddleware);
 
 
 app.use('/', rutasMigrante);
@@ -60,10 +58,10 @@ app.use('/', rutasAsistenciaSocial);
 app.use('/', rutasDelito);
 //app.use('/',rutasRoot);
 
- app.use((request, response, next) => {
+app.use((request, response, next) => {
     console.log('Error 404');
-     response.status(404);
-     response.send('<h1>Página no disponible</h1>'); //Manda la respuesta
- });
+    response.status(404);
+    response.send('<h1>Página no disponible</h1>'); //Manda la respuesta
+});
 
 app.listen(3000);

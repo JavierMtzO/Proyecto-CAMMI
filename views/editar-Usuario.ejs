@@ -7,12 +7,14 @@
     </div>
     <form onSubmit="if(!confirm('¿Está seguro/a que quiere eliminar este usuario?')){return false;} "
         action="/panel/usuarios/editar" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <div class="mb-3 text-end">
             <input type="submit" name="submit" class="btn btn-danger" value="Eliminar">
         </div>
     </form>
     <form onSubmit="if(!confirm('¿Está seguro/a que quiere actualizar este usuario?')){return false;} "
         action="/panel/usuarios/editar" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <div class="row">
             <div class="col">
                 <div class="mb-3">
@@ -46,8 +48,8 @@
 
                 <div class="mb-3">
                     <label class="form-label"><strong>Contraseña</strong></label>
-                    <input value="<%= user[0].PASSWORD %>" class="form-control" type="password" name="password" minlength="8"
-                        required>
+                    <input value="<%= user[0].PASSWORD %>" class="form-control" type="password" name="password"
+                        minlength="8" required>
                 </div>
 
 

@@ -34,9 +34,9 @@ exports.postNuevoProgramas_integracion_local = (request, response, next) => {
     programa_integracion_local.save()
         .then(() => {
             //request.session.ultima_persona = request.body.nombreZona;
-            response.redirect('/programas_integracion_local');
+            response.redirect('/panel/psicosocial');
         }).catch(err => {
             console.log(err);
-            response.redirect('/programas_integracion_local');
+            response.redirect('/panel/psicosocial');
         });
 }

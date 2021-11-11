@@ -44,7 +44,7 @@ CREATE TABLE PERFIL_DE_REFUGIO(
 	Inicio_con_CAMMI varchar(10), 
 	Fecha_de_registro timestamp,
 	PRIMARY KEY (Id_Perfil_de_Refugio),
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)ON DELETE CASCADE
 
 );
 
@@ -56,7 +56,7 @@ CREATE TABLE RETORNO_ASISTIDO(
 	Acompañamiento_CAMMI varchar(10),
 	Fecha_de_registro timestamp,
 	PRIMARY KEY (Id_Retorno_Asistido),
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)ON DELETE CASCADE
 
 );
 
@@ -69,7 +69,7 @@ CREATE TABLE JUICIO_DE_AMPARO(
 	Resolución varchar(10),
 	Fecha_de_registro timestamp,
 	PRIMARY KEY (Id_Juicio_de_Amparo),
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)ON DELETE CASCADE
 
 );
 
@@ -81,7 +81,7 @@ CREATE TABLE REUFAM(
 	Asesoria varchar(10),
 	Fecha_de_registro timestamp,
 	PRIMARY KEY (Id_REUFAM),
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 
 );
 
@@ -94,7 +94,7 @@ CREATE TABLE REGULARIZACION_MIGRATORIO(
 	Resolución varchar(10), 
 	Fecha_de_registro timestamp,
 	PRIMARY KEY (Id_Regularización_Migratoria),
-	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio)
+	FOREIGN KEY (Persona_Id) REFERENCES PERSONA(Folio) ON DELETE CASCADE
 
 
 );

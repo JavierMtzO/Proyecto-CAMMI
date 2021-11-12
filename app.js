@@ -16,6 +16,9 @@ const rutasDelito = require('./routes/delito');
 const rutasPerfilRefugio = require('./routes/perfil_refugio');
 const rutasRetornoAsistido = require('./routes/retorno_asistido');
 const rutasJuicioAmparo = require('./routes/juicio_amparo');
+const rutasReufam = require('./routes/reufam');
+//const rutasRegularizacionMigratoria = require('./routes/regularizacion_migratoria');
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -61,6 +64,8 @@ app.use('/', rutasDelito);
 app.use('/',rutasPerfilRefugio);
 app.use('/',rutasRetornoAsistido);
 app.use('/',rutasJuicioAmparo);
+app.use('/',rutasReufam);
+//app.use('/',rutasRegularizacionMigratoria);
 
 app.use((request, response, next) => {
     console.log('Error 404');

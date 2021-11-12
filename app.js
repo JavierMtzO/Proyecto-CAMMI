@@ -3,7 +3,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-//const rutasRoot = require('./routes/root');
 const rutasMigrante = require('./routes/migrante');
 const rutasAlimentacion = require('./routes/alimentacion');
 const rutasUsuario = require('./routes/usuarios');
@@ -14,6 +13,8 @@ const rutasPil = require('./routes/programas_integracion_local');
 const rutasAtencionPsicosocial = require('./routes/atencion_psicosocial');
 const rutasAsistenciaSocial = require('./routes/asistencia_social');
 const rutasDelito = require('./routes/delito');
+const rutasPerfilRefugio = require('./routes/perfil_refugio');
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -56,7 +57,7 @@ app.use('/', rutasPil);
 app.use('/', rutasAtencionPsicosocial);
 app.use('/', rutasAsistenciaSocial);
 app.use('/', rutasDelito);
-//app.use('/',rutasRoot);
+app.use('/',rutasPerfilRefugio);
 
 app.use((request, response, next) => {
     console.log('Error 404');

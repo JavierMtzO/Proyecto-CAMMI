@@ -14,6 +14,7 @@ const rutasAtencionPsicosocial = require('./routes/atencion_psicosocial');
 const rutasAsistenciaSocial = require('./routes/asistencia_social');
 const rutasDelito = require('./routes/delito');
 const rutasPerfilRefugio = require('./routes/perfil_refugio');
+const rutasRetornoAsistido = require('./routes/retorno_asistido');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -58,6 +59,7 @@ app.use('/', rutasAtencionPsicosocial);
 app.use('/', rutasAsistenciaSocial);
 app.use('/', rutasDelito);
 app.use('/',rutasPerfilRefugio);
+app.use('/',rutasRetornoAsistido);
 
 app.use((request, response, next) => {
     console.log('Error 404');

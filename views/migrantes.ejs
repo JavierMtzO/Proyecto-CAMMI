@@ -19,7 +19,8 @@
                 <th>Edad</th>
                 <th>Género</th>
                 <th>Nacionalidad</th>
-                <th>Ver Más</th>
+                <th>Datos de migrante</th>
+                <th>Apoyos recibidos</th>
                 <th>Editar</th>
             </tr>
             <% for (let migrante of migrantes) {%>
@@ -32,6 +33,14 @@
                     <form action='/migrante' method='POST'>
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <button class='btn btn-primary btn-sm' type='submit' name='ver' value='<%= migrante.Folio%>'>
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </td>
+                <td>
+                    <form action='/migrante' method='POST'>
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class='btn btn-primary btn-sm' type='submit' name='apoyos' value='<%= migrante.Folio%>'>
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </button>
                     </form>

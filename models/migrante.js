@@ -50,6 +50,20 @@ module.exports = class Persona {
         return db.execute('DELETE FROM PERSONA WHERE Folio = ?', [folio]);
     }
 
+    static fetchAlojamiento(folio) {
+        return db.execute('SELECT Persona_Refugiada, Miembro_de_la_Estacion_Migratoria, Uso_de_Cama, Alojamiento_con_Costo, MPP, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM alojamiento a, persona p WHERE a.Persona_Id = p.Folio AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
+    }
 
-
+    static fetchComunicacion(folio) {
+        return db.execute('SELECT Inicio_Servicio, Carga_de_Bateria, Uso_de_Wifi, Pais_Destino_de_Llamada, Completado_de_la_Llamada, Mantenimiento_del_Contacto_Familiar, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM comunicacion c, persona p WHERE c.Persona_Id = p.Folio AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
+    }
+    static fetchPIL(folio) {
+        return db.execute('SELECT Nombre_Tipo_de_Apoyo, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM programa_integracion_local pil, persona p, tipo_de_apoyo_pil t WHERE pil.Persona_Id = p.Folio AND pil.Tipo_pil = t.Id_Tipo_de_Apoyo AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
+    }
+    static fetchAtencionPsicosocial(folio) {
+        return db.execute('SELECT Nombre_Tipo_de_Apoyo, Formato_de_atencion, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM atencion_psicosocial a, tipo_de_apoyo_p t, persona p WHERE a.Persona_Id = p.Folio AND a.Tipo_psicosocial = t.Id_Tipo_de_Apoyo AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
+    }
+    static fetchAtencionSocial(folio) {
+        return db.execute('SELECT Nombre_Tipo_de_Apoyo, Formato_de_atencion, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM asistencia_social a, tipo_de_apoyo_s t, persona p WHERE a.Persona_Id = p.Folio AND a.Tipo_social = t.Id_Tipo_de_Apoyo AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
+    }
 }

@@ -22,10 +22,12 @@ exports.postMigrantes = (request, response, next) => {
      } else if (request.body.ver) {
           request.session.folio = request.body.ver;
           response.redirect('/migrante/ver');
+     } else if (request.body.apoyos) {
+          request.session.folio = request.body.apoyos;
+          response.redirect('/migrante/apoyos');
      }
 
 }
-
 exports.getNuevoMigrante = (request, response, next) => {
 
      response.render('registro-Migrante');/*,{
@@ -33,7 +35,6 @@ exports.getNuevoMigrante = (request, response, next) => {
     });*/
 
 }
-
 exports.postNuevoMigrante = (request, response, next) => {
      console.log(request.body);
      const persona = new Persona(request.body.Nombre, request.body.Edad, request.body.Rango_de_Edad, request.body.Genero, request.body.Nacionalidad, request.body.Discapacidad, request.body.Contacto, request.body.Lgbt, request.body.Dispositivo_propio, request.body.Rfc, request.body.Nss, request.body.Asesoria, request.body.Acompanado);
@@ -46,7 +47,6 @@ exports.postNuevoMigrante = (request, response, next) => {
                response.redirect('/migrante');
           });
 }
-
 exports.getVerMigrante = (request, response, next) => {
 
      Persona.fetchOne(request.session.folio)
@@ -69,16 +69,6 @@ exports.getEditarMigrante = (request, response, next) => {
                console.log(err);
           });
 }
-// exports.postEditarMigrante = (request, response, next) => {
-
-//      Persona.update(request.body.Nombre, request.body.Edad, request.body.Rango_de_Edad, request.body.Genero, request.body.Nacionalidad, request.body.Discapacidad, request.body.Contacto, request.body.Lgbt, request.body.Dispositivo_propio, request.body.Rfc, request.body.Nss, request.body.Asesoria, request.body.Acompanado, request.session.folio)
-//           .then(([rows, fieldData]) => {
-//                response.redirect('/migrante');
-//           }).catch(err => {
-//                console.log(err);
-//           });
-
-// }
 exports.postEditarMigrante = (request, response, next) => {
      if (request.body.submit == 'Guardar cambios') {
           Persona.update(request.body.Nombre, request.body.Edad, request.body.Rango_de_Edad, request.body.Genero, request.body.Nacionalidad, request.body.Discapacidad, request.body.Contacto, request.body.Lgbt, request.body.Dispositivo_propio, request.body.Rfc, request.body.Nss, request.body.Asesoria, request.body.Acompanado, request.session.folio)
@@ -95,4 +85,38 @@ exports.postEditarMigrante = (request, response, next) => {
                     console.log(err);
                });
      }
+}
+exports.getApoyosAMigrantes = (request, response, next) => {
+     Persona.fetchAlojamiento(request.session.folio)
+          .then(([aloj, fieldData]) => {
+               Persona.fetchComunicacion(request.session.folio)
+                    .then(([comun, fieldData]) => {
+                         Persona.fetchPIL(request.session.folio)
+                              .then(([pil, fieldData]) => {
+                                   Persona.fetchAtencionPsicosocial(request.session.folio)
+                                        .then(([psico, fieldData]) => {
+                                             Persona.fetchAtencionSocial(request.session.folio)
+                                                  .then(([social, fieldData]) => {
+                                                       response.render('migrantes-apoyos-recibidos', {
+                                                            alojamientos: aloj,
+                                                            comunicaciones: comun,
+                                                            pils: pil,
+                                                            psicos: psico,
+                                                            sociales: social
+                                                       });
+                                                  }).catch(err => {
+                                                       console.log(err);
+                                                  });
+                                        }).catch(err => {
+                                             console.log(err);
+                                        });
+                              }).catch(err => {
+                                   console.log(err);
+                              });
+                    }).catch(err => {
+                         console.log(err);
+                    });
+          }).catch(err => {
+               console.log(err);
+          });
 }

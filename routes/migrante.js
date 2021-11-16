@@ -13,6 +13,8 @@ router.post('/migrante/agregar', isAuth, migranteController.postNuevoMigrante);
 
 router.get('/migrante/ver', isAuth, migranteController.getVerMigrante);
 
+router.get('/migrante/apoyos', isAuth, migranteController.getApoyosAMigrantes);
+
 router.get('/migrante/editar', isAuth, migranteController.getEditarMigrante);
 router.post('/migrante/editar', isAuth, migranteController.postEditarMigrante);
 

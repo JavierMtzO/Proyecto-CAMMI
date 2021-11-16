@@ -1,0 +1,183 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/sidebar.ejs') %>
+
+<div class="container">
+    <!-- Albergue -->
+    <h2 class="text-dark mb-5"> Albergue</h2>
+    <% if ((alojamientos.length === 0) && (comunicaciones.length === 0)) {%>
+    <p> No existen registros en la sección de Albergue para este migrante </p>
+    <% } else {%>
+    <div>
+        <div class="">
+            <h5 class="text-dark mb-4">Alojamientos</h5>
+        </div>
+        <% if (alojamientos.length === 0) {%>
+        <p> No existen registros de Alojamiento para este migrante </p>
+        <% } else { %>
+        <table id="myTable" class=" table">
+            <thead>
+                <tr>
+                    <th>Persona Refugiada</th>
+                    <th>Miembro de la estación migratoria</th>
+                    <th>Uso de cama</th>
+                    <th>Alojamiento con costo</th>
+                    <th>MPP</th>
+                    <th>Fecha</th>
+                </tr>
+                <% for (let alojamiento of alojamientos) {%>
+                <tr>
+                    <td><%= alojamiento.Persona_Refugiada%></td>
+                    <td><%= alojamiento.Miembro_de_la_Estacion_Migratoria%></td>
+                    <td><%= alojamiento.Uso_de_Cama%></td>
+                    <td><%= alojamiento.Alojamiento_con_Costo%></td>
+                    <td><%= alojamiento.MPP%></td>
+                    <td><%= alojamiento.Fecha%></td>
+                </tr>
+                <% } }%>
+            </thead>
+        </table>
+    </div>
+    <div>
+        <div class="">
+            <h5 class="text-dark mb-4">Comunicaciones</h5>
+        </div>
+        <% if (comunicaciones.length === 0) {%>
+        <p> No existen registros de Comunicación para este migrante </p>
+        <% } else { %>
+        <table id="myTable" class=" table">
+            <thead>
+                <tr>
+                    <th>Inicio Servicio</th>
+                    <th>Carga de Batería</th>
+                    <th>Uso de WiFi</th>
+                    <th>País de destino llamada</th>
+                    <th>Completado de la llamada</th>
+                    <th>Mantenimiento del contacto familiar</th>
+                    <th>Fecha</th>
+                </tr>
+                <% for (let comun of comunicaciones) {%>
+                <tr>
+                    <td><%= comun.Inicio_Servicio%></td>
+                    <td><%= comun.Carga_de_Bateria%></td>
+                    <td><%= comun.Uso_de_Wifi%></td>
+                    <td><%= comun.Pais_Destino_de_Llamada%></td>
+                    <td><%= comun.Completado_de_la_Llamada%></td>
+                    <td><%= comun.Mantenimiento_del_Contacto_Familiar%></td>
+                    <td><%= comun.Fecha%></td>
+                </tr>
+                <% } }%>
+            </thead>
+        </table>
+    </div>
+    <% }%>
+    <hr>
+    <!-- Psicosocial -->
+    <h2 class="text-dark mb-5"> Psicosocial</h2>
+    <% if ((pils.length === 0) && (psicos.length === 0) && (sociales.length === 0)) {%>
+    <p> No existen registros en la sección de Psicosocial para este migrante </p>
+    <% } else {%>
+    <div>
+        <div class="">
+            <h5 class="text-dark mb-4">Programa de Integración social</h5>
+        </div>
+        <% if (pils.length === 0) {%>
+        <p> No existen registros de PIL para este migrante </p>
+        <% } else { %>
+        <table id="myTable" class="table">
+            <thead>
+                <tr>
+                    <th>Tipo de apoyo</th>
+                    <th>Fecha</th>
+                </tr>
+                <% for (let pil of pils) {%>
+                <tr>
+                    <td><%= pil.Nombre_Tipo_de_Apoyo%></td>
+                    <td><%= pil.Fecha%></td>
+                </tr>
+                <% } }%>
+            </thead>
+        </table>
+    </div>
+    <div>
+        <div class="">
+            <h5 class="text-dark mb-4">Atención Psicosocial</h5>
+        </div>
+        <% if (psicos.length === 0) {%>
+        <p> No existen registros de Atención Psicosocial para este migrante </p>
+        <% } else { %>
+        <table id="myTable" class="table">
+            <thead>
+                <tr>
+                    <th>Tipo de apoyo</th>
+                    <th>Formato de atención</th>
+                    <th>Fecha</th>
+                </tr>
+                <% for (let psico of psicos) {%>
+                <tr>
+                    <td><%= psico.Nombre_Tipo_de_Apoyo%></td>
+                    <td><%= psico.Formato_de_atencion%></td>
+                    <td><%= psico.Fecha%></td>
+                </tr>
+                <% } }%>
+            </thead>
+        </table>
+    </div>
+    <div>
+        <div class="">
+            <h5 class="text-dark mb-4">Atención Social</h5>
+        </div>
+        <% if (sociales.length === 0) {%>
+        <p> No existen registros de Atención Social para este migrante </p>
+        <% } else { %>
+        <table id="myTable" class="table">
+            <thead>
+                <tr>
+                    <th>Tipo de apoyo</th>
+                    <th>Formato de atención</th>
+                    <th>Fecha</th>
+                </tr>
+                <% for (let social of sociales) {%>
+                <tr>
+                    <td><%= social.Nombre_Tipo_de_Apoyo%></td>
+                    <td><%= social.Formato_de_atencion%></td>
+                    <td><%= social.Fecha%></td>
+                </tr>
+                <% } }%>
+            </thead>
+        </table>
+    </div>
+    <% }%>
+    <hr>
+    <!-- Jurídico -->
+    <h2 class="text-dark mb-5"> Jurídico</h2>
+    <div>
+        <div class="">
+            <h5 class="text-dark mb-4">Alojamientos</h5>
+        </div>
+        <table id="myTable" class="table">
+            <thead>
+                <tr>
+                    <th>Persona Refugiada</th>
+                    <th>Miembro de la estación migratoria</th>
+                    <th>Uso de cama</th>
+                    <th>Alojamiento con costo</th>
+                    <th>MPP</th>
+                    <th>Fecha</th>
+                </tr>
+                <% for (let alojamiento of alojamientos) {%>
+                <tr>
+                    <td><%= alojamiento.Persona_Refugiada%></td>
+                    <td><%= alojamiento.Miembro_de_la_Estacion_Migratoria%></td>
+                    <td><%= alojamiento.Uso_de_Cama%></td>
+                    <td><%= alojamiento.Alojamiento_con_Costo%></td>
+                    <td><%= alojamiento.MPP%></td>
+                    <td><%= alojamiento.Fecha%></td>
+                </tr>
+                <% } %>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<%- include('includes/endsidebar.ejs') %>
+<%- include('includes/footer.ejs') %>

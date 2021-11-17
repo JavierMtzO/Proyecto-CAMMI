@@ -1,15 +1,15 @@
 const db = require('../util/database');
 
-/*
+
 module.exports = class JuicioAmparo {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
-    constructor(Nombre, Denuncia, Denuncia_CAMMI,Victima_de_Delito,Carpeta_de_Investigacion) {
+    constructor(Nombre, Inicio, Inicio_CAMMI, Resolucion, Fecha) {
         this.Nombre=Nombre;
-        this.Denuncia=Denuncia;
-        this.Denuncia_CAMMI=Denuncia_CAMMI;
-        this.Victima_de_Delito=Victima_de_Delito;
-        this.Carpeta_de_Investigacion=Carpeta_de_Investigacion; 
+        this.Inicio=Inicio;
+        this.Inicio_CAMMI=Inicio_CAMMI;
+        this.Resolucion=Resolucion;
+        this.Fecha=Fecha; 
         
         
 
@@ -18,15 +18,15 @@ module.exports = class JuicioAmparo {
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
 
-      return db.execute('INSERT INTO `delito` ( `Persona_Id`, `Denuncia`, `Denuncia_CAMMI`, `Victima_de_Delito`, `Carpeta_de_Investigacion`) VALUES ( ?, ?, ?, ?, ?)',
-        [this.Nombre,this.Denuncia,this.Denuncia_CAMMI,this.Victima_de_Delito,this.Carpeta_de_Investigacion]
+      return db.execute('INSERT INTO `juicio_de_amparo` ( `Persona_Id`, `Inicio`, `Inicio_CAMMI`, `Resolucion`, `Fecha`) VALUES ( ?, ?, ?, ?, ?)',
+        [this.Nombre,this.Inicio,this.Inicio_CAMMI,this.Resolucion,this.Fecha]
         );
         
     }
 
     static fetchAll() {
 
-        return db.execute('SELECT * FROM delito	')
+        return db.execute('SELECT * FROM juicio_de_amparo	')
           
         //return personas;
         
@@ -34,4 +34,4 @@ module.exports = class JuicioAmparo {
 
 
 
-}*/
+}

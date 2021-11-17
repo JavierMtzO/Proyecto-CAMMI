@@ -7,7 +7,7 @@ const isAuth = require('../util/is-auth');
 
 router.get('/juicio_amparo', isAuth, JuicioAmparoController.getNuevoJuicioAmparo);
 
-//router.post('/juicio_amparo', isAuth, JuicioAmparoController.postNuevoJuicioAmparo);
+router.post('/juicio_amparo', isAuth, JuicioAmparoController.postNuevoJuicioAmparo);
 
 
 

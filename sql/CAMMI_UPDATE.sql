@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2021 a las 01:48:16
+-- Tiempo de generación: 17-11-2021 a las 05:39:28
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.1
 
@@ -52,6 +52,14 @@ CREATE TABLE `alojamiento` (
   `Fecha` date DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `alojamiento`
+--
+
+INSERT INTO `alojamiento` (`Id_Alojamiento`, `Persona_Id`, `Persona_Refugiada`, `Miembro_de_la_Estacion_Migratoria`, `Uso_de_Cama`, `Alojamiento_con_Costo`, `MPP`, `Fecha`, `Fecha_de_registro`) VALUES
+(1, 1, 'SI', 'SI', 'NO', 'NO', 'SI', '2021-11-15', '2021-11-16 04:33:44'),
+(2, 1, 'SI', 'SI', 'SI', 'SI', 'SI', '2021-11-14', '2021-11-16 05:09:00');
 
 -- --------------------------------------------------------
 
@@ -144,7 +152,8 @@ CREATE TABLE `juicio_de_amparo` (
   `Persona_Id` int(11) DEFAULT NULL,
   `Inicio` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Inicio_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `Resolución` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Resolucion` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Fecha` date NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -172,7 +181,8 @@ CREATE TABLE `perfil_de_refugio` (
   `Perfil_de_Refugio` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Certificado_de_Nacionalidad_tramitado_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Inicio_con_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `Fecha` date DEFAULT NULL,
+  `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -216,7 +226,8 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`Folio`, `Nombre`, `Edad`, `Rango_de_Edad`, `Genero`, `Nacionalidad`, `Discapacidad`, `Contacto`, `LGBT`, `Dispositivo_propio`, `RFC`, `NSS`, `Asesoria`, `Acompanado`, `Fecha_de_registro`) VALUES
-(1, 'Adrián Torres Hernández', 0, 'NN: 0-11 años', 'MASCULINO', 'ARGENTINA', 'NO', '', 'NO', 'NO', '', '', 'NO', 'NO', '2021-11-06 06:48:42');
+(1, 'Adrián Torres Hernández', 21, 'NN: 0-11 años', 'MASCULINO', 'ARGENTINA', 'NO', '', 'NO', 'NO', '', '', 'NO', 'NO', '2021-11-16 04:41:44'),
+(2, 'Javier Martinez Olivares', 22, 'Adul: 18-59 años', 'MASCULINO', 'HONDURAS', 'NO', 'javier@itesm.mx', 'NO', 'SI', 'JMAO991234', '1569853', 'NO', 'SI', '2021-11-16 04:41:32');
 
 -- --------------------------------------------------------
 
@@ -270,6 +281,13 @@ CREATE TABLE `programa_integracion_local` (
   `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `programa_integracion_local`
+--
+
+INSERT INTO `programa_integracion_local` (`Id_PIL`, `Persona_Id`, `Fecha`, `Tipo_pil`, `Fecha_de_registro`) VALUES
+(1, 1, '2021-11-16', 1, '2021-11-16 06:11:58');
+
 -- --------------------------------------------------------
 
 --
@@ -281,7 +299,8 @@ CREATE TABLE `regularizacion_migratorio` (
   `Persona_Id` int(11) DEFAULT NULL,
   `Tipo` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Inicio` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `Resolución` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Resolucion` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Fecha` date NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -308,6 +327,7 @@ CREATE TABLE `retorno_asistido` (
   `Persona_Id` int(11) DEFAULT NULL,
   `Asesoría_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Acompañamiento_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Fecha` date NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -334,6 +354,7 @@ CREATE TABLE `reufam` (
   `Persona_Id` int(11) DEFAULT NULL,
   `Inicio_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Asesoria` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Fecha` date NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -523,10 +544,30 @@ INSERT INTO `tipo_de_platillo` (`Id_Tipo_de_Platillo`, `Nombre`) VALUES
 
 CREATE TABLE `tipo_impulso` (
   `Id_tipo_impulso` int(11) NOT NULL,
-  `Nombre` varchar(50) COLLATE utf8_spanish2_ci DEFAULT NULL,
-  `Tipo_de_tramite` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `Tipo_de_tramite` varchar(60) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `tipo_impulso`
+--
+
+INSERT INTO `tipo_impulso` (`Id_tipo_impulso`, `Tipo_de_tramite`, `Fecha_de_registro`) VALUES
+(1, 'Inscripción de Acta Extranjera de Menor', '2021-11-17 04:36:30'),
+(2, 'Regularización por vinculo familiar', '2021-11-17 04:36:30'),
+(3, 'Asesoría de RFC', '2021-11-17 04:36:30'),
+(4, 'Asesoría de NSS', '2021-11-17 04:36:30'),
+(5, 'Reposición de documentos', '2021-11-17 04:36:30'),
+(6, 'Asesoría para regularización por razones humanitarias', '2021-11-17 04:38:14'),
+(7, 'Asesoría para renovación de residencia temporal', '2021-11-17 04:36:30'),
+(8, 'Apoyo económico', '2021-11-17 04:36:30'),
+(9, 'Asesoría de caso de COMAR, certificación de nacionalidad', '2021-11-17 04:38:48'),
+(10, 'Cambio TVRH-RP', '2021-11-17 04:36:30'),
+(11, 'Apoyo para Banco', '2021-11-17 04:36:30'),
+(12, 'RFC', '2021-11-17 04:36:30'),
+(13, 'Inscripción de Acta Extranjera de Menor', '2021-11-17 04:36:30'),
+(14, 'RM', '2021-11-17 04:36:30'),
+(15, 'Asesoría', '2021-11-17 04:36:30');
 
 -- --------------------------------------------------------
 
@@ -787,7 +828,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alimentacion`
 --
 ALTER TABLE `alimentacion`
-  MODIFY `Id_Alimentacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_Alimentacion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `alojamiento`
@@ -799,25 +840,25 @@ ALTER TABLE `alojamiento`
 -- AUTO_INCREMENT de la tabla `asistencia_social`
 --
 ALTER TABLE `asistencia_social`
-  MODIFY `Id_Asistencia_Social` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Asistencia_Social` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `atencion_psicosocial`
 --
 ALTER TABLE `atencion_psicosocial`
-  MODIFY `Id_Atencion_Psicologica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Atencion_Psicologica` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `comunicacion`
 --
 ALTER TABLE `comunicacion`
-  MODIFY `Id_comunicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id_comunicacion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `delito`
 --
 ALTER TABLE `delito`
-  MODIFY `Id_Delito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id_Delito` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `impulso`
@@ -829,19 +870,19 @@ ALTER TABLE `impulso`
 -- AUTO_INCREMENT de la tabla `juicio_de_amparo`
 --
 ALTER TABLE `juicio_de_amparo`
-  MODIFY `Id_Juicio_de_Amparo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Juicio_de_Amparo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `perfil_de_refugio`
 --
 ALTER TABLE `perfil_de_refugio`
-  MODIFY `Id_Perfil_de_Refugio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Perfil_de_Refugio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `privilegios`
@@ -853,25 +894,25 @@ ALTER TABLE `privilegios`
 -- AUTO_INCREMENT de la tabla `programa_integracion_local`
 --
 ALTER TABLE `programa_integracion_local`
-  MODIFY `Id_PIL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_PIL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `regularizacion_migratorio`
 --
 ALTER TABLE `regularizacion_migratorio`
-  MODIFY `Id_Regularización_Migratoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Regularización_Migratoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `retorno_asistido`
 --
 ALTER TABLE `retorno_asistido`
-  MODIFY `Id_Retorno_Asistido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Retorno_Asistido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `reufam`
 --
 ALTER TABLE `reufam`
-  MODIFY `Id_REUFAM` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_REUFAM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -919,7 +960,7 @@ ALTER TABLE `tipo_de_platillo`
 -- AUTO_INCREMENT de la tabla `tipo_impulso`
 --
 ALTER TABLE `tipo_impulso`
-  MODIFY `Id_tipo_impulso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_tipo_impulso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

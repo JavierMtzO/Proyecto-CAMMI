@@ -30,18 +30,28 @@
                                     </div>
 
 
+
                                     <div class="mb-3">
-                                        <label class="form-label" for="Denuncia"><strong>Fecha de
-                                                delito</strong></label>
-                                        <input type="date" class="form-control" id="Denuncia" placeholder="DD/MM/AAAA"
-                                            name="Denuncia">
+                                        <label for="Tipo"><strong>Tipo regularización migratoria</strong></label>
+
+                                        <select id="Tipo" class="form-select"
+                                            aria-label="Default select example" name="Tipo">
+                                            <option value="REPOS(RP)">REPOS(RP)</option>
+                                            <option value="RP(REP)">RP(REP)</option>
+                                            <option value="TVRH->RP">TVRH->RP</option>
+                                            <option value="RP(REUFAM)">RP(REUFAM)</option>
+                                            <option value="RH(RCR)">RH(RCR)</option>
+                                            <option value="RH(VICTIMA)">RH(VICTIMA)</option>
+                                            <option value="RM(OEM)">RM(OEM)</option>
+                                            <option value="OEM">OEM</option>
+                                        </select>
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="Carga_de_Bateria"><strong>La denuncia fue con CAMMI</strong></label>
+                                        <label for="Inicio"><strong>Inicio</strong></label>
 
-                                        <select id="Denuncia_CAMMI" class="form-select"
-                                            aria-label="Default select example" name="Denuncia_CAMMI">
+                                        <select id="Inicio" class="form-select"
+                                            aria-label="Default select example" name="Inicio">
                                             <option value="NO">NO</option>
                                             <option value="SI">SI</option>
                                         </select>
@@ -49,33 +59,28 @@
 
 
 
+
                                 </div>
                                 <div class="col">
 
-
                                     <div class="mb-3">
-                                        <label for="Victima_de_Delito"><strong>víctima de delito</strong></label>
+                                        <label for="Resolucion"><strong>Resolución</strong></label>
 
-                                        <select id="Victima_de_Delito" class="form-select"
-                                            aria-label="Default select example" name="Victima_de_Delito">
-                                            <option value="NO"> NO </option>
+                                        <select id="Resolucion" class="form-select"
+                                            aria-label="Default select example" name="Resolucion">
+                                            <option value="NO">NO</option>
                                             <option value="SI">SI</option>
                                         </select>
                                     </div>
 
 
-
-
-
                                     <div class="mb-3">
-                                        <label for="Carpeta_de_Investigacion"><strong>Carpeta de
-                                                investigación</strong></label>
-                                        <select id="Carpeta_de_Investigacion" class="form-select"
-                                            aria-label="Default select example" name="Carpeta_de_Investigacion">
-                                            <option value="NO"> NO </option>
-                                            <option value="SI">SI</option>
-                                        </select>
+                                        <label class="form-label" for="Fecha"><strong>Fecha de
+                                            regularización migratoria</strong></label>
+                                        <input type="date" class="form-control" id="Fecha" placeholder="DD/MM/AAAA"
+                                            name="Fecha">
                                     </div>
+
 
 
 

@@ -7,7 +7,7 @@ const isAuth = require('../util/is-auth');
 
 router.get('/perfil_refugio', isAuth, PerfilRefugioController.getNuevoPerfilRefugio);
 
-//router.post('/perfil_refugio', isAuth, PerfilRefugioController.postNuevoPerfilRefugio);
+router.post('/perfil_refugio', isAuth, PerfilRefugioController.postNuevoPerfilRefugio);
 
 
 

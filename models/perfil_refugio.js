@@ -1,15 +1,15 @@
 const db = require('../util/database');
 
-/*
+
 module.exports = class PerfilRefugio {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
-    constructor(Nombre, Denuncia, Denuncia_CAMMI,Victima_de_Delito,Carpeta_de_Investigacion) {
+    constructor(Nombre, Perfil_de_Refugio, Certificado_de_Nacionalidad_tramitado_CAMMI, Inicio_con_CAMMI, Fecha) {
         this.Nombre=Nombre;
-        this.Denuncia=Denuncia;
-        this.Denuncia_CAMMI=Denuncia_CAMMI;
-        this.Victima_de_Delito=Victima_de_Delito;
-        this.Carpeta_de_Investigacion=Carpeta_de_Investigacion; 
+        this.Perfil_de_Refugio=Perfil_de_Refugio;
+        this.Certificado_de_Nacionalidad_tramitado_CAMMI=Certificado_de_Nacionalidad_tramitado_CAMMI;
+        this.Inicio_con_CAMMI=Inicio_con_CAMMI;
+        this.Fecha=Fecha; 
         
         
 
@@ -18,15 +18,15 @@ module.exports = class PerfilRefugio {
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
 
-      return db.execute('INSERT INTO `delito` ( `Persona_Id`, `Denuncia`, `Denuncia_CAMMI`, `Victima_de_Delito`, `Carpeta_de_Investigacion`) VALUES ( ?, ?, ?, ?, ?)',
-        [this.Nombre,this.Denuncia,this.Denuncia_CAMMI,this.Victima_de_Delito,this.Carpeta_de_Investigacion]
+      return db.execute('INSERT INTO `perfil_de_refugio` ( `Persona_Id`, `Perfil_de_Refugio`, `Certificado_de_Nacionalidad_tramitado_CAMMI`, `Inicio_con_CAMMI`, `Fecha`) VALUES ( ?, ?, ?, ?, ?)',
+        [this.Nombre,this.Perfil_de_Refugio,this.Certificado_de_Nacionalidad_tramitado_CAMMI,this.Inicio_con_CAMMI,this.Fecha]
         );
         
     }
 
     static fetchAll() {
 
-        return db.execute('SELECT * FROM delito	')
+        return db.execute('SELECT * FROM perfil_de_refugio	')
           
         //return personas;
         
@@ -34,4 +34,4 @@ module.exports = class PerfilRefugio {
 
 
 
-}*/
+}

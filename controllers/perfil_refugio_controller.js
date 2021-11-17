@@ -19,10 +19,10 @@ exports.getNuevoPerfilRefugio = (request, response, next) => {
 
 }
 
-/*
+
 exports.postNuevoPerfilRefugio = (request, response, next) => {
      console.log(request.body);
-     const perfilrefugio = new PerfilRefugio(request.body.Nombre, request.body.Denuncia, request.body.Denuncia_CAMMI, request.body.Victima_de_Delito, request.body.Carpeta_de_Investigacion);
+     const perfilrefugio = new PerfilRefugio(request.body.Nombre, request.body.Perfil_de_Refugio, request.body.Certificado_de_Nacionalidad_tramitado_CAMMI, request.body.Inicio_con_CAMMI, request.body.Fecha);
      perfilrefugio.save()
           .then(() => {
                //request.session.ultima_persona = request.body.nombreZona;
@@ -31,4 +31,4 @@ exports.postNuevoPerfilRefugio = (request, response, next) => {
                console.log(err);
                response.redirect('/panel/juridico');
           });
-}*/
+}

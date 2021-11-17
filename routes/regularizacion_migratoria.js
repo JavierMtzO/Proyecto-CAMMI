@@ -7,7 +7,7 @@ const isAuth = require('../util/is-auth');
 
 router.get('/regularizacion_migratoria', isAuth, RegularizacionMigratoriaController.getNuevoRegularizacionMigratoria);
 
-//router.post('/regularizacion_migratoria', isAuth, RegularizacionMigratoriaController.postNuevoRegularizacionMigratoria);
+router.post('/regularizacion_migratoria', isAuth, RegularizacionMigratoriaController.postNuevoRegularizacionMigratoria);
 
 
 

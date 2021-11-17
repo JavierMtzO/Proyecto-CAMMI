@@ -19,10 +19,10 @@ exports.getNuevoRetornoAsistido = (request, response, next) => {
 
 }
 
-/*
+
 exports.postNuevoRetornoAsistido = (request, response, next) => {
      console.log(request.body);
-     const retornoasistido = new RetornoAsistido(request.body.Nombre, request.body.Denuncia, request.body.Denuncia_CAMMI, request.body.Victima_de_Delito, request.body.Carpeta_de_Investigacion);
+     const retornoasistido = new RetornoAsistido(request.body.Nombre, request.body.Asesoría_CAMMI, request.body.Acompañamiento_CAMMI, request.body.Fecha);
      retornoasistido.save()
           .then(() => {
                //request.session.ultima_persona = request.body.nombreZona;
@@ -31,4 +31,4 @@ exports.postNuevoRetornoAsistido = (request, response, next) => {
                console.log(err);
                response.redirect('/panel/juridico');
           });
-}*/
+}

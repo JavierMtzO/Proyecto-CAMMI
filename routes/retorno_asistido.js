@@ -7,7 +7,7 @@ const isAuth = require('../util/is-auth');
 
 router.get('/retorno_asistido', isAuth, RetornoAsistidoController.getNuevoRetornoAsistido);
 
-//router.post('/retorno_asistido', isAuth, RetornoAsistidoController.postNuevoRetornoAsistido);
+router.post('/retorno_asistido', isAuth, RetornoAsistidoController.postNuevoRetornoAsistido);
 
 
 

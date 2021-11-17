@@ -7,7 +7,7 @@ const isAuth = require('../util/is-auth');
 
 router.get('/reufam', isAuth, ReufamController.getNuevoReufam);
 
-//router.post('/reufam', isAuth, ReufamController.postNuevoReufam);
+router.post('/reufam', isAuth, ReufamController.postNuevoReufam);
 
 
 

@@ -19,10 +19,10 @@ exports.getNuevoReufam = (request, response, next) => {
 
 }
 
-/*
+
 exports.postNuevoReufam = (request, response, next) => {
      console.log(request.body);
-     const reufam = new Reufam(request.body.Nombre, request.body.Denuncia, request.body.Denuncia_CAMMI, request.body.Victima_de_Delito, request.body.Carpeta_de_Investigacion);
+     const reufam = new Reufam(request.body.Nombre, request.body.Inicio_CAMMI, request.body.Asesoria, request.body.Fecha);
      reufam.save()
           .then(() => {
                //request.session.ultima_persona = request.body.nombreZona;
@@ -31,4 +31,4 @@ exports.postNuevoReufam = (request, response, next) => {
                console.log(err);
                response.redirect('/panel/juridico');
           });
-}*/
+}

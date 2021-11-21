@@ -30,7 +30,7 @@ exports.getNuevoProgramas_integracion_local = (request, response, next) => {
 
 exports.postNuevoProgramas_integracion_local = (request, response, next) => {
     console.log(request.body);
-    const programa_integracion_local = new Programa_integracion_local(request.body.Nombre, request.body.Fecha, request.body.Tipo_pil);
+    const programa_integracion_local = new Programa_integracion_local(request.body.Nombre, request.body.Fecha, request.body.Tipo_pil, request.body.Inicio);
     programa_integracion_local.save()
         .then(() => {
             //request.session.ultima_persona = request.body.nombreZona;

@@ -30,7 +30,7 @@ exports.getNuevoAtencion_psicosocial = (request, response, next) => {
 
 exports.postNuevoAtencion_psicosocial = (request, response, next) => {
     console.log(request.body);
-    const atencion_psicosocial = new Atencion_psicosocial(request.body.Nombre, request.body.Fecha, request.body.Tipo_psicosocial, request.body.Formato_de_Atencion);
+    const atencion_psicosocial = new Atencion_psicosocial(request.body.Nombre, request.body.Fecha, request.body.Tipo_psicosocial, request.body.Formato_de_Atencion,request.body.Inicio);
     atencion_psicosocial.save()
         .then(() => {
             //request.session.ultima_persona = request.body.nombreZona;

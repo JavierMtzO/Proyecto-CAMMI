@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2021 a las 05:39:28
+-- Tiempo de generación: 21-11-2021 a las 04:19:35
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.1
 
@@ -73,6 +73,8 @@ CREATE TABLE `asistencia_social` (
   `Fecha` date DEFAULT NULL,
   `Tipo_social` int(11) DEFAULT NULL,
   `Formato_de_Atencion` varchar(25) DEFAULT NULL,
+  `Inicio` varchar(10) NOT NULL,
+  `Canalizacion` varchar(40) NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -88,6 +90,7 @@ CREATE TABLE `atencion_psicosocial` (
   `Fecha` date DEFAULT NULL,
   `Tipo_psicosocial` int(11) DEFAULT NULL,
   `Formato_de_atencion` varchar(25) DEFAULT NULL,
+  `Inicio` varchar(10) NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -278,15 +281,9 @@ CREATE TABLE `programa_integracion_local` (
   `Persona_Id` int(11) DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
   `Tipo_pil` int(11) DEFAULT NULL,
+  `Inicio` varchar(10) NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `programa_integracion_local`
---
-
-INSERT INTO `programa_integracion_local` (`Id_PIL`, `Persona_Id`, `Fecha`, `Tipo_pil`, `Fecha_de_registro`) VALUES
-(1, 1, '2021-11-16', 1, '2021-11-16 06:11:58');
 
 -- --------------------------------------------------------
 
@@ -840,13 +837,13 @@ ALTER TABLE `alojamiento`
 -- AUTO_INCREMENT de la tabla `asistencia_social`
 --
 ALTER TABLE `asistencia_social`
-  MODIFY `Id_Asistencia_Social` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Asistencia_Social` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `atencion_psicosocial`
 --
 ALTER TABLE `atencion_psicosocial`
-  MODIFY `Id_Atencion_Psicologica` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Atencion_Psicologica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `comunicacion`
@@ -882,7 +879,7 @@ ALTER TABLE `perfil_de_refugio`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Folio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `privilegios`
@@ -894,7 +891,7 @@ ALTER TABLE `privilegios`
 -- AUTO_INCREMENT de la tabla `programa_integracion_local`
 --
 ALTER TABLE `programa_integracion_local`
-  MODIFY `Id_PIL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_PIL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `regularizacion_migratorio`

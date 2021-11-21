@@ -4,18 +4,19 @@ const db = require('../util/database');
 module.exports = class Programa_integracion_local {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
-    constructor(Nombre, Fecha,Tipo_pil ) {
+    constructor(Nombre, Fecha,Tipo_pil, Inicio ) {
         this.Nombre=Nombre;
         this.Fecha=Fecha;
         this.Tipo_pil=Tipo_pil;
+        this.Inicio=Inicio;
 
     }
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
 
-      return db.execute('INSERT INTO `programa_integracion_local` (`Persona_Id`, `Fecha`, `Tipo_pil`) VALUES ( ?, ?, ?);',
-        [this.Nombre, this.Fecha, this.Tipo_pil ]
+      return db.execute('INSERT INTO `programa_integracion_local` (`Persona_Id`, `Fecha`, `Tipo_pil`, `Inicio`) VALUES ( ?, ?, ?, ?);',
+        [this.Nombre, this.Fecha, this.Tipo_pil, this.Inicio ]
         );
         
     }

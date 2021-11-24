@@ -14,7 +14,8 @@ exports.getNuevoAtencion_psicosocial = (request, response, next) => {
             Tipo_de_apoyo_p.fetchAll()
                 .then(([tipos, fieldData]) => {
                     response.render('registro-Atencionpsicosocial', {
-                        personas: personas, tipos: tipos
+                        personas: personas, tipos: tipos,
+                        permisos: request.session.permisos
                     });
                 }).catch(err => {
                     console.log(err);

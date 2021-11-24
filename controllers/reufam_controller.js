@@ -9,7 +9,8 @@ exports.getNuevoReufam = (request, response, next) => {
      Persona.fetchAll()
           .then(([personas, fieldData]) => {
                response.render('registro-Reufam', {
-                    personas: personas
+                    personas: personas,
+                    permisos: request.session.permisos
                });
 
           }).catch(err => {

@@ -9,7 +9,8 @@ exports.getNuevoAlojamiento = (request, response, next) => {
      Persona.fetchAll()
           .then(([personas, fieldData]) => {
                response.render('registro-Alojamiento', {
-                    personas: personas
+                    personas: personas,
+                    permisos: request.session.permisos
                });
 
           }).catch(err => {

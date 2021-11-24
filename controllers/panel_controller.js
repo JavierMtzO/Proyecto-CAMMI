@@ -3,7 +3,9 @@ const nuevo_rol = require('../models/rol')
 
 
 exports.getPanelInicio = (request, response, next) => {
-    response.render('inicio');
+    response.render('inicio',{
+        permisos: request.session.permisos
+    });
 };
 exports.getPanelUsuarios = (request, response, next) => {
     request.session.id_usuario = 0;
@@ -11,7 +13,8 @@ exports.getPanelUsuarios = (request, response, next) => {
         .then(([userrows, fieldData]) => {
             response.render('usuarios', {
                 users: userrows,
-                exito_usuario: request.session.ultimo_personal === undefined ? false : request.session.ultimo_personal
+                exito_usuario: request.session.ultimo_personal === undefined ? false : request.session.ultimo_personal,
+                permisos: request.session.permisos
             });
         }).catch(err => {
             console.log(err);
@@ -25,7 +28,8 @@ exports.getPanelUsuariosCrear = (request, response, next) => {
     nuevo_rol.fetchAll()
         .then(([rows, fieldData]) => {
             response.render('crear-Usuario', {
-                roles: rows
+                roles: rows,
+                permisos: request.session.permisos
             });
         }).catch(err => {
             console.log(err);
@@ -60,7 +64,8 @@ exports.getPanelUsuariosEditar = (request, response, next) => {
                             response.render('editar-Usuario', {
                                 roles: rowsrol,
                                 user: rowsuser,
-                                roleuser: rowsroluser
+                                roleuser: rowsroluser,
+                                permisos: request.session.permisos
                             });
                         }).catch(err => {
                             console.log(err);
@@ -107,13 +112,19 @@ exports.postPanelUsuariosEditar = (request, response, next) => {
 };
 
 exports.getPanelJuridico = (request, response, next) => {
-    response.render('panel-Juridico');
+    response.render('panel-Juridico',{
+        permisos: request.session.permisos
+    });
 };
 
 exports.getPanelPsicosocial = (request, response, next) => {
-    response.render('panel-Psicosocial');
+    response.render('panel-Psicosocial',{
+        permisos: request.session.permisos
+    });
 };
 
 exports.getPanelAlbergue = (request, response, next) => {
-    response.render('panel-Albergue');
+    response.render('panel-Albergue',{
+        permisos: request.session.permisos
+    });
 };

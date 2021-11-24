@@ -19,4 +19,8 @@ module.exports = class nuevo_rol {
         return db.execute('SELECT U.ID_USUARIO, U.NAME, U.LASTNAME, U.USERNAME, U.EMAIL, R.NOMBRE FROM ROLES R, USUARIOS U WHERE R.ID_ROL = U.ID_ROL AND ID_USUARIO = ?', [id]);
     }
 
+    static getRol(email) {
+        return db.execute('SELECT  R.ID_ROL, U.ID_USUARIO, U.NAME, U.LASTNAME, U.USERNAME, U.EMAIL, R.NOMBRE FROM ROLES R, USUARIOS U WHERE R.ID_ROL = U.ID_ROL AND U.EMAIL = ?', [email]);
+    }
+
 }

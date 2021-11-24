@@ -9,7 +9,8 @@ exports.getMigrantes = (request, response, next) => {
           .then(([rows, fieldData]) => {
                response.render('migrantes', {
                     migrantes: rows,
-                    exito: request.session.ultima_persona === undefined ? false : request.session.ultima_persona
+                    exito: request.session.ultima_persona === undefined ? false : request.session.ultima_persona,
+                    permisos: request.session.permisos
                });
           }).catch(err => {
                console.log(err);

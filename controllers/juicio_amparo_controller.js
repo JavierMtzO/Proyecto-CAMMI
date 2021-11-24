@@ -9,7 +9,8 @@ exports.getNuevoJuicioAmparo = (request, response, next) => {
      Persona.fetchAll()
           .then(([personas, fieldData]) => {
                response.render('registro-JuicioAmparo', {
-                    personas: personas
+                    personas: personas,
+                    permisos: request.session.permisos
                });
 
           }).catch(err => {

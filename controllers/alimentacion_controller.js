@@ -10,7 +10,8 @@ exports.getNuevoAlimentacion = (request, response, next) => {
       Tipo_de_platillo.fetchAll()
         .then(([tipo_de_platillos, fieldData]) => {
           response.render('registro-Alimentacion', {
-            tipo_de_personas: tipo_de_personas, tipo_de_platillos: tipo_de_platillos
+            tipo_de_personas: tipo_de_personas, tipo_de_platillos: tipo_de_platillos,
+            permisos: request.session.permisos
           });
         }).catch(err => {
           console.log(err);

@@ -9,7 +9,8 @@ exports.getNuevoPerfilRefugio = (request, response, next) => {
      Persona.fetchAll()
           .then(([personas, fieldData]) => {
                response.render('registro-PerfilRefugio', {
-                    personas: personas
+                    personas: personas,
+                    permisos: request.session.permisos
                });
 
           }).catch(err => {

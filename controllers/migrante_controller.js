@@ -97,13 +97,49 @@ exports.getApoyosAMigrantes = (request, response, next) => {
                                         .then(([psico, fieldData]) => {
                                              Persona.fetchAtencionSocial(request.session.folio)
                                                   .then(([social, fieldData]) => {
-                                                       response.render('migrantes-apoyos-recibidos', {
-                                                            alojamientos: aloj,
-                                                            comunicaciones: comun,
-                                                            pils: pil,
-                                                            psicos: psico,
-                                                            sociales: social
-                                                       });
+                                                       Persona.fetchDelito(request.session.folio)
+                                                            .then(([delito, fieldData]) => {
+                                                                 Persona.fetchPerfilRefugio(request.session.folio)
+                                                                      .then(([perfref, fieldData]) => {
+                                                                           Persona.fetchRetornoAsistido(request.session.folio)
+                                                                                .then(([retasis, fieldData]) => {
+                                                                                     Persona.fetchJuicioAmparo(request.session.folio)
+                                                                                          .then(([juicioamp, fieldData]) => {
+                                                                                               Persona.fetchReufam(request.session.folio)
+                                                                                                    .then(([reufam, fieldData]) => {
+                                                                                                         Persona.fetchRegularizacionMigratoria(request.session.folio)
+                                                                                                              .then(([regmig, fieldData]) => {
+                                                                                                                   response.render('migrantes-apoyos-recibidos', {
+                                                                                                                        alojamientos: aloj,
+                                                                                                                        comunicaciones: comun,
+                                                                                                                        pils: pil,
+                                                                                                                        psicos: psico,
+                                                                                                                        sociales: social,
+                                                                                                                        delitos: delito,
+                                                                                                                        perfiles: perfref,
+                                                                                                                        retornos: retasis,
+                                                                                                                        juicios: juicioamp,
+                                                                                                                        reufams: reufam,
+                                                                                                                        regularizaciones: regmig
+                                                                                                                   });
+                                                                                                              }).catch(err => {
+                                                                                                                   console.log(err);
+                                                                                                              });
+                                                                                                    }).catch(err => {
+                                                                                                         console.log(err);
+                                                                                                    });
+                                                                                          }).catch(err => {
+                                                                                               console.log(err);
+                                                                                          });
+                                                                                }).catch(err => {
+                                                                                     console.log(err);
+                                                                                });
+                                                                      }).catch(err => {
+                                                                           console.log(err);
+                                                                      });
+                                                            }).catch(err => {
+                                                                 console.log(err);
+                                                            });
                                                   }).catch(err => {
                                                        console.log(err);
                                                   });

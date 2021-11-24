@@ -66,4 +66,24 @@ module.exports = class Persona {
     static fetchAtencionSocial(folio) {
         return db.execute('SELECT Nombre_Tipo_de_Apoyo, Formato_de_atencion, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM asistencia_social a, tipo_de_apoyo_s t, persona p WHERE a.Persona_Id = p.Folio AND a.Tipo_social = t.Id_Tipo_de_Apoyo AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
     }
+    static fetchDelito(folio) {
+        return db.execute('SELECT DATE_FORMAT(Denuncia, "%W %M %e %Y") as fecha, Denuncia_CAMMI, Victima_de_Delito,Carpeta_de_Investigacion FROM delito d, persona p WHERE d.Persona_Id = p.Folio AND p.Folio = ?', [folio]);
+    }
+    static fetchPerfilRefugio(folio) {
+        return db.execute('SELECT Perfil_de_Refugio, Certificado_de_Nacionalidad_tramitado_CAMMI as certificado, Inicio_con_CAMMI as inicio, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM perfil_de_refugio a, persona p WHERE a.Persona_Id = p.Folio AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
+    }
+    static fetchRetornoAsistido(folio) {
+        return db.execute('SELECT Asesoría_CAMMI, Acompañamiento_CAMMI, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM retorno_asistido a, persona p WHERE a.Persona_Id = p.Folio AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
+    }
+    static fetchJuicioAmparo(folio) {
+        return db.execute('SELECT Inicio, Inicio_CAMMI, Resolucion, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM juicio_de_amparo a, persona p WHERE a.Persona_Id = p.Folio AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
+    }
+    static fetchReufam(folio) {
+        return db.execute('SELECT Inicio_CAMMI, a.Asesoria, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM reufam a, persona p WHERE a.Persona_Id = p.Folio AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
+    }
+    static fetchRegularizacionMigratoria(folio) {
+        return db.execute('SELECT Tipo, Inicio, Resolucion, DATE_FORMAT(Fecha, "%W %M %e %Y") as Fecha FROM regularizacion_migratorio a, persona p WHERE a.Persona_Id = p.Folio AND p.Folio = ? ORDER BY date(Fecha)', [folio]);
+    }
+
+
 }

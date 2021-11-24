@@ -3,181 +3,418 @@
 
 <div class="container">
     <!-- Albergue -->
-    <h2 class="text-dark mb-5"> Albergue</h2>
-    <% if ((alojamientos.length === 0) && (comunicaciones.length === 0)) {%>
-    <p> No existen registros en la sección de Albergue para este migrante </p>
-    <% } else {%>
-    <div>
-        <div class="">
-            <h5 class="text-dark mb-4">Alojamientos</h5>
+    <div id="Albergue">
+        <h2 class="text-dark mb-5"> Albergue</h2>
+        <% if ((alojamientos.length === 0) && (comunicaciones.length === 0)) {%>
+        <p> No existen registros en la sección de Albergue para este migrante </p>
+        <% } else {%>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">Alojamientos</h5>
+            </div>
+            <% if (alojamientos.length === 0) {%>
+            <p> No existen registros de Alojamiento para este migrante </p>
+            <% } else { %>
+
+            <table id="alojamientos" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Persona Refugiada</th>
+                        <th>Miembro de la estación migratoria</th>
+                        <th>Uso de cama</th>
+                        <th>Alojamiento con costo</th>
+                        <th>MPP</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
         </div>
-        <% if (alojamientos.length === 0) {%>
-        <p> No existen registros de Alojamiento para este migrante </p>
-        <% } else { %>
-        <table id="myTable" class=" table">
-            <thead>
-                <tr>
-                    <th>Persona Refugiada</th>
-                    <th>Miembro de la estación migratoria</th>
-                    <th>Uso de cama</th>
-                    <th>Alojamiento con costo</th>
-                    <th>MPP</th>
-                    <th>Fecha</th>
-                </tr>
-                <% for (let alojamiento of alojamientos) {%>
-                <tr>
-                    <td><%= alojamiento.Persona_Refugiada%></td>
-                    <td><%= alojamiento.Miembro_de_la_Estacion_Migratoria%></td>
-                    <td><%= alojamiento.Uso_de_Cama%></td>
-                    <td><%= alojamiento.Alojamiento_con_Costo%></td>
-                    <td><%= alojamiento.MPP%></td>
-                    <td><%= alojamiento.Fecha%></td>
-                </tr>
-                <% } }%>
-            </thead>
-        </table>
-    </div>
-    <div>
-        <div class="">
-            <h5 class="text-dark mb-4">Comunicaciones</h5>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">Comunicaciones</h5>
+            </div>
+            <% if (comunicaciones.length === 0) {%>
+            <p> No existen registros de Comunicación para este migrante </p>
+            <% } else { %>
+
+            <table id="comunicaciones" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Inicio Servicio</th>
+                        <th>Carga de Batería</th>
+                        <th>Uso de WiFi</th>
+                        <th>País de destino llamada</th>
+                        <th>Completado de la llamada</th>
+                        <th>Mantenimiento del contacto familiar</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
         </div>
-        <% if (comunicaciones.length === 0) {%>
-        <p> No existen registros de Comunicación para este migrante </p>
-        <% } else { %>
-        <table id="myTable" class=" table">
-            <thead>
-                <tr>
-                    <th>Inicio Servicio</th>
-                    <th>Carga de Batería</th>
-                    <th>Uso de WiFi</th>
-                    <th>País de destino llamada</th>
-                    <th>Completado de la llamada</th>
-                    <th>Mantenimiento del contacto familiar</th>
-                    <th>Fecha</th>
-                </tr>
-                <% for (let comun of comunicaciones) {%>
-                <tr>
-                    <td><%= comun.Inicio_Servicio%></td>
-                    <td><%= comun.Carga_de_Bateria%></td>
-                    <td><%= comun.Uso_de_Wifi%></td>
-                    <td><%= comun.Pais_Destino_de_Llamada%></td>
-                    <td><%= comun.Completado_de_la_Llamada%></td>
-                    <td><%= comun.Mantenimiento_del_Contacto_Familiar%></td>
-                    <td><%= comun.Fecha%></td>
-                </tr>
-                <% } }%>
-            </thead>
-        </table>
+        <% }%>
     </div>
-    <% }%>
     <hr>
     <!-- Psicosocial -->
-    <h2 class="text-dark mb-5"> Psicosocial</h2>
-    <% if ((pils.length === 0) && (psicos.length === 0) && (sociales.length === 0)) {%>
-    <p> No existen registros en la sección de Psicosocial para este migrante </p>
-    <% } else {%>
-    <div>
-        <div class="">
-            <h5 class="text-dark mb-4">Programa de Integración social</h5>
+    <div id="Psicosocial">
+        <h2 class="text-dark mb-5"> Psicosocial</h2>
+        <% if ((pils.length === 0) && (psicos.length === 0) && (sociales.length === 0)) {%>
+        <p> No existen registros en la sección de Psicosocial para este migrante </p>
+        <% } else {%>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">Programa de Integración social</h5>
+            </div>
+            <% if (pils.length === 0) {%>
+            <p> No existen registros de PIL para este migrante </p>
+            <% } else { %>
+
+            <table id="pils" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tipo de apoyo</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
         </div>
-        <% if (pils.length === 0) {%>
-        <p> No existen registros de PIL para este migrante </p>
-        <% } else { %>
-        <table id="myTable" class="table">
-            <thead>
-                <tr>
-                    <th>Tipo de apoyo</th>
-                    <th>Fecha</th>
-                </tr>
-                <% for (let pil of pils) {%>
-                <tr>
-                    <td><%= pil.Nombre_Tipo_de_Apoyo%></td>
-                    <td><%= pil.Fecha%></td>
-                </tr>
-                <% } }%>
-            </thead>
-        </table>
-    </div>
-    <div>
-        <div class="">
-            <h5 class="text-dark mb-4">Atención Psicosocial</h5>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">Atención Psicosocial</h5>
+            </div>
+            <% if (psicos.length === 0) {%>
+            <p> No existen registros de Atención Psicosocial para este migrante </p>
+            <% } else { %>
+            <table id="psicosocial" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tipo de apoyo</th>
+                        <th>Formato de atención</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
         </div>
-        <% if (psicos.length === 0) {%>
-        <p> No existen registros de Atención Psicosocial para este migrante </p>
-        <% } else { %>
-        <table id="myTable" class="table">
-            <thead>
-                <tr>
-                    <th>Tipo de apoyo</th>
-                    <th>Formato de atención</th>
-                    <th>Fecha</th>
-                </tr>
-                <% for (let psico of psicos) {%>
-                <tr>
-                    <td><%= psico.Nombre_Tipo_de_Apoyo%></td>
-                    <td><%= psico.Formato_de_atencion%></td>
-                    <td><%= psico.Fecha%></td>
-                </tr>
-                <% } }%>
-            </thead>
-        </table>
-    </div>
-    <div>
-        <div class="">
-            <h5 class="text-dark mb-4">Atención Social</h5>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">Atención Social</h5>
+            </div>
+            <% if (sociales.length === 0) {%>
+            <p> No existen registros de Atención Social para este migrante </p>
+            <% } else { %>
+            <table id="social" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tipo de apoyo</th>
+                        <th>Formato de atención</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
         </div>
-        <% if (sociales.length === 0) {%>
-        <p> No existen registros de Atención Social para este migrante </p>
-        <% } else { %>
-        <table id="myTable" class="table">
-            <thead>
-                <tr>
-                    <th>Tipo de apoyo</th>
-                    <th>Formato de atención</th>
-                    <th>Fecha</th>
-                </tr>
-                <% for (let social of sociales) {%>
-                <tr>
-                    <td><%= social.Nombre_Tipo_de_Apoyo%></td>
-                    <td><%= social.Formato_de_atencion%></td>
-                    <td><%= social.Fecha%></td>
-                </tr>
-                <% } }%>
-            </thead>
-        </table>
+        <% }%>
     </div>
-    <% }%>
     <hr>
     <!-- Jurídico -->
-    <h2 class="text-dark mb-5"> Jurídico</h2>
-    <div>
-        <div class="">
-            <h5 class="text-dark mb-4">Alojamientos</h5>
+    <div id="Juridico">
+        <h2 class="text-dark mb-5"> Jurídico</h2>
+        <% if ((delitos.length === 0) && (perfiles.length === 0) && (retornos.length === 0) && (juicios.length === 0) && (reufams.length === 0) && (regularizaciones.length === 0)) {%>
+        <p> No existen registros en la sección de Jurídico para este migrante </p>
+        <% } else {%>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">Delitos</h5>
+            </div>
+            <% if (delitos.length === 0) {%>
+            <p> No existen registros de delitos para este migrante </p>
+            <% } else { %>
+
+            <table id="delitos" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Fecha de denuncia</th>
+                        <th>Denuncia con CAMMI</th>
+                        <th>Víctima de delito</th>
+                        <th>Carpeta de investigación</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
         </div>
-        <table id="myTable" class="table">
-            <thead>
-                <tr>
-                    <th>Persona Refugiada</th>
-                    <th>Miembro de la estación migratoria</th>
-                    <th>Uso de cama</th>
-                    <th>Alojamiento con costo</th>
-                    <th>MPP</th>
-                    <th>Fecha</th>
-                </tr>
-                <% for (let alojamiento of alojamientos) {%>
-                <tr>
-                    <td><%= alojamiento.Persona_Refugiada%></td>
-                    <td><%= alojamiento.Miembro_de_la_Estacion_Migratoria%></td>
-                    <td><%= alojamiento.Uso_de_Cama%></td>
-                    <td><%= alojamiento.Alojamiento_con_Costo%></td>
-                    <td><%= alojamiento.MPP%></td>
-                    <td><%= alojamiento.Fecha%></td>
-                </tr>
-                <% } %>
-            </thead>
-        </table>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">Perfil de Refugio</h5>
+            </div>
+            <% if (perfiles.length === 0) {%>
+            <p> No existen perfil de refugio para este migrante </p>
+            <% } else { %>
+
+            <table id="perfiles" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Perfil de refugio</th>
+                        <th>Certificado de nacionalidad tramitado con CAMMI</th>
+                        <th>Inicio con CAMMI</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
+        </div>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">Retorno asistido</h5>
+            </div>
+            <% if (retornos.length === 0) {%>
+            <p> No existen registros de retorno asistido para este migrante </p>
+            <% } else { %>
+
+            <table id="retornos" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Asesoría CAMMI</th>
+                        <th>Acompañamiento CAMMI</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
+        </div>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">Juicio de Amparo</h5>
+            </div>
+            <% if (juicios.length === 0) {%>
+            <p> No existen registros de Juicio de Amparo para este migrante </p>
+            <% } else { %>
+
+            <table id="juicios" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Inicio</th>
+                        <th>Inicio con CAMMI</th>
+                        <th>Resolución</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
+        </div>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">REUFAM</h5>
+            </div>
+            <% if (reufams.length === 0) {%>
+            <p> No existen registros de REUFAM para este migrante </p>
+            <% } else { %>
+
+            <table id="reufams" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Inicio con CAMMI</th>
+                        <th>Asesoría</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
+        </div>
+        <div>
+            <div class="">
+                <h5 class="text-dark mb-4">Regularización Migratoria</h5>
+            </div>
+            <% if (reufams.length === 0) {%>
+            <p> No existen registros de Regularización Migratoria para este migrante </p>
+            <% } else { %>
+
+            <table id="regularizaciones" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tipo regularización migratoria</th>
+                        <th>Inicio</th>
+                        <th>Resolución</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+            </table>
+            <% } %>
+            <br>
+        </div>
+        <% }%>
     </div>
 </div>
 
 <%- include('includes/endsidebar.ejs') %>
+
+<!-- Core theme JS-->
+<!-- <script src="js/scripts.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script>
+    var Alojamientos = [
+        <% for (let alojamiento of alojamientos) {%>
+        [
+            "<%= alojamiento.Persona_Refugiada%>",
+            "<%= alojamiento.Miembro_de_la_Estacion_Migratoria%>",
+            "<%= alojamiento.Uso_de_Cama%>",
+            "<%= alojamiento.Alojamiento_con_Costo%>",
+            "<%= alojamiento.MPP%>",
+            "<%= alojamiento.Fecha%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#alojamientos').DataTable({ data: Alojamientos });
+    });
+</script>
+<script>
+    var Comunicaciones = [
+        <% for (let comun of comunicaciones) {%>
+        [
+            "<%= comun.Inicio_Servicio%>",
+            "<%= comun.Carga_de_Bateria%>",
+            "<%= comun.Uso_de_Wifi%>",
+            "<%= comun.Pais_Destino_de_Llamada%>",
+            "<%= comun.Completado_de_la_Llamada%>",
+            "<%= comun.Mantenimiento_del_Contacto_Familiar%>",
+            "<%= comun.Fecha%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#comunicaciones').DataTable({ data: Comunicaciones });
+    });
+</script>
+<script>
+    var pildata = [
+        <% for (let pil of pils) {%>
+        [
+            "<%= pil.Nombre_Tipo_de_Apoyo%>",
+            "<%= pil.Fecha%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#pils').DataTable({ data: pildata });
+    });
+</script>
+<script>
+    var psicodata = [
+        <% for (let psico of psicos) {%>
+        [
+            "<%= psico.Nombre_Tipo_de_Apoyo%>",
+            "<%= psico.Formato_de_atencion%>",
+            "<%= psico.Fecha%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#psicosocial').DataTable({ data: psicodata });
+    });
+</script>
+<script>
+    var socialdata = [
+        <% for (let social of sociales) {%>
+        [
+            "<%= social.Nombre_Tipo_de_Apoyo%>",
+            "<%= social.Formato_de_atencion%>",
+            "<%= social.Fecha%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#social').DataTable({ data: socialdata });
+    });
+</script>
+<script>
+    var delitosdata = [
+        <% for (let delito of delitos) {%>
+        [
+            "<%= delito.fecha%>",
+            "<%= delito.Denuncia_CAMMI%>",
+            "<%= delito.Victima_de_Delito%>",
+            "<%= delito.Carpeta_de_Investigacion%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#delitos').DataTable({ data: delitosdata });
+    });
+</script>
+<script>
+    var perfilesdata = [
+        <% for (let perfil of perfiles) {%>
+        [
+            "<%= perfil.Perfil_de_Refugio%>",
+            "<%= perfil.certificado%>",
+            "<%= perfil.inicio%>",
+            "<%= perfil.Fecha%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#perfiles').DataTable({ data: perfilesdata });
+    });
+</script>
+<script>
+    var retornodata = [
+        <% for (let retorno of retornos) {%>
+        [
+            "<%= retorno.Asesoría_CAMMI%>",
+            "<%= retorno.Acompañamiento_CAMMI%>",
+            "<%= retorno.Fecha%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#retornos').DataTable({ data: retornodata });
+    });
+</script>
+<script>
+    var juiciodata = [
+        <% for (let juicio of juicios) {%>
+        [
+            "<%= juicio.Inicio%>",
+            "<%= juicio.Inicio_CAMMI%>",
+            "<%= juicio.Resolucion%>",
+            "<%= juicio.Fecha%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#juicios').DataTable({ data: juiciodata });
+    });
+</script>
+<script>
+    var reufamdata = [
+        <% for (let reufam of reufams) {%>
+        [
+            "<%= reufam.Inicio_CAMMI%>",
+            "<%= reufam.Asesoria%>",
+            "<%= reufam.Fecha%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#reufams').DataTable({ data: reufamdata });
+    });
+</script>
+<script>
+    var regdata = [
+        <% for (let reg of regularizaciones) {%>
+        [
+            "<%= reg.Tipo%>",
+            "<%= reg.Inicio%>",
+            "<%= reg.Resolucion%>",
+            "<%= reg.Fecha%>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#regularizaciones').DataTable({ data: regdata });
+    });
+</script>
 <%- include('includes/footer.ejs') %>

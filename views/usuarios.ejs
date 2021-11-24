@@ -12,7 +12,7 @@
     <div class="">
         <h4 class="text-dark mb-4">Nuestros usuarios</h4>
     </div>
-    <table id="myTable" class="table">
+    <table id="myTable" class="table table-striped">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -22,28 +22,27 @@
                 <th>Rol</th>
                 <th>Editar</th>
             </tr>
-            <% for (let user of users) {%>
-            <tr>
-                <td><%= user.NAME%></td>
-                <td><%= user.LASTNAME%></td>
-                <td><%= user.USERNAME%></td>
-                <td><%= user.EMAIL%></td>
-                <td><%= user.NOMBRE%></td>
-                <td>
-                    <form action='/panel/usuarios' method='POST'>
-                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                        <button class='btn btn-primary btn-sm' type='submit' name='editar'
-                            value='<%= user.ID_USUARIO%>'>
-                            <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </button>
-                    </form>
-                </td>
-            </tr>
-            <% } %>
         </thead>
-
     </table>
 </div>
 
 <%- include('includes/endsidebar.ejs') %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script>
+    var data = [
+        <% for (let user of users) {%>
+        [
+            "<%= user.NAME%>",
+            "<%= user.LASTNAME%>",
+            "<%= user.USERNAME%>",
+            "<%= user.EMAIL%>",
+            "<%= user.NOMBRE%>",
+            "<form action='/panel/usuarios' method='POST'> <input type='hidden' name='_csrf' value='<%= csrfToken %>'> <button class='btn btn-primary btn-sm' type='submit' name='editar' value='<%= user.ID_USUARIO%>'> <i class='fa fa-pencil' aria-hidden='true'></i> </button> </form>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#myTable').DataTable({ data: data });
+    });
+</script>
 <%- include('includes/footer.ejs') %>

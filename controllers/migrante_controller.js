@@ -8,7 +8,8 @@ exports.getMigrantes = (request, response, next) => {
      Persona.fetchAll()
           .then(([rows, fieldData]) => {
                response.render('migrantes', {
-                    migrantes: rows
+                    migrantes: rows,
+                    exito: request.session.ultima_persona === undefined ? false : request.session.ultima_persona
                });
           }).catch(err => {
                console.log(err);
@@ -40,7 +41,7 @@ exports.postNuevoMigrante = (request, response, next) => {
      const persona = new Persona(request.body.Nombre, request.body.Edad, request.body.Rango_de_Edad, request.body.Genero, request.body.Nacionalidad, request.body.Discapacidad, request.body.Contacto, request.body.Lgbt, request.body.Dispositivo_propio, request.body.Rfc, request.body.Nss, request.body.Asesoria, request.body.Acompanado);
      persona.save()
           .then(() => {
-               //request.session.ultima_persona = request.body.nombreZona;
+               request.session.ultima_persona = request.body.Nombre;
                response.redirect('/migrante');
           }).catch(err => {
                console.log(err);

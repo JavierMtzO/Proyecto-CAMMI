@@ -2,6 +2,14 @@
 <%- include('includes/sidebar.ejs') %>
 
 <div class="container">
+    <% if (exito  !== false) { %>
+        <div class="alert alert-success   alert-dismissible fade show" role="alert">
+            Se ha agregado con éxito a: <strong><%- exito  %></strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+         
+    <% } %> 
+
     <div class="">
         <h4 class="text-dark mb-4">Agregar nuevo migrante</h4>
         <a href="/migrante/agregar" class="btn btn-success text-white">Agregar</a>

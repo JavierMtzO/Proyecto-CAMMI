@@ -10,7 +10,8 @@ exports.getPanelUsuarios = (request, response, next) => {
     nuevo_rol.fetchJoinUser()
         .then(([userrows, fieldData]) => {
             response.render('usuarios', {
-                users: userrows
+                users: userrows,
+                exito_usuario: request.session.ultimo_personal === undefined ? false : request.session.ultimo_personal
             });
         }).catch(err => {
             console.log(err);
@@ -42,6 +43,7 @@ exports.postPanelUsuariosCrear = (request, response, next) => {
 
     usuario_creado.save()
         .then(([rows, fieldData]) => {
+            request.session.ultimo_personal = request.body.nombre;
             response.redirect('/panel/usuarios')
         }).catch(err => {
             console.log(err);

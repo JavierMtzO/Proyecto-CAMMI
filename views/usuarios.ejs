@@ -2,6 +2,14 @@
 <%- include('includes/sidebar.ejs') %>
 
 <div class="container">
+    <% if (exito_usuario  !== false) { %>
+        <div class="alert alert-success   alert-dismissible fade show" role="alert">
+            Se ha agregado con éxito a: <strong><%- exito_usuario  %></strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+         
+    <% } %> 
+
     <div class="">
         <h4 class="text-dark mb-4">Crear nuevo usuario</h4>
         <a href="/panel/usuarios/crear" class="btn btn-success text-white">Crear usuario</a>

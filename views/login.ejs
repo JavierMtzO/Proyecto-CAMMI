@@ -10,7 +10,16 @@
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex"><img src="assets/img/logo/logo-cammi.jpeg"></div>
                             <div class="col-lg-6">
+                                <% if (error !== false) { %>
+                                    <div class="alert alert-danger  alert-dismissible fade show" role="alert">
+                                        <strong><%- error %></strong> 
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                     
+                                <% } %> 
+                                
                                 <div class="p-5">
+                                   
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Bienvenido a CAMMI</h4>
                                     </div>

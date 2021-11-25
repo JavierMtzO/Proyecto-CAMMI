@@ -4,10 +4,12 @@ const nuevo_usuario = require('../models/usuario')
 const bcrypt = require('bcryptjs');
 
 exports.get = (request, response, next) => {
+    request.session.rol = 0;
     response.redirect('login');
 };
 
 exports.getLogin = (request, response, next) => {
+    request.session.rol = 0;
     response.render('login', {
         error: request.session.error === undefined ? false : request.session.error
     });
@@ -24,6 +26,7 @@ exports.postLogin = (request, response, next) => {
                         request.session.isLoggedIn = true;
                         request.session.user = rows_usuario[0].NAME;
                         return request.session.save(err => {
+                            request.session.rol = rows_usuario[0].ID_ROL;
                             response.redirect('/panel/inicio');
                         });
                     }

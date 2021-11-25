@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 25, 2021 at 04:26 PM
+-- Generation Time: Nov 25, 2021 at 09:10 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.9
 
@@ -28,15 +28,6 @@ CREATE TABLE `alimentacion` (
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `alimentacion`
---
-
-INSERT INTO `alimentacion` (`Id_Alimentacion`, `Fecha`, `Id_Tipo_de_Persona`, `Id_Tipo_de_Platillo`, `Fecha_de_registro`) VALUES
-(1, '2021-11-24', 2, 1, '2021-11-24 18:47:12'),
-(2, '2021-11-23', 3, 3, '2021-11-24 19:44:10'),
-(3, '2021-11-22', 3, 3, '2021-11-24 19:44:19');
-
 -- --------------------------------------------------------
 
 --
@@ -55,14 +46,6 @@ CREATE TABLE `alojamiento` (
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `alojamiento`
---
-
-INSERT INTO `alojamiento` (`Id_Alojamiento`, `Persona_Id`, `Persona_Refugiada`, `Miembro_de_la_Estacion_Migratoria`, `Uso_de_Cama`, `Alojamiento_con_Costo`, `MPP`, `Fecha`, `Fecha_de_registro`) VALUES
-(1, 1, 'SI', 'SI', 'NO', 'NO', 'SI', '2021-11-15', '2021-11-16 04:33:44'),
-(2, 1, 'SI', 'SI', 'SI', 'SI', 'SI', '2021-11-14', '2021-11-16 05:09:00');
-
 -- --------------------------------------------------------
 
 --
@@ -80,13 +63,6 @@ CREATE TABLE `asistencia_social` (
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `asistencia_social`
---
-
-INSERT INTO `asistencia_social` (`Id_Asistencia_Social`, `Persona_Id`, `Fecha`, `Tipo_social`, `Formato_de_Atencion`, `Inicio`, `Canalizacion`, `Fecha_de_registro`) VALUES
-(2, 2, '2021-11-24', 3, 'VIDEOLLAMADA', 'SI', 'PIL', '2021-11-24 18:30:52');
-
 -- --------------------------------------------------------
 
 --
@@ -102,14 +78,6 @@ CREATE TABLE `atencion_psicosocial` (
   `Inicio` varchar(10) NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `atencion_psicosocial`
---
-
-INSERT INTO `atencion_psicosocial` (`Id_Atencion_Psicologica`, `Persona_Id`, `Fecha`, `Tipo_psicosocial`, `Formato_de_atencion`, `Inicio`, `Fecha_de_registro`) VALUES
-(1, 1, '2021-11-19', 1, 'TELEFÓNICA', 'NO', '2021-11-24 09:25:42'),
-(2, 1, '2021-11-23', 3, 'VIDEOLLAMADA', 'NO', '2021-11-24 17:55:38');
 
 -- --------------------------------------------------------
 
@@ -130,13 +98,6 @@ CREATE TABLE `comunicacion` (
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `comunicacion`
---
-
-INSERT INTO `comunicacion` (`Id_comunicacion`, `Persona_Id`, `Inicio_Servicio`, `Carga_de_Bateria`, `Uso_de_Wifi`, `Fecha`, `Pais_Destino_de_Llamada`, `Completado_de_la_Llamada`, `Mantenimiento_del_Contacto_Familiar`, `Fecha_de_registro`) VALUES
-(1, 1, 'SI', 'SI', 'SI', '2021-11-24', 'CANADÁ', 'SI', 'RCF', '2021-11-24 06:43:17');
-
 -- --------------------------------------------------------
 
 --
@@ -152,13 +113,6 @@ CREATE TABLE `delito` (
   `Carpeta_de_Investigacion` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Dumping data for table `delito`
---
-
-INSERT INTO `delito` (`Id_Delito`, `Persona_Id`, `Denuncia`, `Denuncia_CAMMI`, `Victima_de_Delito`, `Carpeta_de_Investigacion`, `Fecha_de_registro`) VALUES
-(1, 1, '2021-11-23', 'SI', 'SI', 'SI', '2021-11-24 05:18:58');
 
 -- --------------------------------------------------------
 
@@ -191,25 +145,6 @@ CREATE TABLE `juicio_de_amparo` (
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
---
--- Dumping data for table `juicio_de_amparo`
---
-
-INSERT INTO `juicio_de_amparo` (`Id_Juicio_de_Amparo`, `Persona_Id`, `Inicio`, `Inicio_CAMMI`, `Resolucion`, `Fecha`, `Fecha_de_registro`) VALUES
-(1, 1, 'SI', 'SI', 'SI', '2021-11-24', '2021-11-24 05:54:30');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `juicio_de_amparo_has_impulso`
---
-
-CREATE TABLE `juicio_de_amparo_has_impulso` (
-  `Id_Juicio_de_Amparo` int(11) NOT NULL,
-  `Id_Impulso` int(11) NOT NULL,
-  `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -224,25 +159,6 @@ CREATE TABLE `perfil_de_refugio` (
   `Inicio_con_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Dumping data for table `perfil_de_refugio`
---
-
-INSERT INTO `perfil_de_refugio` (`Id_Perfil_de_Refugio`, `Persona_Id`, `Perfil_de_Refugio`, `Certificado_de_Nacionalidad_tramitado_CAMMI`, `Inicio_con_CAMMI`, `Fecha`, `Fecha_de_registro`) VALUES
-(1, 1, 'SI', 'SI', 'SI', '2021-11-23', '2021-11-24 05:46:55');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `perfil_de_refugio_has_impulso`
---
-
-CREATE TABLE `perfil_de_refugio_has_impulso` (
-  `Id_Perfil_de_Refugio` int(11) NOT NULL,
-  `Id_Impulso` int(11) NOT NULL,
-  `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -268,14 +184,6 @@ CREATE TABLE `persona` (
   `Acompanado` varchar(10) DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `persona`
---
-
-INSERT INTO `persona` (`Folio`, `Nombre`, `Edad`, `Rango_de_Edad`, `Genero`, `Nacionalidad`, `Discapacidad`, `Contacto`, `LGBT`, `Dispositivo_propio`, `RFC`, `NSS`, `Asesoria`, `Acompanado`, `Fecha_de_registro`) VALUES
-(1, 'Adrián Torres Hernández', 21, 'NN: 0-11 años', 'MASCULINO', 'ARGENTINA', 'NO', '', 'NO', 'NO', '', '', 'NO', 'NO', '2021-11-16 04:41:44'),
-(2, 'Javier Martinez Olivares', 22, 'Adul: 18-59 años', 'MASCULINO', 'HONDURAS', 'NO', 'javier@itesm.mx', 'NO', 'SI', 'JMAO991234', '1569853', 'NO', 'SI', '2021-11-16 04:41:32');
 
 -- --------------------------------------------------------
 
@@ -330,13 +238,6 @@ CREATE TABLE `programa_integracion_local` (
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `programa_integracion_local`
---
-
-INSERT INTO `programa_integracion_local` (`Id_PIL`, `Persona_Id`, `Fecha`, `Tipo_pil`, `Inicio`, `Fecha_de_registro`) VALUES
-(1, 2, '2021-11-24', 1, 'SI', '2021-11-24 09:30:05');
-
 -- --------------------------------------------------------
 
 --
@@ -350,25 +251,6 @@ CREATE TABLE `regularizacion_migratorio` (
   `Inicio` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Resolucion` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha` date NOT NULL,
-  `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Dumping data for table `regularizacion_migratorio`
---
-
-INSERT INTO `regularizacion_migratorio` (`Id_Regularización_Migratoria`, `Persona_Id`, `Tipo`, `Inicio`, `Resolucion`, `Fecha`, `Fecha_de_registro`) VALUES
-(1, 1, 'RH(RCR)', 'SI', 'SI', '2021-11-24', '2021-11-24 06:01:44');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `regularizacion_migratorio_has_impulso`
---
-
-CREATE TABLE `regularizacion_migratorio_has_impulso` (
-  `Id_Regularización_Migratoria` int(11) NOT NULL,
-  `Id_Impulso` int(11) NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -387,25 +269,6 @@ CREATE TABLE `retorno_asistido` (
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
---
--- Dumping data for table `retorno_asistido`
---
-
-INSERT INTO `retorno_asistido` (`Id_Retorno_Asistido`, `Persona_Id`, `Asesoría_CAMMI`, `Acompañamiento_CAMMI`, `Fecha`, `Fecha_de_registro`) VALUES
-(1, 1, 'SI', 'SI', '2021-11-23', '2021-11-24 05:51:33');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `retorno_asistido_has_impulso`
---
-
-CREATE TABLE `retorno_asistido_has_impulso` (
-  `Id_Retorno_Asistido` int(11) NOT NULL,
-  `Id_Impulso` int(11) NOT NULL,
-  `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -418,25 +281,6 @@ CREATE TABLE `reufam` (
   `Inicio_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Asesoria` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha` date NOT NULL,
-  `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Dumping data for table `reufam`
---
-
-INSERT INTO `reufam` (`Id_REUFAM`, `Persona_Id`, `Inicio_CAMMI`, `Asesoria`, `Fecha`, `Fecha_de_registro`) VALUES
-(1, 1, 'SI', 'SI', '2021-11-23', '2021-11-24 05:59:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reufam_has_impulso`
---
-
-CREATE TABLE `reufam_has_impulso` (
-  `Id_REUFAM` int(11) NOT NULL,
-  `Id_Impulso` int(11) NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -661,7 +505,9 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`ID_USUARIO`, `NAME`, `LASTNAME`, `USERNAME`, `EMAIL`, `PASSWORD`, `ID_ROL`) VALUES
 (1, 'Javier', 'Martinez', 'javiermtzo', 'javier@itesm.mx', '$2a$12$PmLn00VvKCEu/eFqdpWBQ.CDFD404oh8Hm7r2a45vE0MqgjIwwFXy', 1),
-(2, 'Adrian', 'Torres', 'adrian.torres', 'adrian@itesm.mx', '$2a$12$fRPHY8g1VvfjAcDBfnHnO.hI33JovaQWnuNGc//kxCHVCK5bo09Zu', 1);
+(2, 'Adrian', 'Torres', 'adrian.torres', 'adrian@itesm.mx', '$2a$12$fRPHY8g1VvfjAcDBfnHnO.hI33JovaQWnuNGc//kxCHVCK5bo09Zu', 1),
+(4, 'Desarrollo', 'Cammi', 'desarrollo.cammi', 'desarrollo.cammi@umq.maristas.edu.mx', '$2a$12$E6PsZbRvRxTSkVOSk.83/O2sqMuvG4VoRN9iIESXOMQvtyZ7bfqd.', 1),
+(5, 'Coordinación ', 'Cammi', 'coord.cammi', 'coord.cammi@umq.maristas.edu.mx', '$2a$12$Vds/Gec1hJaU156ewLj0xOtmfmOXrWajvauu2bgeBy39EUexWK2jm', 1);
 
 --
 -- Indexes for dumped tables
@@ -735,26 +581,12 @@ ALTER TABLE `juicio_de_amparo`
   ADD KEY `juicio_de_amparo_ibfk_1` (`Persona_Id`);
 
 --
--- Indexes for table `juicio_de_amparo_has_impulso`
---
-ALTER TABLE `juicio_de_amparo_has_impulso`
-  ADD PRIMARY KEY (`Id_Juicio_de_Amparo`,`Id_Impulso`),
-  ADD KEY `juicio_de_amparo_has_impulso_ibfk_2` (`Id_Impulso`);
-
---
 -- Indexes for table `perfil_de_refugio`
 --
 ALTER TABLE `perfil_de_refugio`
   ADD PRIMARY KEY (`Id_Perfil_de_Refugio`),
   ADD UNIQUE KEY `Id_Perfil_de_Refugio` (`Id_Perfil_de_Refugio`),
   ADD KEY `perfil_de_refugio_ibfk_1` (`Persona_Id`);
-
---
--- Indexes for table `perfil_de_refugio_has_impulso`
---
-ALTER TABLE `perfil_de_refugio_has_impulso`
-  ADD PRIMARY KEY (`Id_Perfil_de_Refugio`,`Id_Impulso`),
-  ADD KEY `perfil_de_refugio_has_impulso_ibfk_2` (`Id_Impulso`);
 
 --
 -- Indexes for table `persona`
@@ -788,13 +620,6 @@ ALTER TABLE `regularizacion_migratorio`
   ADD KEY `regularizacion_migratorio_ibfk_1` (`Persona_Id`);
 
 --
--- Indexes for table `regularizacion_migratorio_has_impulso`
---
-ALTER TABLE `regularizacion_migratorio_has_impulso`
-  ADD PRIMARY KEY (`Id_Regularización_Migratoria`,`Id_Impulso`),
-  ADD KEY `regularizacion_migratorio_has_impulso_ibfk_2` (`Id_Impulso`);
-
---
 -- Indexes for table `retorno_asistido`
 --
 ALTER TABLE `retorno_asistido`
@@ -803,26 +628,12 @@ ALTER TABLE `retorno_asistido`
   ADD KEY `retorno_asistido_ibfk_1` (`Persona_Id`);
 
 --
--- Indexes for table `retorno_asistido_has_impulso`
---
-ALTER TABLE `retorno_asistido_has_impulso`
-  ADD PRIMARY KEY (`Id_Retorno_Asistido`,`Id_Impulso`),
-  ADD KEY `retorno_asistido_has_impulso_ibfk_2` (`Id_Impulso`);
-
---
 -- Indexes for table `reufam`
 --
 ALTER TABLE `reufam`
   ADD PRIMARY KEY (`Id_REUFAM`),
   ADD UNIQUE KEY `Id_REUFAM` (`Id_REUFAM`),
   ADD KEY `reufam_ibfk_1` (`Persona_Id`);
-
---
--- Indexes for table `reufam_has_impulso`
---
-ALTER TABLE `reufam_has_impulso`
-  ADD PRIMARY KEY (`Id_REUFAM`,`Id_Impulso`),
-  ADD KEY `reufam_has_impulso_ibfk_2` (`Id_Impulso`);
 
 --
 -- Indexes for table `roles`
@@ -898,37 +709,37 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `alimentacion`
 --
 ALTER TABLE `alimentacion`
-  MODIFY `Id_Alimentacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Id_Alimentacion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `alojamiento`
 --
 ALTER TABLE `alojamiento`
-  MODIFY `Id_Alojamiento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_Alojamiento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `asistencia_social`
 --
 ALTER TABLE `asistencia_social`
-  MODIFY `Id_Asistencia_Social` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_Asistencia_Social` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `atencion_psicosocial`
 --
 ALTER TABLE `atencion_psicosocial`
-  MODIFY `Id_Atencion_Psicologica` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_Atencion_Psicologica` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `comunicacion`
 --
 ALTER TABLE `comunicacion`
-  MODIFY `Id_comunicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_comunicacion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `delito`
 --
 ALTER TABLE `delito`
-  MODIFY `Id_Delito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Delito` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `impulso`
@@ -940,13 +751,13 @@ ALTER TABLE `impulso`
 -- AUTO_INCREMENT for table `juicio_de_amparo`
 --
 ALTER TABLE `juicio_de_amparo`
-  MODIFY `Id_Juicio_de_Amparo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Juicio_de_Amparo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `perfil_de_refugio`
 --
 ALTER TABLE `perfil_de_refugio`
-  MODIFY `Id_Perfil_de_Refugio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Perfil_de_Refugio` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `persona`
@@ -964,25 +775,25 @@ ALTER TABLE `privilegios`
 -- AUTO_INCREMENT for table `programa_integracion_local`
 --
 ALTER TABLE `programa_integracion_local`
-  MODIFY `Id_PIL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_PIL` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `regularizacion_migratorio`
 --
 ALTER TABLE `regularizacion_migratorio`
-  MODIFY `Id_Regularización_Migratoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Regularización_Migratoria` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `retorno_asistido`
 --
 ALTER TABLE `retorno_asistido`
-  MODIFY `Id_Retorno_Asistido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Retorno_Asistido` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `reufam`
 --
 ALTER TABLE `reufam`
-  MODIFY `Id_REUFAM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_REUFAM` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -1036,7 +847,7 @@ ALTER TABLE `tipo_impulso`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -1094,24 +905,10 @@ ALTER TABLE `juicio_de_amparo`
   ADD CONSTRAINT `juicio_de_amparo_ibfk_1` FOREIGN KEY (`Persona_Id`) REFERENCES `persona` (`Folio`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `juicio_de_amparo_has_impulso`
---
-ALTER TABLE `juicio_de_amparo_has_impulso`
-  ADD CONSTRAINT `juicio_de_amparo_has_impulso_ibfk_1` FOREIGN KEY (`Id_Juicio_de_Amparo`) REFERENCES `juicio_de_amparo` (`Id_Juicio_de_Amparo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `juicio_de_amparo_has_impulso_ibfk_2` FOREIGN KEY (`Id_Impulso`) REFERENCES `impulso` (`Id_Impulso`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `perfil_de_refugio`
 --
 ALTER TABLE `perfil_de_refugio`
   ADD CONSTRAINT `perfil_de_refugio_ibfk_1` FOREIGN KEY (`Persona_Id`) REFERENCES `persona` (`Folio`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `perfil_de_refugio_has_impulso`
---
-ALTER TABLE `perfil_de_refugio_has_impulso`
-  ADD CONSTRAINT `perfil_de_refugio_has_impulso_ibfk_1` FOREIGN KEY (`Id_Perfil_de_Refugio`) REFERENCES `perfil_de_refugio` (`Id_Perfil_de_Refugio`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `perfil_de_refugio_has_impulso_ibfk_2` FOREIGN KEY (`Id_Impulso`) REFERENCES `impulso` (`Id_Impulso`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `programa_integracion_local`
@@ -1127,37 +924,16 @@ ALTER TABLE `regularizacion_migratorio`
   ADD CONSTRAINT `regularizacion_migratorio_ibfk_1` FOREIGN KEY (`Persona_Id`) REFERENCES `persona` (`Folio`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `regularizacion_migratorio_has_impulso`
---
-ALTER TABLE `regularizacion_migratorio_has_impulso`
-  ADD CONSTRAINT `regularizacion_migratorio_has_impulso_ibfk_1` FOREIGN KEY (`Id_Regularización_Migratoria`) REFERENCES `regularizacion_migratorio` (`Id_Regularización_Migratoria`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `regularizacion_migratorio_has_impulso_ibfk_2` FOREIGN KEY (`Id_Impulso`) REFERENCES `impulso` (`Id_Impulso`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `retorno_asistido`
 --
 ALTER TABLE `retorno_asistido`
   ADD CONSTRAINT `retorno_asistido_ibfk_1` FOREIGN KEY (`Persona_Id`) REFERENCES `persona` (`Folio`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `retorno_asistido_has_impulso`
---
-ALTER TABLE `retorno_asistido_has_impulso`
-  ADD CONSTRAINT `retorno_asistido_has_impulso_ibfk_1` FOREIGN KEY (`Id_Retorno_Asistido`) REFERENCES `retorno_asistido` (`Id_Retorno_Asistido`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `retorno_asistido_has_impulso_ibfk_2` FOREIGN KEY (`Id_Impulso`) REFERENCES `impulso` (`Id_Impulso`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `reufam`
 --
 ALTER TABLE `reufam`
   ADD CONSTRAINT `reufam_ibfk_1` FOREIGN KEY (`Persona_Id`) REFERENCES `persona` (`Folio`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `reufam_has_impulso`
---
-ALTER TABLE `reufam_has_impulso`
-  ADD CONSTRAINT `reufam_has_impulso_ibfk_1` FOREIGN KEY (`Id_REUFAM`) REFERENCES `reufam` (`Id_REUFAM`) ON DELETE CASCADE,
-  ADD CONSTRAINT `reufam_has_impulso_ibfk_2` FOREIGN KEY (`Id_Impulso`) REFERENCES `impulso` (`Id_Impulso`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `roles_privilegios`

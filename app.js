@@ -37,6 +37,7 @@ const path = require('path');
 const csrf = require('csurf');
 const csrfProtection = csrf();
 const csrfMiddleware = require('./util/csrf');
+const rolMiddleware = require('./util/roles');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
@@ -49,7 +50,7 @@ app.use((request, response, next) => {
 
 app.use(csrfProtection);
 app.use(csrfMiddleware);
-
+app.use(rolMiddleware);
 
 app.use('/', rutasMigrante);
 app.use('/', rutasAlimentacion);
@@ -61,11 +62,11 @@ app.use('/', rutasPil);
 app.use('/', rutasAtencionPsicosocial);
 app.use('/', rutasAsistenciaSocial);
 app.use('/', rutasDelito);
-app.use('/',rutasPerfilRefugio);
-app.use('/',rutasRetornoAsistido);
-app.use('/',rutasJuicioAmparo);
-app.use('/',rutasReufam);
-app.use('/',rutasRegularizacionMigratoria);
+app.use('/', rutasPerfilRefugio);
+app.use('/', rutasRetornoAsistido);
+app.use('/', rutasJuicioAmparo);
+app.use('/', rutasReufam);
+app.use('/', rutasRegularizacionMigratoria);
 
 app.use((request, response, next) => {
     console.log('Error 404');

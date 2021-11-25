@@ -3,12 +3,12 @@
 
 <div class="container">
     <% if (exito  !== false) { %>
-        <div class="alert alert-success   alert-dismissible fade show" role="alert">
-            Se ha agregado con éxito a: <strong><%- exito  %></strong> 
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-         
-    <% } %> 
+    <div class="alert alert-success   alert-dismissible fade show" role="alert">
+        Se ha agregado con éxito a: <strong><%- exito  %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <% } %>
 
     <div class="">
         <h4 class="text-dark mb-4">Agregar nuevo migrante</h4>
@@ -37,7 +37,7 @@
 
 <%- include('includes/endsidebar.ejs') %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="http://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script>
     var data = [
         <% for (let migrante of migrantes) {%>

@@ -1,9 +1,150 @@
 const nuevo_usuario = require('../models/usuario')
 const nuevo_rol = require('../models/rol')
+const reporte = require('../models/reportes')
 
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+
+
+today = yyyy + '-' + mm + '-' + dd;
+firstDay = yyyy + '-' + mm + '-' + 01;
+hoy = today.toString();
+primerDia = firstDay.toString();
 
 exports.getPanelInicio = (request, response, next) => {
-    response.render('inicio');
+    var today = new Date();
+    const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+    let nombremes = monthNames[today.getMonth()];
+    let totalalbergue = 0;
+    let totalpsicoscial = 0;
+    let totaljuridico = 0;
+    let total;
+    reporte.fetchPIL(primerDia, hoy)
+        .then(([pil, fieldData]) => {
+            reporte.fetchAtencionPsicosocial(primerDia, hoy)
+                .then(([atpsi, fieldData]) => {
+                    reporte.fetchAsistenciaSocial(primerDia, hoy)
+                        .then(([asisoc, fieldData]) => {
+                            reporte.fetchAlojamiento(primerDia, hoy)
+                                .then(([aloj, fieldData]) => {
+                                    reporte.fetchComunicacion(primerDia, hoy)
+                                        .then(([comun, fieldData]) => {
+                                            reporte.fetchAlimentacion(primerDia, hoy)
+                                                .then(([alim, fieldData]) => {
+                                                    reporte.fetchDesayunos(primerDia, hoy)
+                                                        .then(([desa, fieldData]) => {
+                                                            reporte.fetchComidas(primerDia, hoy)
+                                                                .then(([comi, fieldData]) => {
+                                                                    reporte.fetchCenas(primerDia, hoy)
+                                                                        .then(([cen, fieldData]) => {
+                                                                            reporte.fetchDelito(primerDia, hoy)
+                                                                                .then(([deli, fieldData]) => {
+                                                                                    reporte.fetchPerfilDelRefugiado(primerDia, hoy)
+                                                                                        .then(([perfref, fieldData]) => {
+                                                                                            reporte.fetchRetornoAsistido(primerDia, hoy)
+                                                                                                .then(([retasis, fieldData]) => {
+                                                                                                    reporte.fetchJuicioDeAmparo(primerDia, hoy)
+                                                                                                        .then(([juic, fieldData]) => {
+                                                                                                            reporte.fetchREUFAM(primerDia, hoy)
+                                                                                                                .then(([reuf, fieldData]) => {
+                                                                                                                    reporte.fetchRegularizacionMigratoria(primerDia, hoy)
+                                                                                                                        .then(([regmig, fieldData]) => {
+                                                                                                                            reporte.fetchHospedado(primerDia, hoy)
+                                                                                                                                .then(([hosp, fieldData]) => {
+                                                                                                                                    reporte.fetchPersonal(primerDia, hoy)
+                                                                                                                                        .then(([pers, fieldData]) => {
+                                                                                                                                            reporte.fetchVoluntario(primerDia, hoy)
+                                                                                                                                                .then(([volun, fieldData]) => {
+                                                                                                                                                    totalalbergue += aloj[0].alojamiento + comun[0].comunicacion;
+                                                                                                                                                    totalpsicoscial += pil[0].pil + atpsi[0].atencion_psicosocial + asisoc[0].asistencia_social;
+                                                                                                                                                    totaljuridico += deli[0].delito + perfref[0].perfil_de_refugio + retasis[0].retorno_asistido + juic[0].juicio_de_amparo + reuf[0].reufam + regmig[0].regularizacion_migratorio;
+                                                                                                                                                    total = totalalbergue + totalpsicoscial + totaljuridico;
+
+                                                                                                                                                    response.render('inicio', {
+                                                                                                                                                        mes: nombremes,
+                                                                                                                                                        servicios: total,
+                                                                                                                                                        albergue: totalalbergue,
+                                                                                                                                                        psicosocial: totalpsicoscial,
+                                                                                                                                                        juridico: totaljuridico,
+                                                                                                                                                        pils: pil[0],
+                                                                                                                                                        atenciones: atpsi[0],
+                                                                                                                                                        asistencias: asisoc[0],
+                                                                                                                                                        alojamientos: aloj[0],
+                                                                                                                                                        comunicaciones: comun[0],
+                                                                                                                                                        alimentos: alim[0],
+                                                                                                                                                        desayunos: desa[0],
+                                                                                                                                                        comidas: comi[0],
+                                                                                                                                                        cenas: cen[0],
+                                                                                                                                                        hospedados: hosp[0],
+                                                                                                                                                        personal: pers[0],
+                                                                                                                                                        voluntarios: volun[0],
+                                                                                                                                                        delitos: deli[0],
+                                                                                                                                                        perfiles: perfref[0],
+                                                                                                                                                        retornos: retasis[0],
+                                                                                                                                                        juicios: juic[0],
+                                                                                                                                                        reufams: reuf[0],
+                                                                                                                                                        regularizaciones: regmig[0]
+                                                                                                                                                    });
+                                                                                                                                                }).catch(err => {
+                                                                                                                                                    console.log(err);
+                                                                                                                                                });
+                                                                                                                                        }).catch(err => {
+                                                                                                                                            console.log(err);
+                                                                                                                                        });
+                                                                                                                                }).catch(err => {
+                                                                                                                                    console.log(err);
+                                                                                                                                });
+                                                                                                                        }).catch(err => {
+                                                                                                                            console.log(err);
+                                                                                                                        });
+                                                                                                                }).catch(err => {
+                                                                                                                    console.log(err);
+                                                                                                                });
+                                                                                                        }).catch(err => {
+                                                                                                            console.log(err);
+                                                                                                        });
+                                                                                                }).catch(err => {
+                                                                                                    console.log(err);
+                                                                                                });
+                                                                                        }).catch(err => {
+                                                                                            console.log(err);
+                                                                                        });
+                                                                                }).catch(err => {
+                                                                                    console.log(err);
+                                                                                });
+                                                                        }).catch(err => {
+                                                                            console.log(err);
+                                                                        });
+                                                                }).catch(err => {
+                                                                    console.log(err);
+                                                                });
+                                                        }).catch(err => {
+                                                            console.log(err);
+                                                        });
+                                                }).catch(err => {
+                                                    console.log(err);
+                                                });
+                                        }).catch(err => {
+                                            console.log(err);
+                                        });
+                                }).catch(err => {
+                                    console.log(err);
+                                });
+                        }).catch(err => {
+                            console.log(err);
+                        });
+                }).catch(err => {
+                    console.log(err);
+                });
+        }).catch(err => {
+            console.log(err);
+        });
+
 };
 exports.getPanelUsuarios = (request, response, next) => {
     request.session.id_usuario = 0;

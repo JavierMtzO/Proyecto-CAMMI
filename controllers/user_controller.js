@@ -3,9 +3,13 @@
 const nuevo_usuario = require('../models/usuario')
 const bcrypt = require('bcryptjs');
 
+exports.get = (request, response, next) => {
+    response.redirect('login');
+};
+
 exports.getLogin = (request, response, next) => {
-    response.render('login', {  
-        error: request.session.error === undefined ? false : request.session.error 
+    response.render('login', {
+        error: request.session.error === undefined ? false : request.session.error
     });
 };
 

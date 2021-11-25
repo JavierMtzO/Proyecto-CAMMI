@@ -1,0 +1,98 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/sidebar.ejs') %>
+
+<h3 class="text-dark mb-4">Registro PIL</h3>
+<div class="row mb-3">
+    <div class="col-lg-8">
+
+        <div class="row">
+            <div class="col">
+                <div class="card shadow mb-3">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">Resgistro PIL del migrante</p>
+                    </div>
+                    <div class="card-body">
+                        <form action="programas_integracion_local" method="POST">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="Nombre"><strong>Nombre del migrante</strong></label>
+                                        <br>
+                                        <br>
+                                        <select id="Nombre" class="form-select" aria-label="Default select example"
+                                            name="Nombre">
+                                            <% for(let persona of personas) {%>
+                                            <option value="<%= persona.Folio %>"><%= persona.Nombre%></option>
+
+                                            <% }%>
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label class="form-label" for="Fecha"><strong>Fecha de registro</strong></label>
+                                    </div>
+                                    <input type="date" class="form-control" id="Fecha" placeholder="DD/MM/AAAA"
+                                        name="Fecha">
+                                    <br>
+
+
+                                </div>
+                                <div class="col">
+
+
+
+                                    <div class="mb-3">
+                                        <label for="Tipo_pil"><strong>Tipo de apoyo</strong></label>
+                                    </div>
+
+                                    <select id="Tipo_pil" class="form-select" aria-label="Default select example"
+                                        name="Tipo_pil">
+                                        <% for(let tipo of tipos) {%>
+                                        <option value="<%= tipo.Id_Tipo_de_Apoyo %>"><%= tipo.Nombre_Tipo_de_Apoyo%>
+                                        </option>
+
+                                        <% }%>
+                                    </select>
+                                    <br>
+                                    <div class="mb-3">
+                                        <label for="Inicio"><strong>Primera vez</strong></label>
+
+                                        <select id="Inicio" class="form-select" aria-label="Default select example"
+                                            name="Inicio">
+                                            <option value="NO">NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="mb-3">
+
+                                        <a href="/panel/psicosocial" type="submit"
+                                            class="btn btn-secondary">Cancelar</a>
+                                        <input type="submit" name="enviar" class="btn btn-primary" value="Registrar">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+                </div>
+                <div class="card shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('includes/endsidebar.ejs') %>
+    <%- include('includes/footer.ejs') %>

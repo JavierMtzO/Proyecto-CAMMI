@@ -1,0 +1,102 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/sidebar.ejs') %>
+
+<h3 class="text-dark mb-4">Registro perfil del refugiado</h3>
+<div class="row mb-3">
+    <div class="col-lg-8">
+
+        <div class="row">
+            <div class="col">
+                <div class="card shadow mb-3">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">Registro perfil del refugiado</p>
+                    </div>
+                    <div class="card-body">
+                        <form action="perfil_refugio" method="POST">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="Nombre"><strong>Nombre del migrante</strong></label>
+
+
+                                        <select id="Nombre" class="form-select" aria-label="Default select example"
+                                            name="Nombre">
+                                            <% for(let persona of personas) {%>
+                                            <option value="<%= persona.Folio %>"><%= persona.Nombre%></option>
+
+                                            <% }%>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Perfil_de_Refugio"><strong>Perfil de Refugio</strong></label>
+                                        <select id="Perfil_de_Refugio" class="form-select"
+                                            aria-label="Default select example" name="Perfil_de_Refugio">
+                                            <option value="NO"> NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label for="Certificado_de_Nacionalidad_tramitado_CAMMI"><strong>Certificado de Nacionalidad tramitado CAMMI</strong></label>
+                                        <select id="Certificado_de_Nacionalidad_tramitado_CAMMI" class="form-select"
+                                            aria-label="Default select example" name="Certificado_de_Nacionalidad_tramitado_CAMMI">
+                                            <option value="NO"> NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col">
+
+                                    <div class="mb-3">
+                                        <label for="Inicio_con_CAMMI"><strong>Inicio con CAMMI</strong></label>
+
+                                        <select id="Inicio_con_CAMMI" class="form-select"
+                                            aria-label="Default select example" name="Inicio_con_CAMMI">
+                                            <option value="NO">NO</option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label" for="Fecha"><strong>Fecha de
+                                            perfil de refugio</strong></label>
+                                        <input type="date" class="form-control" id="Fecha" placeholder="DD/MM/AAAA"
+                                            name="Fecha">
+                                    </div>
+
+
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="mb-3">
+
+                                        <a href="/panel/juridico" type="submit" class="btn btn-secondary">Cancelar</a>
+                                        <input type="submit" name="enviar" class="btn btn-primary" value="Registrar">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+                </div>
+                <div class="card shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('includes/endsidebar.ejs') %>
+    <%- include('includes/footer.ejs') %>

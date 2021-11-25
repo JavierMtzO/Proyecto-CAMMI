@@ -1,0 +1,115 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/sidebar.ejs') %>
+
+<h3 class="text-dark mb-4">Registro regularización migratoria</h3>
+<div class="row mb-3">
+    <div class="col-lg-8">
+
+        <div class="row">
+            <div class="col">
+                <div class="card shadow mb-3">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">Registro regularización migratoria</p>
+                    </div>
+                    <div class="card-body">
+                        <form action="regularizacion_migratoria" method="POST">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="Nombre"><strong>Nombre del migrante</strong></label>
+
+
+                                        <select id="Nombre" class="form-select" aria-label="Default select example"
+                                            name="Nombre">
+                                            <% for(let persona of personas) {%>
+                                            <option value="<%= persona.Folio %>"><%= persona.Nombre%></option>
+
+                                            <% }%>
+                                        </select>
+                                    </div>
+
+
+
+                                    <div class="mb-3">
+                                        <label for="Tipo"><strong>Tipo regularización migratoria</strong></label>
+
+                                        <select id="Tipo" class="form-select"
+                                            aria-label="Default select example" name="Tipo">
+                                            <option value="REPOS(RP)">REPOS(RP)</option>
+                                            <option value="RP(REP)">RP(REP)</option>
+                                            <option value="TVRH->RP">TVRH->RP</option>
+                                            <option value="RP(REUFAM)">RP(REUFAM)</option>
+                                            <option value="RH(RCR)">RH(RCR)</option>
+                                            <option value="RH(VICTIMA)">RH(VICTIMA)</option>
+                                            <option value="RM(OEM)">RM(OEM)</option>
+                                            <option value="OEM">OEM</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Inicio"><strong>Inicio</strong></label>
+
+                                        <select id="Inicio" class="form-select"
+                                            aria-label="Default select example" name="Inicio">
+                                            <option value="NO">NO</option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col">
+
+                                    <div class="mb-3">
+                                        <label for="Resolucion"><strong>Resolución</strong></label>
+
+                                        <select id="Resolucion" class="form-select"
+                                            aria-label="Default select example" name="Resolucion">
+                                            <option value="NO">NO</option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label class="form-label" for="Fecha"><strong>Fecha de
+                                            regularización migratoria</strong></label>
+                                        <input type="date" class="form-control" id="Fecha" placeholder="DD/MM/AAAA"
+                                            name="Fecha">
+                                    </div>
+
+
+
+
+
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="mb-3">
+
+                                        <a href="/panel/juridico" type="submit" class="btn btn-secondary">Cancelar</a>
+                                        <input type="submit" name="enviar" class="btn btn-primary" value="Registrar">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+                </div>
+                <div class="card shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('includes/endsidebar.ejs') %>
+    <%- include('includes/footer.ejs') %>

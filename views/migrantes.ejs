@@ -1,0 +1,58 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/sidebar.ejs') %>
+
+<div class="container">
+    <% if (exito  !== false) { %>
+    <div class="alert alert-success   alert-dismissible fade show" role="alert">
+        Se ha agregado con éxito a: <strong><%- exito  %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <% } %>
+
+    <div class="">
+        <h4 class="text-dark mb-4">Agregar nuevo migrante</h4>
+        <a href="/migrante/agregar" class="btn btn-success text-white">Agregar</a>
+    </div>
+
+    <br>
+
+    <div class="">
+        <h4 class="text-dark mb-4">Migrantes CAMMI</h4>
+    </div>
+    <table id="myTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre completo</th>
+                <th>Edad</th>
+                <th>Género</th>
+                <th>Nacionalidad</th>
+                <th>Datos de migrante</th>
+                <th>Apoyos recibidos</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<%- include('includes/endsidebar.ejs') %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script>
+    var data = [
+        <% for (let migrante of migrantes) {%>
+        [
+            "<%= migrante.Nombre%>",
+            "<%= migrante.Edad%>",
+            "<%= migrante.Genero%>",
+            "<%= migrante.Nacionalidad %>",
+            "<form action='/migrante' method='POST'> <input type='hidden' name='_csrf' value='<%= csrfToken %>'> <button class='btn btn-primary btn-sm' type='submit' name='ver' value='<%= migrante.Folio%>'> <i class='fa fa-plus' aria-hidden='true'></i> </button> </form>",
+            "<form action='/migrante' method='POST'> <input type='hidden' name='_csrf' value='<%= csrfToken %>'> <button class='btn btn-primary btn-sm' type='submit' name='apoyos' value='<%= migrante.Folio%>'> <i class='fa fa-plus' aria-hidden='true'></i> </button> </form>",
+            "<form action='/migrante' method='POST'> <input type='hidden' name='_csrf' value='<%= csrfToken %>'> <button class='btn btn-primary btn-sm' type='submit' name='editar' value='<%= migrante.Folio%>'><i class='fa fa-pencil' aria-hidden='true'></i></button></form>"
+        ], <% } %>
+        ];
+    $(document).ready(function () {
+        $('#myTable').DataTable({ data: data });
+    });
+</script>
+<%- include('includes/footer.ejs') %>

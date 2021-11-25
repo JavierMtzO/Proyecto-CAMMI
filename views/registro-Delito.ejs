@@ -1,0 +1,110 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/sidebar.ejs') %>
+
+<h3 class="text-dark mb-4">Registro de delito</h3>
+<div class="row mb-3">
+    <div class="col-lg-8">
+
+        <div class="row">
+            <div class="col">
+                <div class="card shadow mb-3">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">Registro de delito</p>
+                    </div>
+                    <div class="card-body">
+                        <form action="delito" method="POST">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="Nombre"><strong>Nombre del migrante</strong></label>
+
+
+                                        <select id="Nombre" class="form-select" aria-label="Default select example"
+                                            name="Nombre">
+                                            <% for(let persona of personas) {%>
+                                            <option value="<%= persona.Folio %>"><%= persona.Nombre%></option>
+
+                                            <% }%>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label class="form-label" for="Denuncia"><strong>Fecha de
+                                                delito</strong></label>
+                                        <input type="date" class="form-control" id="Denuncia" placeholder="DD/MM/AAAA"
+                                            name="Denuncia">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Carga_de_Bateria"><strong>La denuncia fue con CAMMI</strong></label>
+
+                                        <select id="Denuncia_CAMMI" class="form-select"
+                                            aria-label="Default select example" name="Denuncia_CAMMI">
+                                            <option value="NO">NO</option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="col">
+
+
+                                    <div class="mb-3">
+                                        <label for="Victima_de_Delito"><strong>víctima de delito</strong></label>
+
+                                        <select id="Victima_de_Delito" class="form-select"
+                                            aria-label="Default select example" name="Victima_de_Delito">
+                                            <option value="NO"> NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+
+
+
+
+                                    <div class="mb-3">
+                                        <label for="Carpeta_de_Investigacion"><strong>Carpeta de
+                                                investigación</strong></label>
+                                        <select id="Carpeta_de_Investigacion" class="form-select"
+                                            aria-label="Default select example" name="Carpeta_de_Investigacion">
+                                            <option value="NO"> NO </option>
+                                            <option value="SI">SI</option>
+                                        </select>
+                                    </div>
+
+
+
+
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="mb-3">
+
+                                        <a href="/panel/juridico" type="submit" class="btn btn-secondary">Cancelar</a>
+                                        <input type="submit" name="enviar" class="btn btn-primary" value="Registrar">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+                </div>
+                <div class="card shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('includes/endsidebar.ejs') %>
+    <%- include('includes/footer.ejs') %>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Profile - Brand</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!--Inicio side bar-->
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: #ecb719;">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <img src="assets/img/logo/logo-cammi.jpeg" alt="CAMMI" style="width: 73px;height: 73px;">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                    </div>
+                    <div class="sidebar-brand-text mx-3">
+                    </div>
+                </a>
+                <br>
+                <hr class="sidebar-divider my-0">
+                <ul class="navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item"><a class="nav-link" href="inicio.html"><i class="fas fa-tachometer-alt"></i><span>Inicio</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-circle"></i><span>Usuarios</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-circle"></i><span>Nuevo migrante</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="juridico.html"><i class="fas fa-user"></i><span>Jurídico</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="albergue.html"><i class="fas fa-table"></i><span>Albergue</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="psicosocial.html"><i class="far fa-user-circle"></i><span>Psicosocial</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="fas fa-user-circle" style="color: var(--bs-red);"></i><span style="color: var(--bs-red);">Cerrar sesión</span></a></li>
+                </ul>
+            </div>
+        </nav>
+        <!--Final side bar-->
+        
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <!--Inicio de la  barra arriva-->
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid">
+                        <button class="btn btn-link d-md-none rounded-circle me-3" id="sidebarToggleTop" type="button">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <h3 class="text-dark mb-0"><strong>Centro de Apoyo Marista al Migrante</strong>
+                        </h3>
+                        <form class="d-none d-sm-inline-block me-auto ms-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+
+                            </div>
+                        </form>
+                        <ul class="navbar-nav flex-nowrap ms-auto">
+                            <li class="nav-item dropdown d-sm-none no-arrow">
+                                <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end p-3 animated--grow-in" aria-labelledby="searchDropdown">
+                                    <form class="me-auto navbar-search w-100">
+                                        <div class="input-group">
+                                            <input class="bg-light form-control border-0 small" type="text" placeholder="Search for ...">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary py-0" type="button">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="btn btn-warning text-white">Cerrar sesión</a>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                 
+    
+
+        <div class="container-fluid">
+        <h3 class="text-dark mb-4">Registro de nuevo migrante</h3>
+        <div class="row mb-3">
+            <div class="col-lg-8">
+            
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow mb-3">
+                            <div class="card-header py-3">
+                                <p class="text-primary m-0 fw-bold">Registro de nuevo migrante</p>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col">                                     
+
+                                            <div class="mb-3">
+                                                <label class="form-label" for="Nombre"><strong>Nombre del migrante</strong></label>
+                                                <input type="text" class="form-control" id="nombre" placeholder="Nombre del migrante" name="nombre">
+                                            </div>
+                                            
+                                            
+                                            <div class="mb-3">
+                                                <label for="inputState"><strong>Rango de Edad</strong></label>
+                                           
+                                                <select id="rango_edad" class="form-select" aria-label="Default select example" name="rango_edad">
+                                                    <option value="NN: 0-11 años">NN: 0-11 años</option>
+                                                    <option value="Adol: 12-17 años">Adol: 12-17 años</option>
+                                                    <option value="Adul: 18-59 años">Adul: 18-59 años</option>
+                                                    <option value="AM: mayor 60+ años">AM: mayor 60+ años</option>
+
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="nacionalidad"><strong>Nacionalidad</strong></label>
+                                           
+                                                <select id="nacionalidad" class="form-select" aria-label="Default select example" name="nacionalidad">
+                                                    <option value="ARGENTINA">ARGENTINA</option>
+                                                    <option value="BOLIVIA">BOLIVIA</option>
+                                                    <option value="BRASIL">BRASIL</option>
+                                                    <option value="CANADÁ">CANADÁ</option>
+                                                    <option value="CHILE">CHILE</option>
+                                                    <option value="COLOMBIA">COLOMBIA</option> 
+                                                    <option value="COSTA RICA">COSTA RICA</option> 
+                                                    <option value="CUBA">CUBA</option>
+                                                    <option value="ECUADOR">ECUADOR</option>
+                                                    <option value="EL SALVADOR">EL SALVADOR</option>
+                                                    <option value="GUATEMALA">GUATEMALA</option>
+                                                    <option value="HAITÍ">HAITÍ</option>
+                                                    <option value="HONDURAS">HONDURAS</option>
+                                                    <option value="MÉXICO">MÉXICO</option>
+                                                    <option value="NICARAGUA">NICARAGUA</option>
+                                                    <option value="PANAMÁ">PANAMÁ</option>
+                                                    <option value="PARAGUAY">PARAGUAY</option>
+                                                    <option value="PERÚ">PERÚ</option>
+                                                    <option value="REPÚBLICA DOMINICANA">REPÚBLICA DOMINICANA</option> 
+                                                    <option value="URUGUAY">URUGUAY</option>
+                                                    <option value="VENEZUELA">VENEZUELA</option>
+                                                    <option value="ESTADOS UNIDOS"> ESTADOS UNIDOS</option>
+                                                    <option value="APÁTRIDA">APÁTRIDA</option>
+                                                    <option value="OTROS">OTROS</option>
+
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="inputState"><strong>Discapacidad</strong></label>
+                                           
+                                                <select id="discapacidad" class="form-select" aria-label="Default select example" name="discapacidad">
+                                                    <option value="NO">NO</option>
+                                                    <option value="SI">SI</option>
+                                                </select>
+                                            </div>
+                                           
+
+                                            <div class="mb-3">
+                                                <label for="dispositivo_propio"><strong>Dispositivo propio</strong></label>
+                                           
+                                                <select id="dispositivo_propio" class="form-select" aria-label="Default select example" name="dispositivo_propio">
+                                                    <option value="NO">NO </option>
+                                                    <option value="SI">SI</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="div"><strong>Asesoria(DIV)</strong></label>
+                                           
+                                                <select id="div" class="form-select" aria-label="Default select example" name="div">
+                                                    <option value="NO">NO </option>
+                                                    <option value="SI">SI</option>
+                                                </select>
+                                            </div>
+
+                                            
+
+            
+                                            
+                                        </div>
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="Edad"><strong>Edad del migrante</strong></label>
+                                                <input type="text" class="form-control" id="edad" placeholder="Edad del migrante" name="edad">
+                                            </div>
+
+
+                                            <div class="mb-3">
+                                                <label for="genero"><strong>Género</strong></label>
+                                           
+                                                <select id="genero" class="form-select" aria-label="Default select example" name="genero">
+                                                    <option value="MASCULINO">MASCULINO</option>
+                                                    <option value="FEMENINO">FEMENINO</option>
+                                                </select>
+                                            </div>
+
+
+
+
+                                            <div class="mb-3">
+                                                <label for="inputState"><strong>Contacto del migrante</strong></label>
+                                           
+                                                <input type="text" class="form-control" id="contacto" placeholder="Contacto del migrante" name="contacto">
+
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="lgbt"><strong>LGBT+</strong></label>
+                                           
+                                                <select id="lgbt" class="form-select" aria-label="Default select example" name="lgbt">
+                                                    <option value="NO">NO </option>
+                                                    <option value="SI">SI</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="rfc"><strong>RFC del migrante</strong></label>
+                                           
+                                                <input type="text" class="form-control" id="rfc" placeholder="RFC del migrante" name="rfc">
+
+                                            </div>
+
+                                            
+
+                                            <div class="mb-3">
+                                                <label for="nss"><strong>Acompañado</strong></label>
+                                           
+                                                <select id="Acompanado" class="form-select" aria-label="Default select example" name="Acompanado">
+                                                    <option value="NO">NO </option>
+                                                    <option value="SI">SI</option>
+                                                </select>
+                                            </div>
+
+                                            
+                                           
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="row">
+                                            <div class="mb-3">
+
+                                            <a href="#" type="submit" class="btn btn-secondary">Cancelar</a>    
+                                            <input type="submit" name="enviar"  class="btn btn-primary" value="Registrar"> 
+                                            </div>     
+                                        </div>
+
+
+                                    </div>
+
+    
+                                 </form>
+                            </div>
+                        
+                        
+                        </div>
+                        <div class="card shadow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow mb-5"></div>
+</div> <!--Div de content fluid-->
+
+ </div>  <!--Div de content-->
+
+    <footer class="bg-white sticky-footer">
+         <div class="container my-auto">
+            <div class="text-center my-auto copyright">
+                <span>Copyright © CAMMI 2021</span>
+            </div>
+         </div>
+    </footer>
+
+</div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+</div><!--Div de wrapper-->
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

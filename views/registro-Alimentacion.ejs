@@ -1,0 +1,85 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/sidebar.ejs') %>
+
+<h3 class="text-dark mb-4">Resgistro de comidas</h3>
+<div class="row mb-3">
+    <div class="col-lg-8">
+
+        <div class="row">
+            <div class="col">
+                <div class="card shadow mb-3">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 fw-bold">Resgistro de comidas</p>
+                    </div>
+                    <div class="card-body">
+                        <form action="alimentacion" method="POST">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="Fecha"><strong>Fecha de registro</strong></label>
+                                        <input type="date" class="form-control" id="Fecha" placeholder="DD/MM/AAAA"
+                                            name="Fecha">
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label for="tipo_de_persona"><strong>Persona que comió </strong></label>
+
+                                        <select id="tipo_de_persona" class="form-select"
+                                            aria-label="Default select example" name="tipo_de_persona">
+                                            <% for(let tipo_de_persona of tipo_de_personas) {%>
+                                            <option value="<%= tipo_de_persona.Id_Tipo_de_Persona %>">
+                                                <%= tipo_de_persona.Nombre%></option>
+
+                                            <% }%>
+                                        </select>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="tipo_de_platillo"><strong>Tiempo de comida </strong></label>
+
+                                        <select id="tipo_de_platillo" class="form-select"
+                                            aria-label="Default select example" name="tipo_de_platillo">
+                                            <% for(let tipo_de_platillo of tipo_de_platillos) {%>
+                                            <option value="<%= tipo_de_platillo.Id_Tipo_de_Platillo %>">
+                                                <%= tipo_de_platillo.Nombre%></option>
+
+                                            <% }%>
+                                        </select>
+                                    </div>
+
+
+
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="mb-3">
+
+                                        <a href="/panel/albergue" type="submit" class="btn btn-secondary">Cancelar</a>
+                                        <input type="submit" name="enviar" class="btn btn-primary" value="Registrar">
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+                </div>
+                <div class="card shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('includes/endsidebar.ejs') %>
+    <%- include('includes/footer.ejs') %>

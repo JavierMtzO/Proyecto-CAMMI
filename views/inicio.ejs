@@ -36,7 +36,7 @@
             <div class="card-body">
                 <div class="row align-items-center no-gutters">
                     <div class="col me-2">
-                        <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Total de servicios ofrecidos
+                        <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>Total de servicios ofrecidos
                                 por CAMMI en <%= mes %></span></div>
                         <div class="text-dark fw-bold h5 mb-0"><span><%= servicios %></span></div>
                     </div>
@@ -70,11 +70,11 @@
             <div class="card-body">
                 <div class="row align-items-center no-gutters">
                     <div class="col me-2">
-                        <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>Total de delitos atendidos
+                        <div class="text-uppercase text-danger fw-bold text-xs mb-1"><span>Total de delitos atendidos
                                 en <%= mes %></span></div>
                         <div class="text-dark fw-bold h5 mb-0"><span><%= delitos.delito %></span></div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-gavel fa-2x text-gray-300"></i>
+                    <div class="col-auto"><i class="fas fa-id-badge fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    <div class="col-auto"><i class="fas fa-user-friends fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                                 en <%= mes %></span></div>
                         <div class="text-dark fw-bold h5 mb-0"><span><%= retornos.retorno_asistido %></span></div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                    <div class="col-auto"><i class="fas fa-undo fa-2x text-gray-300"></i></div>
                 </div>
             </div>
         </div>
@@ -126,7 +126,7 @@
                                 en <%= mes %></span></div>
                         <div class="text-dark fw-bold h5 mb-0"><span><%= juicios.juicio_de_amparo %></span></div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    <div class="col-auto"><i class="fas fa-gavel fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    <div class="col-auto"><i class="fas fa-book fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -163,7 +163,7 @@
                         <div class="text-dark fw-bold h5 mb-0">
                             <span><%= regularizaciones.regularizacion_migratorio%></span></div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                    <div class="col-auto"><i class="fas fa-passport fa-2x text-gray-300"></i></div>
                 </div>
             </div>
         </div>
@@ -184,7 +184,7 @@
                                 <%= mes %></span></div>
                         <div class="text-dark fw-bold h5 mb-0"><span><%= alojamientos.alojamiento %></span></div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                    <div class="col-auto"><i class="fas fa-home fa-2x text-gray-300"></i></div>
                 </div>
             </div>
         </div>
@@ -198,7 +198,7 @@
                                 facilitadas en <%= mes %></span></div>
                         <div class="text-dark fw-bold h5 mb-0"><span><%= comunicaciones.comunicacion %></span></div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    <div class="col-auto"><i class="fas fa-phone fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -218,7 +218,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    <div class="col-auto"><i class="fas fa-utensils fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -230,7 +230,8 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Platillos servidos en el Albergue en <%= mes %></h6>
+                <h6 class="m-0 font-weight-bold text-primary">Diferentes platillos servidos en el Albergue en <%= mes %>
+                </h6>
 
             </div>
             <!-- Card Body -->
@@ -256,7 +257,8 @@
         <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Platillos servidos en el Albergue en <%= mes %></h6>
+                <h6 class="m-0 font-weight-bold text-success">Personas que se les sirvió comida en el Albergue en
+                    <%= mes %></h6>
 
             </div>
             <!-- Card Body -->
@@ -293,7 +295,7 @@
                                 en <%= mes %></span></div>
                         <div class="text-dark fw-bold h5 mb-0"><span><%= psicosocial %></span></div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    <div class="col-auto"><i class="fas fa-handshake fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -313,7 +315,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    <div class="col-auto"><i class="fas fa-briefcase fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -330,7 +332,7 @@
                         <div class="text-dark fw-bold h5 mb-0">
                             <span><%= atenciones.atencion_psicosocial%></span></div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-arrow-alt-circle-right fa-2x text-gray-300"></i></div>
+                    <div class="col-auto"><i class="fas fa-users fa-2x text-gray-300"></i></div>
                 </div>
             </div>
         </div>
@@ -340,13 +342,13 @@
             <div class="card-body">
                 <div class="row align-items-center no-gutters">
                     <div class="col me-2">
-                        <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>Total de asistencias
+                        <div class="text-uppercase text-warning fw-bold text-xs mb-1"><span>Total de asistencias
                                 sociales
                                 en <%= mes %></span></div>
                         <div class="text-dark fw-bold h5 mb-0">
                             <span><%= asistencias.asistencia_social%></span></div>
                     </div>
-                    <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
+                    <div class="col-auto"><i class="fas fa-hands-helping fa-2x text-gray-300"></i></div>
                 </div>
             </div>
         </div>

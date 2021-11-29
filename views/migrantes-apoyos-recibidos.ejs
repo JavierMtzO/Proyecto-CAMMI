@@ -15,19 +15,20 @@
             <% if (alojamientos.length === 0) {%>
             <p> No existen registros de Alojamiento para este migrante </p>
             <% } else { %>
-
-            <table id="alojamientos" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Persona Refugiada</th>
-                        <th>Miembro de la estación migratoria</th>
-                        <th>Uso de cama</th>
-                        <th>Alojamiento con costo</th>
-                        <th>MPP</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="alojamientos" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Persona Refugiada</th>
+                            <th>Miembro de la estación migratoria</th>
+                            <th>Uso de cama</th>
+                            <th>Alojamiento con costo</th>
+                            <th>MPP</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>
@@ -38,20 +39,21 @@
             <% if (comunicaciones.length === 0) {%>
             <p> No existen registros de Comunicación para este migrante </p>
             <% } else { %>
-
-            <table id="comunicaciones" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Inicio Servicio</th>
-                        <th>Carga de Batería</th>
-                        <th>Uso de WiFi</th>
-                        <th>País de destino llamada</th>
-                        <th>Completado de la llamada</th>
-                        <th>Mantenimiento del contacto familiar</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="comunicaciones" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Inicio Servicio</th>
+                            <th>Carga de Batería</th>
+                            <th>Uso de WiFi</th>
+                            <th>País de destino llamada</th>
+                            <th>Completado de la llamada</th>
+                            <th>Mantenimiento del contacto familiar</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>
@@ -71,15 +73,16 @@
             <% if (pils.length === 0) {%>
             <p> No existen registros de PIL para este migrante </p>
             <% } else { %>
-
-            <table id="pils" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Tipo de apoyo</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="pils" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Tipo de apoyo</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>
@@ -90,15 +93,17 @@
             <% if (psicos.length === 0) {%>
             <p> No existen registros de Atención Psicosocial para este migrante </p>
             <% } else { %>
-            <table id="psicosocial" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Tipo de apoyo</th>
-                        <th>Formato de atención</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="psicosocial" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Tipo de apoyo</th>
+                            <th>Formato de atención</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>
@@ -109,15 +114,17 @@
             <% if (sociales.length === 0) {%>
             <p> No existen registros de Atención Social para este migrante </p>
             <% } else { %>
-            <table id="social" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Tipo de apoyo</th>
-                        <th>Formato de atención</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="social" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Tipo de apoyo</th>
+                            <th>Formato de atención</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>
@@ -137,17 +144,18 @@
             <% if (delitos.length === 0) {%>
             <p> No existen registros de delitos para este migrante </p>
             <% } else { %>
-
-            <table id="delitos" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Fecha de denuncia</th>
-                        <th>Denuncia con CAMMI</th>
-                        <th>Víctima de delito</th>
-                        <th>Carpeta de investigación</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="delitos" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Fecha de denuncia</th>
+                            <th>Denuncia con CAMMI</th>
+                            <th>Víctima de delito</th>
+                            <th>Carpeta de investigación</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>
@@ -158,17 +166,18 @@
             <% if (perfiles.length === 0) {%>
             <p> No existen perfil de refugio para este migrante </p>
             <% } else { %>
-
-            <table id="perfiles" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Perfil de refugio</th>
-                        <th>Certificado de nacionalidad tramitado con CAMMI</th>
-                        <th>Inicio con CAMMI</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="perfiles" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Perfil de refugio</th>
+                            <th>Certificado de nacionalidad tramitado con CAMMI</th>
+                            <th>Inicio con CAMMI</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>
@@ -179,16 +188,17 @@
             <% if (retornos.length === 0) {%>
             <p> No existen registros de retorno asistido para este migrante </p>
             <% } else { %>
-
-            <table id="retornos" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Asesoría CAMMI</th>
-                        <th>Acompañamiento CAMMI</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="retornos" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Asesoría CAMMI</th>
+                            <th>Acompañamiento CAMMI</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>
@@ -199,17 +209,18 @@
             <% if (juicios.length === 0) {%>
             <p> No existen registros de Juicio de Amparo para este migrante </p>
             <% } else { %>
-
-            <table id="juicios" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Inicio</th>
-                        <th>Inicio con CAMMI</th>
-                        <th>Resolución</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="juicios" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Inicio</th>
+                            <th>Inicio con CAMMI</th>
+                            <th>Resolución</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>
@@ -220,16 +231,17 @@
             <% if (reufams.length === 0) {%>
             <p> No existen registros de REUFAM para este migrante </p>
             <% } else { %>
-
-            <table id="reufams" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Inicio con CAMMI</th>
-                        <th>Asesoría</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="reufams" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Inicio con CAMMI</th>
+                            <th>Asesoría</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>
@@ -240,17 +252,18 @@
             <% if (reufams.length === 0) {%>
             <p> No existen registros de Regularización Migratoria para este migrante </p>
             <% } else { %>
-
-            <table id="regularizaciones" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Tipo regularización migratoria</th>
-                        <th>Inicio</th>
-                        <th>Resolución</th>
-                        <th>Fecha</th>
-                    </tr>
-                </thead>
-            </table>
+            <div class="table-responsive">
+                <table id="regularizaciones" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Tipo regularización migratoria</th>
+                            <th>Inicio</th>
+                            <th>Resolución</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
             <% } %>
             <br>
         </div>

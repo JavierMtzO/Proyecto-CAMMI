@@ -10,13 +10,13 @@ module.exports = class nuevo_rol {
 
 
     static fetchAll() {
-        return db.execute('SELECT * FROM ROLES');
+        return db.execute('SELECT * FROM roles');
     }
     static fetchJoinUser() {
-        return db.execute('SELECT U.ID_USUARIO, U.NAME, U.LASTNAME, U.USERNAME, U.EMAIL, R.NOMBRE FROM ROLES R, USUARIOS U WHERE R.ID_ROL = U.ID_ROL;');
+        return db.execute('SELECT U.ID_USUARIO, U.NAME, U.LASTNAME, U.USERNAME, U.EMAIL, R.NOMBRE FROM roles R, usuarios U WHERE R.ID_ROL = U.ID_ROL;');
     }
     static fetchSpecificJoinUser(id) {
-        return db.execute('SELECT U.ID_USUARIO, U.NAME, U.LASTNAME, U.USERNAME, U.EMAIL, R.NOMBRE FROM ROLES R, USUARIOS U WHERE R.ID_ROL = U.ID_ROL AND ID_USUARIO = ?', [id]);
+        return db.execute('SELECT U.ID_USUARIO, U.NAME, U.LASTNAME, U.USERNAME, U.EMAIL, R.NOMBRE FROM roles R, usuarios U WHERE R.ID_ROL = U.ID_ROL AND ID_USUARIO = ?', [id]);
     }
 
 }

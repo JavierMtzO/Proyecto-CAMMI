@@ -24,7 +24,7 @@ module.exports = class Persona {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        return db.execute('INSERT INTO `persona` ( `Nombre`, `Edad`, `Rango_de_Edad`, `Genero`, `Nacionalidad`, `Discapacidad`, `Contacto`, `LGBT`, `Dispositivo_propio`,  `RFC`, `NSS`, `Asesoria`, `Acompanado`) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?,  ?, ?, ?, ?)',
+        return db.execute('INSERT INTO persona ( `Nombre`, `Edad`, `Rango_de_Edad`, `Genero`, `Nacionalidad`, `Discapacidad`, `Contacto`, `LGBT`, `Dispositivo_propio`,  `RFC`, `NSS`, `Asesoria`, `Acompanado`) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?,  ?, ?, ?, ?)',
             [this.Nombre, this.Edad, this.Rango_de_Edad, this.Genero, this.Nacionalidad, this.Discapacidad, this.Contacto, this.Lgbt, this.Dispositivo_propio, this.Rfc, this.Nss, this.Asesoria, this.Acompanado]
         );
 
@@ -43,11 +43,11 @@ module.exports = class Persona {
     }
 
     static fetchOne(folio) {
-        return db.execute('SELECT * FROM PERSONA WHERE Folio = ? ', [folio]);
+        return db.execute('SELECT * FROM persona WHERE Folio = ? ', [folio]);
     }
 
     static delete(folio) {
-        return db.execute('DELETE FROM PERSONA WHERE Folio = ?', [folio]);
+        return db.execute('DELETE FROM persona WHERE Folio = ?', [folio]);
     }
 
     static fetchAlojamiento(folio) {

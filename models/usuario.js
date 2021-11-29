@@ -20,7 +20,7 @@ module.exports = class nuevo_usuario {
         //El código es asíncrono, por lo que hay que regresar la promesa
         return bcrypt.hash(this.PASSWORD, 12)
             .then((PASSWORD) => {
-                return db.execute('INSERT INTO USUARIOS (NAME, LASTNAME, USERNAME, EMAIL, PASSWORD, ID_ROL) VALUES (?, ?, ?, ?, ?, ?)',
+                return db.execute('INSERT INTO usuarios (NAME, LASTNAME, USERNAME, EMAIL, PASSWORD, ID_ROL) VALUES (?, ?, ?, ?, ?, ?)',
                     [this.NAME, this.LASTNAME, this.USERNAME, this.EMAIL, PASSWORD, this.ID_ROL]
                 );
             })
@@ -34,11 +34,11 @@ module.exports = class nuevo_usuario {
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        return db.execute('SELECT * FROM USUARIOS');
+        return db.execute('SELECT * FROM usuarios');
     }
 
     static updateNoPassword(name, lastname, username, email, id_rol, id_usuario) {
-        return db.execute('UPDATE USUARIOS SET NAME = ?, LASTNAME = ?, USERNAME = ?, EMAIL = ?, ID_ROL = ? WHERE ID_USUARIO = ?',
+        return db.execute('UPDATE usuarios SET NAME = ?, LASTNAME = ?, USERNAME = ?, EMAIL = ?, ID_ROL = ? WHERE ID_USUARIO = ?',
             [name, lastname, username, email, id_rol, id_usuario]
         );
     }
@@ -46,7 +46,7 @@ module.exports = class nuevo_usuario {
     static update(password, name, lastname, username, email, id_rol, id_usuario) {
         return bcrypt.hash(password, 12)
             .then((password) => {
-                return db.execute('UPDATE USUARIOS SET PASSWORD = ?, NAME = ?, LASTNAME = ?, USERNAME = ?, EMAIL = ?, ID_ROL = ? WHERE ID_USUARIO = ?',
+                return db.execute('UPDATE usuarios SET PASSWORD = ?, NAME = ?, LASTNAME = ?, USERNAME = ?, EMAIL = ?, ID_ROL = ? WHERE ID_USUARIO = ?',
                     [password, name, lastname, username, email, id_rol, id_usuario]
                 );
             })
@@ -56,14 +56,14 @@ module.exports = class nuevo_usuario {
     }
 
     static delete(id) {
-        return db.execute('DELETE FROM USUARIOS WHERE ID_USUARIO = ?', [id]);
+        return db.execute('DELETE FROM usuarios WHERE ID_USUARIO = ?', [id]);
     }
 
     static fetchOne(EMAIL) {
-        return db.execute('SELECT * FROM USUARIOS WHERE EMAIL = ? ', [EMAIL]);
+        return db.execute('SELECT * FROM usuarios WHERE EMAIL = ? ', [EMAIL]);
     }
     static fetchPerfil(id) {
-        return db.execute('SELECT * FROM USUARIOS WHERE ID_USUARIO = ?', [id]);
+        return db.execute('SELECT * FROM usuarios WHERE ID_USUARIO = ?', [id]);
     }
     static login(correoElectronico, password) {
         return db.execute('SELECT * FROM admin WHERE ');

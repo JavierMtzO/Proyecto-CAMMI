@@ -21,12 +21,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `alimentacion` (
-  `Id_Alimentacion` int(11) NOT NULL,
+  `Id_Alimentacion` int NOT NULL PRIMARY KEY,
   `Fecha` date DEFAULT NULL,
-  `Id_Tipo_de_Persona` int(11) DEFAULT NULL,
-  `Id_Tipo_de_Platillo` int(11) DEFAULT NULL,
+  `Id_Tipo_de_Persona` int DEFAULT NULL,
+  `Id_Tipo_de_Platillo` int DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) 
 
 -- --------------------------------------------------------
 
@@ -35,8 +35,8 @@ CREATE TABLE `alimentacion` (
 --
 
 CREATE TABLE `alojamiento` (
-  `Id_Alojamiento` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_Alojamiento` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Persona_Refugiada` varchar(10) DEFAULT NULL,
   `Miembro_de_la_Estacion_Migratoria` varchar(10) DEFAULT NULL,
   `Uso_de_Cama` varchar(10) DEFAULT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `alojamiento` (
   `MPP` varchar(10) DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 -- --------------------------------------------------------
 
@@ -53,15 +53,15 @@ CREATE TABLE `alojamiento` (
 --
 
 CREATE TABLE `asistencia_social` (
-  `Id_Asistencia_Social` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_Asistencia_Social` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
-  `Tipo_social` int(11) DEFAULT NULL,
+  `Tipo_social` int DEFAULT NULL,
   `Formato_de_Atencion` varchar(25) DEFAULT NULL,
   `Inicio` varchar(10) NOT NULL,
   `Canalizacion` varchar(40) NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ;
 
 -- --------------------------------------------------------
 
@@ -70,14 +70,14 @@ CREATE TABLE `asistencia_social` (
 --
 
 CREATE TABLE `atencion_psicosocial` (
-  `Id_Atencion_Psicologica` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_Atencion_Psicologica` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
-  `Tipo_psicosocial` int(11) DEFAULT NULL,
+  `Tipo_psicosocial` int DEFAULT NULL,
   `Formato_de_atencion` varchar(25) DEFAULT NULL,
   `Inicio` varchar(10) NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 -- --------------------------------------------------------
 
@@ -86,8 +86,8 @@ CREATE TABLE `atencion_psicosocial` (
 --
 
 CREATE TABLE `comunicacion` (
-  `Id_comunicacion` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_comunicacion` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Inicio_Servicio` varchar(10) DEFAULT NULL,
   `Carga_de_Bateria` varchar(10) DEFAULT NULL,
   `Uso_de_Wifi` varchar(10) DEFAULT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE `comunicacion` (
   `Completado_de_la_Llamada` varchar(10) DEFAULT NULL,
   `Mantenimiento_del_Contacto_Familiar` varchar(10) DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 -- --------------------------------------------------------
 
@@ -105,14 +105,14 @@ CREATE TABLE `comunicacion` (
 --
 
 CREATE TABLE `delito` (
-  `Id_Delito` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_Delito` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Denuncia` date DEFAULT NULL,
   `Denuncia_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Victima_de_Delito` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Carpeta_de_Investigacion` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -121,13 +121,13 @@ CREATE TABLE `delito` (
 --
 
 CREATE TABLE `impulso` (
-  `Id_Impulso` int(11) NOT NULL,
+  `Id_Impulso` int NOT NULL PRIMARY KEY,
   `Descripcion` longtext COLLATE utf8_spanish2_ci,
   `Estatus` varchar(20) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
-  `Tipo_Impulso` int(11) DEFAULT NULL,
+  `Tipo_Impulso` int DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -136,14 +136,14 @@ CREATE TABLE `impulso` (
 --
 
 CREATE TABLE `juicio_de_amparo` (
-  `Id_Juicio_de_Amparo` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_Juicio_de_Amparo` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Inicio` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Inicio_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Resolucion` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha` date NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -152,14 +152,14 @@ CREATE TABLE `juicio_de_amparo` (
 --
 
 CREATE TABLE `perfil_de_refugio` (
-  `Id_Perfil_de_Refugio` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_Perfil_de_Refugio` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Perfil_de_Refugio` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Certificado_de_Nacionalidad_tramitado_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Inicio_con_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -168,9 +168,9 @@ CREATE TABLE `perfil_de_refugio` (
 --
 
 CREATE TABLE `persona` (
-  `Folio` int(11) NOT NULL,
+  `Folio` int NOT NULL PRIMARY KEY,
   `Nombre` varchar(50) DEFAULT NULL,
-  `Edad` int(11) DEFAULT NULL,
+  `Edad` int DEFAULT NULL,
   `Rango_de_Edad` varchar(50) DEFAULT NULL,
   `Genero` varchar(20) DEFAULT NULL,
   `Nacionalidad` varchar(25) DEFAULT NULL,
@@ -183,7 +183,7 @@ CREATE TABLE `persona` (
   `Asesoria` varchar(50) DEFAULT NULL,
   `Acompanado` varchar(10) DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 -- --------------------------------------------------------
 
@@ -192,10 +192,10 @@ CREATE TABLE `persona` (
 --
 
 CREATE TABLE `privilegios` (
-  `ID_PRIVILEGIO` int(11) NOT NULL,
+  `ID_PRIVILEGIO` int NOT NULL PRIMARY KEY,
   `NOMBRE` varchar(255) DEFAULT NULL,
   `DESCRIPCION` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
 -- Dumping data for table `privilegios`
@@ -230,13 +230,13 @@ INSERT INTO `privilegios` (`ID_PRIVILEGIO`, `NOMBRE`, `DESCRIPCION`) VALUES
 --
 
 CREATE TABLE `programa_integracion_local` (
-  `Id_PIL` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_PIL` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
-  `Tipo_pil` int(11) DEFAULT NULL,
+  `Tipo_pil` int DEFAULT NULL,
   `Inicio` varchar(10) NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 -- --------------------------------------------------------
 
@@ -245,14 +245,14 @@ CREATE TABLE `programa_integracion_local` (
 --
 
 CREATE TABLE `regularizacion_migratorio` (
-  `Id_Regularización_Migratoria` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_Regularización_Migratoria` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Tipo` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Inicio` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Resolucion` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha` date NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -261,13 +261,13 @@ CREATE TABLE `regularizacion_migratorio` (
 --
 
 CREATE TABLE `retorno_asistido` (
-  `Id_Retorno_Asistido` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_Retorno_Asistido` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Asesoría_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Acompañamiento_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha` date NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -276,13 +276,13 @@ CREATE TABLE `retorno_asistido` (
 --
 
 CREATE TABLE `reufam` (
-  `Id_REUFAM` int(11) NOT NULL,
-  `Persona_Id` int(11) DEFAULT NULL,
+  `Id_REUFAM` int NOT NULL PRIMARY KEY,
+  `Persona_Id` int DEFAULT NULL,
   `Inicio_CAMMI` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Asesoria` varchar(10) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha` date NOT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -291,10 +291,10 @@ CREATE TABLE `reufam` (
 --
 
 CREATE TABLE `roles` (
-  `ID_ROL` int(11) NOT NULL,
+  `ID_ROL` int NOT NULL PRIMARY KEY,
   `NOMBRE` varchar(255) DEFAULT NULL,
   `DESCRIPCION` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
 -- Dumping data for table `roles`
@@ -316,9 +316,9 @@ INSERT INTO `roles` (`ID_ROL`, `NOMBRE`, `DESCRIPCION`) VALUES
 --
 
 CREATE TABLE `roles_privilegios` (
-  `ID_ROLES_PRIVILEGIOS` int(11) NOT NULL,
-  `ID_ROL` int(11) DEFAULT NULL,
-  `ID_PRIVILEGIO` int(11) DEFAULT NULL
+  `ID_ROLES_PRIVILEGIOS` int NOT NULL PRIMARY KEY,
+  `ID_ROL` int DEFAULT NULL,
+  `ID_PRIVILEGIO` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -354,9 +354,9 @@ INSERT INTO `roles_privilegios` (`ID_ROLES_PRIVILEGIOS`, `ID_ROL`, `ID_PRIVILEGI
 --
 
 CREATE TABLE `tipo_de_apoyo_p` (
-  `Id_Tipo_de_Apoyo` int(11) NOT NULL,
+  `Id_Tipo_de_Apoyo` int NOT NULL PRIMARY KEY,
   `Nombre_Tipo_de_Apoyo` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
 -- Dumping data for table `tipo_de_apoyo_p`
@@ -376,9 +376,9 @@ INSERT INTO `tipo_de_apoyo_p` (`Id_Tipo_de_Apoyo`, `Nombre_Tipo_de_Apoyo`) VALUE
 --
 
 CREATE TABLE `tipo_de_apoyo_pil` (
-  `Id_Tipo_de_Apoyo` int(11) NOT NULL,
+  `Id_Tipo_de_Apoyo` int NOT NULL PRIMARY KEY,
   `Nombre_Tipo_de_Apoyo` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
 -- Dumping data for table `tipo_de_apoyo_pil`
@@ -394,9 +394,9 @@ INSERT INTO `tipo_de_apoyo_pil` (`Id_Tipo_de_Apoyo`, `Nombre_Tipo_de_Apoyo`) VAL
 --
 
 CREATE TABLE `tipo_de_apoyo_s` (
-  `Id_Tipo_de_Apoyo` int(11) NOT NULL,
+  `Id_Tipo_de_Apoyo` int(11) NOT NULL PRIMARY KEY,
   `Nombre_Tipo_de_Apoyo` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
 -- Dumping data for table `tipo_de_apoyo_s`
@@ -417,9 +417,9 @@ INSERT INTO `tipo_de_apoyo_s` (`Id_Tipo_de_Apoyo`, `Nombre_Tipo_de_Apoyo`) VALUE
 --
 
 CREATE TABLE `tipo_de_persona` (
-  `Id_Tipo_de_Persona` int(11) NOT NULL,
+  `Id_Tipo_de_Persona` int(11) NOT NULL PRIMARY KEY,
   `Nombre` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
 -- Dumping data for table `tipo_de_persona`
@@ -437,9 +437,9 @@ INSERT INTO `tipo_de_persona` (`Id_Tipo_de_Persona`, `Nombre`) VALUES
 --
 
 CREATE TABLE `tipo_de_platillo` (
-  `Id_Tipo_de_Platillo` int(11) NOT NULL,
+  `Id_Tipo_de_Platillo` int NOT NULL PRIMARY KEY,
   `Nombre` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
 -- Dumping data for table `tipo_de_platillo`
@@ -457,10 +457,10 @@ INSERT INTO `tipo_de_platillo` (`Id_Tipo_de_Platillo`, `Nombre`) VALUES
 --
 
 CREATE TABLE `tipo_impulso` (
-  `Id_tipo_impulso` int(11) NOT NULL,
+  `Id_tipo_impulso` int(11) NOT NULL PRIMARY KEY,
   `Tipo_de_tramite` varchar(60) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `Fecha_de_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+);
 
 --
 -- Dumping data for table `tipo_impulso`
@@ -490,14 +490,14 @@ INSERT INTO `tipo_impulso` (`Id_tipo_impulso`, `Tipo_de_tramite`, `Fecha_de_regi
 --
 
 CREATE TABLE `usuarios` (
-  `ID_USUARIO` int(11) NOT NULL,
+  `ID_USUARIO` int(11) NOT NULL PRIMARY KEY,
   `NAME` varchar(255) DEFAULT NULL,
   `LASTNAME` varchar(255) DEFAULT NULL,
   `USERNAME` varchar(255) DEFAULT NULL,
   `EMAIL` varchar(255) DEFAULT NULL,
   `PASSWORD` varchar(255) DEFAULT NULL,
   `ID_ROL` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
 -- Dumping data for table `usuarios`
@@ -526,7 +526,6 @@ ALTER TABLE `alimentacion`
 -- Indexes for table `alojamiento`
 --
 ALTER TABLE `alojamiento`
-  ADD PRIMARY KEY (`Id_Alojamiento`),
   ADD UNIQUE KEY `Id_Alojamiento` (`Id_Alojamiento`),
   ADD KEY `Persona_Id` (`Persona_Id`);
 
@@ -534,7 +533,6 @@ ALTER TABLE `alojamiento`
 -- Indexes for table `asistencia_social`
 --
 ALTER TABLE `asistencia_social`
-  ADD PRIMARY KEY (`Id_Asistencia_Social`),
   ADD UNIQUE KEY `Id_Asistencia_Social` (`Id_Asistencia_Social`),
   ADD KEY `Persona_Id` (`Persona_Id`),
   ADD KEY `Tipo_social` (`Tipo_social`);
@@ -543,7 +541,6 @@ ALTER TABLE `asistencia_social`
 -- Indexes for table `atencion_psicosocial`
 --
 ALTER TABLE `atencion_psicosocial`
-  ADD PRIMARY KEY (`Id_Atencion_Psicologica`),
   ADD UNIQUE KEY `Id_Atencion_Psicologica` (`Id_Atencion_Psicologica`),
   ADD KEY `Persona_Id` (`Persona_Id`),
   ADD KEY `Tipo_psicosocial` (`Tipo_psicosocial`);
@@ -552,7 +549,6 @@ ALTER TABLE `atencion_psicosocial`
 -- Indexes for table `comunicacion`
 --
 ALTER TABLE `comunicacion`
-  ADD PRIMARY KEY (`Id_comunicacion`),
   ADD UNIQUE KEY `Id_comunicacion` (`Id_comunicacion`),
   ADD KEY `Persona_Id` (`Persona_Id`);
 
@@ -560,7 +556,6 @@ ALTER TABLE `comunicacion`
 -- Indexes for table `delito`
 --
 ALTER TABLE `delito`
-  ADD PRIMARY KEY (`Id_Delito`),
   ADD UNIQUE KEY `Id_Delito` (`Id_Delito`),
   ADD KEY `Persona_Id` (`Persona_Id`);
 
@@ -568,7 +563,6 @@ ALTER TABLE `delito`
 -- Indexes for table `impulso`
 --
 ALTER TABLE `impulso`
-  ADD PRIMARY KEY (`Id_Impulso`),
   ADD UNIQUE KEY `Id_Impulso` (`Id_Impulso`),
   ADD KEY `impulso_ibfk_1` (`Tipo_Impulso`);
 
@@ -576,7 +570,6 @@ ALTER TABLE `impulso`
 -- Indexes for table `juicio_de_amparo`
 --
 ALTER TABLE `juicio_de_amparo`
-  ADD PRIMARY KEY (`Id_Juicio_de_Amparo`),
   ADD UNIQUE KEY `Id_Juicio_de_Amparo` (`Id_Juicio_de_Amparo`),
   ADD KEY `juicio_de_amparo_ibfk_1` (`Persona_Id`);
 
@@ -584,7 +577,6 @@ ALTER TABLE `juicio_de_amparo`
 -- Indexes for table `perfil_de_refugio`
 --
 ALTER TABLE `perfil_de_refugio`
-  ADD PRIMARY KEY (`Id_Perfil_de_Refugio`),
   ADD UNIQUE KEY `Id_Perfil_de_Refugio` (`Id_Perfil_de_Refugio`),
   ADD KEY `perfil_de_refugio_ibfk_1` (`Persona_Id`);
 
@@ -592,21 +584,18 @@ ALTER TABLE `perfil_de_refugio`
 -- Indexes for table `persona`
 --
 ALTER TABLE `persona`
-  ADD PRIMARY KEY (`Folio`),
   ADD UNIQUE KEY `Folio` (`Folio`);
 
 --
 -- Indexes for table `privilegios`
 --
 ALTER TABLE `privilegios`
-  ADD PRIMARY KEY (`ID_PRIVILEGIO`),
   ADD UNIQUE KEY `ID_PRIVILEGIO` (`ID_PRIVILEGIO`);
 
 --
 -- Indexes for table `programa_integracion_local`
 --
 ALTER TABLE `programa_integracion_local`
-  ADD PRIMARY KEY (`Id_PIL`),
   ADD UNIQUE KEY `Id_PIL` (`Id_PIL`),
   ADD KEY `Persona_Id` (`Persona_Id`),
   ADD KEY `Tipo_pil` (`Tipo_pil`);
@@ -615,7 +604,6 @@ ALTER TABLE `programa_integracion_local`
 -- Indexes for table `regularizacion_migratorio`
 --
 ALTER TABLE `regularizacion_migratorio`
-  ADD PRIMARY KEY (`Id_Regularización_Migratoria`),
   ADD UNIQUE KEY `Id_Regularización_Migratoria` (`Id_Regularización_Migratoria`),
   ADD KEY `regularizacion_migratorio_ibfk_1` (`Persona_Id`);
 
@@ -623,7 +611,6 @@ ALTER TABLE `regularizacion_migratorio`
 -- Indexes for table `retorno_asistido`
 --
 ALTER TABLE `retorno_asistido`
-  ADD PRIMARY KEY (`Id_Retorno_Asistido`),
   ADD UNIQUE KEY `Id_Retorno_Asistido` (`Id_Retorno_Asistido`),
   ADD KEY `retorno_asistido_ibfk_1` (`Persona_Id`);
 
@@ -631,7 +618,6 @@ ALTER TABLE `retorno_asistido`
 -- Indexes for table `reufam`
 --
 ALTER TABLE `reufam`
-  ADD PRIMARY KEY (`Id_REUFAM`),
   ADD UNIQUE KEY `Id_REUFAM` (`Id_REUFAM`),
   ADD KEY `reufam_ibfk_1` (`Persona_Id`);
 
@@ -639,14 +625,12 @@ ALTER TABLE `reufam`
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
-  ADD PRIMARY KEY (`ID_ROL`),
   ADD UNIQUE KEY `ID_ROL` (`ID_ROL`);
 
 --
 -- Indexes for table `roles_privilegios`
 --
 ALTER TABLE `roles_privilegios`
-  ADD PRIMARY KEY (`ID_ROLES_PRIVILEGIOS`),
   ADD UNIQUE KEY `ID_ROLES_PRIVILEGIOS` (`ID_ROLES_PRIVILEGIOS`),
   ADD KEY `ID_ROL` (`ID_ROL`),
   ADD KEY `ID_PRIVILEGIO` (`ID_PRIVILEGIO`);
@@ -655,49 +639,42 @@ ALTER TABLE `roles_privilegios`
 -- Indexes for table `tipo_de_apoyo_p`
 --
 ALTER TABLE `tipo_de_apoyo_p`
-  ADD PRIMARY KEY (`Id_Tipo_de_Apoyo`),
   ADD UNIQUE KEY `Id_Tipo_de_Apoyo` (`Id_Tipo_de_Apoyo`);
 
 --
 -- Indexes for table `tipo_de_apoyo_pil`
 --
 ALTER TABLE `tipo_de_apoyo_pil`
-  ADD PRIMARY KEY (`Id_Tipo_de_Apoyo`),
   ADD UNIQUE KEY `Id_Tipo_de_Apoyo` (`Id_Tipo_de_Apoyo`);
 
 --
 -- Indexes for table `tipo_de_apoyo_s`
 --
 ALTER TABLE `tipo_de_apoyo_s`
-  ADD PRIMARY KEY (`Id_Tipo_de_Apoyo`),
   ADD UNIQUE KEY `Id_Tipo_de_Apoyo` (`Id_Tipo_de_Apoyo`);
 
 --
 -- Indexes for table `tipo_de_persona`
 --
 ALTER TABLE `tipo_de_persona`
-  ADD PRIMARY KEY (`Id_Tipo_de_Persona`),
   ADD UNIQUE KEY `Id_Tipo_de_Persona` (`Id_Tipo_de_Persona`);
 
 --
 -- Indexes for table `tipo_de_platillo`
 --
 ALTER TABLE `tipo_de_platillo`
-  ADD PRIMARY KEY (`Id_Tipo_de_Platillo`),
   ADD UNIQUE KEY `Id_Tipo_de_Platillo` (`Id_Tipo_de_Platillo`);
 
 --
 -- Indexes for table `tipo_impulso`
 --
 ALTER TABLE `tipo_impulso`
-  ADD PRIMARY KEY (`Id_tipo_impulso`),
   ADD UNIQUE KEY `Id_tipo_impulso` (`Id_tipo_impulso`);
 
 --
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`ID_USUARIO`),
   ADD UNIQUE KEY `ID_USUARIO` (`ID_USUARIO`),
   ADD KEY `ID_ROL` (`ID_ROL`);
 
@@ -804,8 +781,8 @@ ALTER TABLE `roles`
 --
 -- AUTO_INCREMENT for table `roles_privilegios`
 --
-ALTER TABLE `roles_privilegios`
-  MODIFY `ID_ROLES_PRIVILEGIOS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+-- ALTER TABLE `roles_privilegios`
+--   MODIFY `ID_ROLES_PRIVILEGIOS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tipo_de_apoyo_p`
@@ -938,9 +915,9 @@ ALTER TABLE `reufam`
 --
 -- Constraints for table `roles_privilegios`
 --
-ALTER TABLE `roles_privilegios`
-  ADD CONSTRAINT `roles_privilegios_ibfk_1` FOREIGN KEY (`ID_ROL`) REFERENCES `roles` (`ID_ROL`) ON DELETE CASCADE,
-  ADD CONSTRAINT `roles_privilegios_ibfk_2` FOREIGN KEY (`ID_PRIVILEGIO`) REFERENCES `privilegios` (`ID_PRIVILEGIO`) ON DELETE CASCADE;
+-- ALTER TABLE `roles_privilegios`
+--   ADD CONSTRAINT `roles_privilegios_ibfk_1` FOREIGN KEY (`ID_ROL`) REFERENCES `roles` (`ID_ROL`) ON DELETE CASCADE,
+--   ADD CONSTRAINT `roles_privilegios_ibfk_2` FOREIGN KEY (`ID_PRIVILEGIO`) REFERENCES `privilegios` (`ID_PRIVILEGIO`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `usuarios`
